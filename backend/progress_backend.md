@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Cadastro de certificados do Curriculo Vivo
+
+### Arquivos alterados
+backend/app.py, backend/database/schema.sql, backend/models/certificate.py, backend/repositories/certificate_repository.py, backend/services/certificate_service.py, backend/services/profile_service.py, backend/controllers/certificate_controller.py, backend/controllers/profile_controller.py, backend/uploads/certificates/.gitkeep
+
+### Resumo
+Implementado CRUD autenticado de certificados com nome, instituicao, carga horaria, data de conclusao e upload local opcional. Certificados foram integrados ao perfil do usuario e a criacao do primeiro certificado conclui automaticamente a missao correspondente.
+
+### Impacto
+Usuarios passam a registrar certificados no Curriculo Vivo com persistencia em SQLite, upload local simples e concessao de XP apenas uma vez pela missao de primeiro certificado.
+
+## 2026-09-18
+
+### Funcionalidade
 Cadastro de projetos do Curriculo Vivo
 
 ### Arquivos alterados
