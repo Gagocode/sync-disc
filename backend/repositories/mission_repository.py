@@ -54,6 +54,20 @@ def find_by_id_for_user(mission_id, user_id):
         return Mission.from_row(row) if row else None
 
 
+def find_by_key_for_user(mission_key, user_id):
+    with get_connection() as connection:
+        row = connection.execute(
+            """
+            SELECT id, user_id, mission_key, nome, descricao, status,
+                   xp_recompensa, data_conclusao, created_at
+            FROM user_missions
+            WHERE mission_key = ? AND user_id = ?
+            """,
+            (mission_key, user_id),
+        ).fetchone()
+        return Mission.from_row(row) if row else None
+
+
 def complete_mission(mission_id, user_id):
     with get_connection() as connection:
         row = connection.execute(

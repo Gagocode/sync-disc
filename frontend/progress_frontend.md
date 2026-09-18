@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Interface de projetos do Curriculo Vivo
+
+### Arquivos alterados
+frontend/pages/projetos.html, frontend/pages/projeto_form.html, frontend/pages/projeto_detalhe.html, frontend/pages/perfil.html, frontend/pages/index.html, frontend/assets/css/style.css
+
+### Resumo
+Criadas telas simples para listar, criar, visualizar, editar e excluir projetos. O perfil passou a exibir automaticamente os projetos cadastrados pelo usuario.
+
+### Impacto
+O frontend passa a oferecer o fluxo basico de cadastro de projetos do Curriculo Vivo, priorizando funcionamento sem workflow extra ou anexos complexos.
+
+## 2026-09-18
+
+### Funcionalidade
 Pagina de missoes fixas
 
 ### Arquivos alterados

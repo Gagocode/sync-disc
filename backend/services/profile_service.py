@@ -1,5 +1,6 @@
 from repositories import user_repository
 from services.disc_service import get_initial_disc_result
+from services.project_service import list_projects
 
 
 CLASS_BY_DIMENSION = {
@@ -22,6 +23,7 @@ def get_profile(user_id):
     return {
         "user": user,
         "disc_result": disc_result,
+        "projects": list_projects(user_id),
     }
 
 

@@ -15,6 +15,7 @@ def profile_page(user):
         "perfil.html",
         user=profile["user"],
         disc_result=profile["disc_result"],
+        projects=profile["projects"],
     )
 
 
@@ -28,5 +29,6 @@ def profile_json(user):
         {
             "user": current_user.to_public_dict(),
             "disc_result": disc_result,
+            "projects": [project.to_dict() for project in profile["projects"]],
         }
     )
