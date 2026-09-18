@@ -6,3 +6,13 @@ CREATE TABLE IF NOT EXISTS users (
   curso TEXT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS initial_disc_results (
+  user_id INTEGER PRIMARY KEY,
+  d_score INTEGER NOT NULL,
+  i_score INTEGER NOT NULL,
+  s_score INTEGER NOT NULL,
+  c_score INTEGER NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);

@@ -45,6 +45,10 @@ input {
   font: inherit;
 }
 
+input[type="radio"] {
+  width: auto;
+}
+
 button {
   width: fit-content;
   padding: 10px 16px;
@@ -58,4 +62,42 @@ button {
 
 a {
   color: #2251a4;
+}
+
+.quiz-form {
+  display: grid;
+  gap: 20px;
+}
+
+.question-panel {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.question-panel legend {
+  padding: 0 6px;
+  font-weight: 700;
+}
+
+.option-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+}
+
+.result-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin: 24px 0;
+}
+
+.error-message {
+  color: #a61b1b;
+  font-weight: 700;
 }

@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Interface do Quiz DISC Inicial
+
+### Arquivos alterados
+frontend/pages/disc_quiz.html, frontend/pages/disc_result.html, frontend/pages/index.html, frontend/assets/css/style.css
+
+### Resumo
+Criadas telas simples para responder o Quiz Narrativo DISC Inicial e visualizar o resultado com percentuais e dimensao predominante. Atualizado o painel autenticado com links para o quiz e resultado.
+
+### Impacto
+O frontend passa a oferecer o fluxo basico para realizacao e visualizacao do DISC Inicial, priorizando funcionamento sem design avancado.
+
+## 2026-09-18
+
+### Funcionalidade
 Telas de cadastro e login
 
 ### Arquivos alterados
