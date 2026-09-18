@@ -4,6 +4,8 @@ CREATE TABLE IF NOT EXISTS users (
   email TEXT NOT NULL UNIQUE,
   senha_hash TEXT NOT NULL,
   curso TEXT,
+  classe TEXT,
+  xp INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 

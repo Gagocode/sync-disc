@@ -8,6 +8,8 @@ class User:
     email: str
     senha_hash: str
     curso: str | None
+    classe: str | None
+    xp: int
     created_at: str
 
     @classmethod
@@ -18,6 +20,8 @@ class User:
             email=row["email"],
             senha_hash=row["senha_hash"],
             curso=row["curso"],
+            classe=row["classe"],
+            xp=row["xp"],
             created_at=row["created_at"],
         )
 
@@ -27,5 +31,7 @@ class User:
             "nome": self.nome,
             "email": self.email,
             "curso": self.curso,
+            "classe": self.classe,
+            "xp": self.xp,
             "created_at": self.created_at,
         }

@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Pagina de perfil inicial
+
+### Arquivos alterados
+frontend/pages/perfil.html, frontend/pages/index.html, frontend/assets/css/style.css
+
+### Resumo
+Criada pagina autenticada de perfil com dados do usuario, XP, classe inicial e resultado DISC Inicial. Atualizado o painel autenticado com link para o perfil.
+
+### Impacto
+O frontend passa a exibir uma visao simples e organizada do perfil inicial do MVP, sem adicionar funcionalidades fora do escopo.
+
+## 2026-09-18
+
+### Funcionalidade
 Interface do Quiz DISC Inicial
 
 ### Arquivos alterados

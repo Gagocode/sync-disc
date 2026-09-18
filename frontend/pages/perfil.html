@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfil - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Perfil</h1>
+      <section class="profile-grid">
+        <article class="panel">
+          <h2>Dados do usuario</h2>
+          <p><strong>Nome:</strong> {{ user.nome }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Curso:</strong> {{ user.curso or "Nao informado" }}</p>
+          <p><strong>Data de cadastro:</strong> {{ user.created_at }}</p>
+          <p><strong>Classe:</strong> {{ user.classe or "Aguardando DISC Inicial" }}</p>
+          <p><strong>XP:</strong> {{ user.xp }}</p>
+        </article>
+
+        <article class="panel">
+          <h2>DISC Inicial</h2>
+          {% if disc_result %}
+            <p><strong>Dimensao predominante:</strong> {{ disc_result.predominant_dimension }}</p>
+            <ul class="disc-list">
+              {% for dimension, percentage in disc_result.percentages.items() %}
+                <li>
+                  <strong>{{ dimension }}:</strong>
+                  {{ percentage }}%
+                  <span>({{ disc_result.scores[dimension] }} pontos)</span>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>Resultado DISC Inicial ainda nao realizado.</p>
+            <p><a href="/disc/">Realizar Quiz DISC Inicial</a></p>
+          {% endif %}
+        </article>
+      </section>
+      <p><a href="/dashboard">Voltar ao painel</a></p>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
