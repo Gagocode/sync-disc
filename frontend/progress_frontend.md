@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Interface de certificados do Curriculo Vivo
+
+### Arquivos alterados
+frontend/pages/certificados.html, frontend/pages/certificado_form.html, frontend/pages/certificado_detalhe.html, frontend/pages/perfil.html, frontend/pages/index.html, frontend/assets/css/style.css
+
+### Resumo
+Criadas telas simples para listar, criar, visualizar, editar e excluir certificados com upload opcional. O perfil passou a exibir automaticamente os certificados cadastrados pelo usuario.
+
+### Impacto
+O frontend passa a oferecer o fluxo basico de cadastro de certificados do Curriculo Vivo, sem OCR, validacao externa ou integracoes.
+
+## 2026-09-18
+
+### Funcionalidade
 Interface de projetos do Curriculo Vivo
 
 ### Arquivos alterados

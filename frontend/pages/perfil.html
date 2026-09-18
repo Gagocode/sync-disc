@@ -56,8 +56,26 @@
           <p>Nenhum projeto cadastrado.</p>
         {% endif %}
       </section>
+      <section>
+        <h2>Certificados</h2>
+        {% if certificates %}
+          <div class="certificate-list">
+            {% for certificate in certificates %}
+              <article class="certificate-card">
+                <h3>{{ certificate.nome }}</h3>
+                <p><strong>Instituicao:</strong> {{ certificate.instituicao }}</p>
+                <p><strong>Carga horaria:</strong> {{ certificate.carga_horaria }}h</p>
+                <p><a href="/certificados/{{ certificate.id }}">Visualizar certificado</a></p>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhum certificado cadastrado.</p>
+        {% endif %}
+      </section>
       <p><a href="/missoes/">Ver missoes</a></p>
       <p><a href="/projetos/">Gerenciar projetos</a></p>
+      <p><a href="/certificados/">Gerenciar certificados</a></p>
       <p><a href="/dashboard">Voltar ao painel</a></p>
     </main>
     <script src="/assets/js/main.js"></script>

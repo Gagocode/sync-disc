@@ -54,6 +54,8 @@ storage/
 uploads/
 !backend/uploads/
 !backend/uploads/.gitkeep
+!backend/uploads/certificates/
+!backend/uploads/certificates/.gitkeep
 tmp/
 temp/
 

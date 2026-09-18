@@ -151,7 +151,8 @@ a {
   margin: 24px 0;
 }
 
-.project-card {
+.project-card,
+.certificate-card {
   display: grid;
   gap: 8px;
   padding: 20px;
@@ -160,8 +161,16 @@ a {
   background: #ffffff;
 }
 
+.certificate-list {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0;
+}
+
 .project-card h2,
-.project-card h3 {
+.project-card h3,
+.certificate-card h2,
+.certificate-card h3 {
   margin: 0;
 }
 

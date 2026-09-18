@@ -1,4 +1,5 @@
 from repositories import user_repository
+from services.certificate_service import list_certificates
 from services.disc_service import get_initial_disc_result
 from services.project_service import list_projects
 
@@ -24,6 +25,7 @@ def get_profile(user_id):
         "user": user,
         "disc_result": disc_result,
         "projects": list_projects(user_id),
+        "certificates": list_certificates(user_id),
     }
 
 

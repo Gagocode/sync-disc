@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Certificados - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Certificados</h1>
+      <p><a href="/certificados/novo">Adicionar certificado</a></p>
+      <section class="certificate-list">
+        {% if certificates %}
+          {% for certificate in certificates %}
+            <article class="certificate-card">
+              <h2>{{ certificate.nome }}</h2>
+              <p><strong>Instituicao:</strong> {{ certificate.instituicao }}</p>
+              <p><strong>Carga horaria:</strong> {{ certificate.carga_horaria }}h</p>
+              <p><a href="/certificados/{{ certificate.id }}">Visualizar</a></p>
+            </article>
+          {% endfor %}
+        {% else %}
+          <article class="panel">
+            <p>Nenhum certificado cadastrado.</p>
+          </article>
+        {% endif %}
+      </section>
+      <p><a href="/dashboard">Voltar ao painel</a></p>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
