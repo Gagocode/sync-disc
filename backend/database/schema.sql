@@ -32,3 +32,14 @@ CREATE TABLE IF NOT EXISTS user_missions (
   FOREIGN KEY (user_id) REFERENCES users (id),
   UNIQUE (user_id, mission_key)
 );
+
+CREATE TABLE IF NOT EXISTS projects (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  titulo TEXT NOT NULL,
+  descricao TEXT NOT NULL,
+  tecnologias TEXT NOT NULL,
+  link TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);

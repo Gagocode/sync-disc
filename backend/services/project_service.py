@@ -1,0 +1,73 @@
+from repositories import project_repository
+from services.mission_service import complete_user_mission_by_key
+
+
+class ProjectError(Exception):
+    pass
+
+
+def create_project(user_id, data):
+    titulo = _require_text(data.get("titulo"), "Titulo obrigatorio")
+    descricao = _require_text(data.get("descricao"), "Descricao obrigatoria")
+    tecnologias = _require_text(data.get("tecnologias"), "Tecnologias obrigatorias")
+    link = _optional_text(data.get("link"))
+
+    is_first_project = project_repository.count_by_user_id(user_id) == 0
+    project = project_repository.create_project(
+        user_id=user_id,
+        titulo=titulo,
+        descricao=descricao,
+        tecnologias=tecnologias,
+        link=link,
+    )
+
+    if is_first_project:
+        complete_user_mission_by_key(user_id, "first_project")
+
+    return project
+
+
+def list_projects(user_id):
+    return project_repository.list_by_user_id(user_id)
+
+
+def get_project(user_id, project_id):
+    project = project_repository.find_by_id_for_user(project_id, user_id)
+    if not project:
+        raise ProjectError("Projeto nao encontrado")
+    return project
+
+
+def update_project(user_id, project_id, data):
+    get_project(user_id, project_id)
+    titulo = _require_text(data.get("titulo"), "Titulo obrigatorio")
+    descricao = _require_text(data.get("descricao"), "Descricao obrigatoria")
+    tecnologias = _require_text(data.get("tecnologias"), "Tecnologias obrigatorias")
+    link = _optional_text(data.get("link"))
+    return project_repository.update_project(
+        project_id=project_id,
+        user_id=user_id,
+        titulo=titulo,
+        descricao=descricao,
+        tecnologias=tecnologias,
+        link=link,
+    )
+
+
+def delete_project(user_id, project_id):
+    deleted = project_repository.delete_project(project_id, user_id)
+    if not deleted:
+        raise ProjectError("Projeto nao encontrado")
+    return True
+
+
+def _require_text(value, message):
+    value = value.strip() if value else ""
+    if not value:
+        raise ProjectError(message)
+    return value
+
+
+def _optional_text(value):
+    value = value.strip() if value else ""
+    return value or None

@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Cadastro de projetos do Curriculo Vivo
+
+### Arquivos alterados
+backend/app.py, backend/database/schema.sql, backend/models/project.py, backend/repositories/project_repository.py, backend/repositories/mission_repository.py, backend/services/project_service.py, backend/services/mission_service.py, backend/services/profile_service.py, backend/controllers/project_controller.py, backend/controllers/profile_controller.py
+
+### Resumo
+Implementado CRUD autenticado de projetos com titulo, descricao, tecnologias, link opcional e data de criacao. Projetos foram integrados ao perfil do usuario e a criacao do primeiro projeto conclui automaticamente a missao correspondente.
+
+### Impacto
+Usuarios passam a construir a parte inicial do Curriculo Vivo com projetos persistidos no SQLite, recebendo XP apenas uma vez pela missao de primeiro projeto.
+
+## 2026-09-18
+
+### Funcionalidade
 Sistema de missoes fixas do MVP
 
 ### Arquivos alterados

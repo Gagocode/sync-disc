@@ -53,3 +53,18 @@ def complete_user_mission(user_id, mission_id):
         return mission
 
     return mission_repository.complete_mission(mission_id, user_id)
+
+
+def complete_user_mission_by_key(user_id, mission_key):
+    mission = mission_repository.find_by_key_for_user(mission_key, user_id)
+    if not mission:
+        create_initial_missions_for_user(user_id)
+        mission = mission_repository.find_by_key_for_user(mission_key, user_id)
+
+    if not mission:
+        raise MissionError("Missao nao encontrada")
+
+    if mission.status == "Concluida":
+        return mission
+
+    return mission_repository.complete_mission(mission.id, user_id)

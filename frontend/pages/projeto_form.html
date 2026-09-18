@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ "Editar" if project else "Novo" }} Projeto - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>{{ "Editar" if project else "Novo" }} Projeto</h1>
+      {% if error %}
+        <p class="error-message">{{ error }}</p>
+      {% endif %}
+      <form class="form-panel" action="{{ '/projetos/' ~ project.id ~ '/editar' if project else '/projetos/' }}" method="post">
+        <label>
+          Titulo
+          <input type="text" name="titulo" value="{{ project.titulo if project else '' }}" required>
+        </label>
+        <label>
+          Descricao
+          <textarea name="descricao" required>{{ project.descricao if project else '' }}</textarea>
+        </label>
+        <label>
+          Tecnologias
+          <input type="text" name="tecnologias" value="{{ project.tecnologias if project else '' }}" required>
+        </label>
+        <label>
+          Link
+          <input type="url" name="link" value="{{ project.link if project and project.link else '' }}">
+        </label>
+        <button type="submit">Salvar</button>
+      </form>
+      <p><a href="/projetos/">Voltar para projetos</a></p>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

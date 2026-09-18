@@ -39,7 +39,25 @@
           {% endif %}
         </article>
       </section>
+      <section>
+        <h2>Projetos</h2>
+        {% if projects %}
+          <div class="project-list">
+            {% for project in projects %}
+              <article class="project-card">
+                <h3>{{ project.titulo }}</h3>
+                <p>{{ project.descricao }}</p>
+                <p><strong>Tecnologias:</strong> {{ project.tecnologias }}</p>
+                <p><a href="/projetos/{{ project.id }}">Visualizar projeto</a></p>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhum projeto cadastrado.</p>
+        {% endif %}
+      </section>
       <p><a href="/missoes/">Ver missoes</a></p>
+      <p><a href="/projetos/">Gerenciar projetos</a></p>
       <p><a href="/dashboard">Voltar ao painel</a></p>
     </main>
     <script src="/assets/js/main.js"></script>

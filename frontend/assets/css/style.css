@@ -45,6 +45,15 @@ input {
   font: inherit;
 }
 
+textarea {
+  min-height: 120px;
+  padding: 10px 12px;
+  border: 1px solid #b8c2d1;
+  border-radius: 6px;
+  resize: vertical;
+  font: inherit;
+}
+
 input[type="radio"] {
   width: auto;
 }
@@ -134,6 +143,26 @@ a {
 .mission-done {
   border-color: #9ac7a5;
   background: #f2fbf4;
+}
+
+.project-list {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.project-card {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.project-card h2,
+.project-card h3 {
+  margin: 0;
 }
 
 .error-message {
