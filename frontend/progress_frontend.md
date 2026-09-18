@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Pagina de perfil publico
+
+### Arquivos alterados
+frontend/pages/perfil_publico.html, frontend/pages/index.html, frontend/pages/perfil.html, frontend/assets/css/style.css
+
+### Resumo
+Criada pagina publica simples para exibir nome, curso, classe, XP, DISC Inicial, projetos, certificados e indicadores basicos. Adicionados links para acesso ao perfil publico pelo painel e perfil autenticado.
+
+### Impacto
+O frontend passa a apresentar o Curriculo Vivo em uma visao publica clara para recrutadores, professores e colegas, sem funcionalidades sociais.
+
+## 2026-09-18
+
+### Funcionalidade
 Interface de certificados do Curriculo Vivo
 
 ### Arquivos alterados

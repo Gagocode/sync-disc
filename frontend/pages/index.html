@@ -20,6 +20,9 @@
         </section>
       {% endif %}
       <p><a href="/perfil/">Ver perfil</a></p>
+      {% if user %}
+        <p><a href="/profile/{{ user.id }}">Ver perfil publico</a></p>
+      {% endif %}
       <p><a href="/missoes/">Ver missoes</a></p>
       <p><a href="/projetos/">Ver projetos</a></p>
       <p><a href="/certificados/">Ver certificados</a></p>

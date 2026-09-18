@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ user.nome }} - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell public-profile">
+      <section class="public-header">
+        <div>
+          <h1>{{ user.nome }}</h1>
+          <p>{{ user.curso or "Curso nao informado" }}</p>
+          <p>{{ user.classe or "Classe ainda nao definida" }}</p>
+        </div>
+        <div class="public-xp">
+          <strong>{{ user.xp }}</strong>
+          <span>XP</span>
+        </div>
+      </section>
+
+      <section class="indicator-grid">
+        <article class="panel">
+          <strong>{{ indicators.projects_count }}</strong>
+          <span>Projetos</span>
+        </article>
+        <article class="panel">
+          <strong>{{ indicators.certificates_count }}</strong>
+          <span>Certificados</span>
+        </article>
+        <article class="panel">
+          <strong>{{ indicators.xp_total }}</strong>
+          <span>XP Total</span>
+        </article>
+      </section>
+
+      <section class="panel public-disc">
+        <h2>DISC Inicial</h2>
+        {% if disc_result %}
+          <p><strong>Dimensao predominante:</strong> {{ disc_result.predominant_dimension }}</p>
+          <ul class="disc-list">
+            {% for dimension, percentage in disc_result.percentages.items() %}
+              <li>
+                <strong>{{ dimension }}:</strong>
+                {{ percentage }}%
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>Resultado DISC Inicial ainda nao disponivel.</p>
+        {% endif %}
+      </section>
+
+      <section>
+        <h2>Projetos</h2>
+        {% if projects %}
+          <div class="project-list">
+            {% for project in projects %}
+              <article class="project-card">
+                <h3>{{ project.titulo }}</h3>
+                <p>{{ project.descricao }}</p>
+                <p><strong>Tecnologias:</strong> {{ project.tecnologias }}</p>
+                {% if project.link %}
+                  <p><strong>Link:</strong> <a href="{{ project.link }}">{{ project.link }}</a></p>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhum projeto cadastrado.</p>
+        {% endif %}
+      </section>
+
+      <section>
+        <h2>Certificados</h2>
+        {% if certificates %}
+          <div class="certificate-list">
+            {% for certificate in certificates %}
+              <article class="certificate-card">
+                <h3>{{ certificate.nome }}</h3>
+                <p><strong>Instituicao:</strong> {{ certificate.instituicao }}</p>
+                <p><strong>Carga horaria:</strong> {{ certificate.carga_horaria }}h</p>
+                <p><strong>Conclusao:</strong> {{ certificate.data_conclusao }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhum certificado cadastrado.</p>
+        {% endif %}
+      </section>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
