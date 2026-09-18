@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Perfil inicial do usuario
+
+### Arquivos alterados
+backend/app.py, backend/database/connection.py, backend/database/schema.sql, backend/models/user.py, backend/repositories/user_repository.py, backend/services/profile_service.py, backend/controllers/profile_controller.py
+
+### Resumo
+Implementada a primeira versao do perfil autenticado com dados do usuario, XP inicial, classe persistida e resumo do DISC Inicial. A classe e calculada na camada de service a partir da dimensao predominante do DISC Inicial.
+
+### Impacto
+Usuarios autenticados passam a visualizar seu perfil inicial com dados pessoais, XP, classe e resultado DISC, sem implementar niveis, atributos evolutivos ou DISC observado.
+
+## 2026-09-18
+
+### Funcionalidade
 Quiz Narrativo DISC Inicial
 
 ### Arquivos alterados

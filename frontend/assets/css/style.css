@@ -97,6 +97,19 @@ a {
   margin: 24px 0;
 }
 
+.profile-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 24px 0;
+}
+
+.disc-list {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
+
 .error-message {
   color: #a61b1b;
   font-weight: 700;
