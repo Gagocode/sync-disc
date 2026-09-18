@@ -1,0 +1,2 @@
+-- Initial SQLite schema placeholder.
+-- Domain tables will be added in future implementation steps.
