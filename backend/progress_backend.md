@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Autenticacao basica do MVP
+
+### Arquivos alterados
+backend/app.py, backend/database/connection.py, backend/database/schema.sql, backend/models/user.py, backend/repositories/user_repository.py, backend/services/auth_service.py, backend/controllers/auth_controller.py, backend/controllers/page_controller.py
+
+### Resumo
+Implementado cadastro, login, logout e sessao autenticada com Flask session. Criada tabela users no SQLite com email unico e senha armazenada por hash seguro. Separadas responsabilidades entre controllers, services, repositories e models.
+
+### Impacto
+O MVP passa a permitir autenticacao basica por sessao, com rotas protegidas exigindo usuario autenticado e persistencia inicial da entidade Usuario.
+
+## 2026-09-18
+
+### Funcionalidade
 Estrutura inicial do backend
 
 ### Arquivos alterados

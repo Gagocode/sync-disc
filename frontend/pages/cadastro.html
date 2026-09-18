@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Criar conta</h1>
+      <form class="form-panel" action="/auth/register" method="post">
+        <label>
+          Nome
+          <input type="text" name="nome" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Senha
+          <input type="password" name="senha" required>
+        </label>
+        <label>
+          Curso
+          <input type="text" name="curso">
+        </label>
+        <button type="submit">Cadastrar</button>
+      </form>
+      <p>Ja tem conta? <a href="/login">Entrar</a></p>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

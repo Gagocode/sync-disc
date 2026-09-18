@@ -1,17 +1,32 @@
+import os
 from pathlib import Path
 
 from flask import Flask, jsonify
 
+from controllers.auth_controller import auth_bp
+from controllers.page_controller import page_bp
+from database.connection import init_database
 
 BASE_DIR = Path(__file__).resolve().parent
 DATABASE_PATH = BASE_DIR / "database" / "sync_disc.sqlite3"
 UPLOAD_FOLDER = BASE_DIR / "uploads"
+FRONTEND_DIR = BASE_DIR.parent / "frontend"
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        static_folder=str(FRONTEND_DIR / "assets"),
+        static_url_path="/assets",
+        template_folder=str(FRONTEND_DIR / "pages"),
+    )
     app.config["DATABASE_PATH"] = DATABASE_PATH
     app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "sync-disc-dev-secret")
+
+    init_database(DATABASE_PATH)
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(page_bp)
 
     @app.get("/")
     def health_check():

@@ -4,13 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sync Disc</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
     <main class="app-shell">
       <h1>Sync Disc</h1>
-      <p>Estrutura inicial do frontend preparada para desenvolvimento futuro.</p>
+      <p>Sessao autenticada ativa.</p>
+      {% if user %}
+        <section class="panel">
+          <h2>{{ user.nome }}</h2>
+          <p>{{ user.email }}</p>
+          {% if user.curso %}
+            <p>{{ user.curso }}</p>
+          {% endif %}
+        </section>
+      {% endif %}
+      <form action="/auth/logout" method="post">
+        <button type="submit">Sair</button>
+      </form>
     </main>
-    <script src="../assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
