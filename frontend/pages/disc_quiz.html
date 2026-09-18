@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz DISC - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Quiz Narrativo DISC</h1>
+      <p>Responda cada situacao escolhendo a alternativa que mais combina com voce.</p>
+      {% if error %}
+        <p class="error-message">{{ error }}</p>
+      {% endif %}
+      <form class="quiz-form" action="/disc/" method="post">
+        {% for question in questions %}
+          <fieldset class="question-panel">
+            <legend>{{ loop.index }}. {{ question.text }}</legend>
+            {% for option in question.options %}
+              <label class="option-row">
+                <input type="radio" name="{{ question.id }}" value="{{ option.dimension }}" required>
+                <span>{{ option.text }}</span>
+              </label>
+            {% endfor %}
+          </fieldset>
+        {% endfor %}
+        <button type="submit">Finalizar quiz</button>
+      </form>
+      <p><a href="/dashboard">Voltar ao painel</a></p>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

@@ -4,6 +4,7 @@ from pathlib import Path
 from flask import Flask, jsonify
 
 from controllers.auth_controller import auth_bp
+from controllers.disc_controller import disc_bp
 from controllers.page_controller import page_bp
 from database.connection import init_database
 
@@ -26,6 +27,7 @@ def create_app():
 
     init_database(DATABASE_PATH)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(disc_bp)
     app.register_blueprint(page_bp)
 
     @app.get("/")

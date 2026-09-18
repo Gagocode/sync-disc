@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Quiz Narrativo DISC Inicial
+
+### Arquivos alterados
+backend/app.py, backend/database/schema.sql, backend/models/disc_result.py, backend/repositories/disc_repository.py, backend/services/disc_service.py, backend/controllers/disc_controller.py
+
+### Resumo
+Implementado o Quiz Narrativo DISC Inicial com 12 perguntas situacionais, calculo de pontuacao por dimensao, percentual por D/I/S/C, dimensao predominante e persistencia do resultado inicial no SQLite.
+
+### Impacto
+Usuarios autenticados passam a conseguir responder o quiz, salvar o resultado DISC Inicial e visualizar seus percentuais sem implementar DISC observado, evolucao automatica ou historico.
+
+## 2026-09-18
+
+### Funcionalidade
 Autenticacao basica do MVP
 
 ### Arquivos alterados

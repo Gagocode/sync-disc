@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resultado DISC - Sync Disc</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Resultado DISC Inicial</h1>
+      <p>Dimensao predominante: <strong>{{ result.predominant_dimension }}</strong></p>
+      <section class="result-grid">
+        {% for dimension, percentage in result.percentages.items() %}
+          <article class="panel">
+            <h2>{{ dimension }}</h2>
+            <p>{{ percentage }}%</p>
+            <p>Pontuacao: {{ result.scores[dimension] }}</p>
+          </article>
+        {% endfor %}
+      </section>
+      <p>Total de respostas pontuadas: {{ result.total }}</p>
+      <p><a href="/disc/">Refazer quiz</a> | <a href="/dashboard">Voltar ao painel</a></p>
+    </main>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
