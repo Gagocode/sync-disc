@@ -50,9 +50,10 @@ pnpm-debug.log*
 *.sqlite
 *.sqlite3
 *.db
-database/
 storage/
 uploads/
+!backend/uploads/
+!backend/uploads/.gitkeep
 tmp/
 temp/
 
