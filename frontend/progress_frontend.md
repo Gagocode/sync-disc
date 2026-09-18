@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Pagina de missoes fixas
+
+### Arquivos alterados
+frontend/pages/missoes.html, frontend/pages/index.html, frontend/pages/perfil.html, frontend/assets/css/style.css
+
+### Resumo
+Criada pagina simples de missoes exibindo nome, descricao, status e XP de recompensa, com acao para concluir missoes pendentes. Adicionados links para acesso pelo painel e perfil.
+
+### Impacto
+O frontend passa a permitir visualizacao clara de missoes pendentes e concluidas, alem da conclusao manual das missoes fixas do MVP.
+
+## 2026-09-18
+
+### Funcionalidade
 Pagina de perfil inicial
 
 ### Arquivos alterados

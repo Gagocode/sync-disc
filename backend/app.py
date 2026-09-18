@@ -5,6 +5,7 @@ from flask import Flask, jsonify
 
 from controllers.auth_controller import auth_bp
 from controllers.disc_controller import disc_bp
+from controllers.mission_controller import mission_bp
 from controllers.page_controller import page_bp
 from controllers.profile_controller import profile_bp
 from database.connection import init_database
@@ -29,6 +30,7 @@ def create_app():
     init_database(DATABASE_PATH)
     app.register_blueprint(auth_bp)
     app.register_blueprint(disc_bp)
+    app.register_blueprint(mission_bp)
     app.register_blueprint(page_bp)
     app.register_blueprint(profile_bp)
 

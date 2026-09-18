@@ -110,6 +110,32 @@ a {
   padding-left: 20px;
 }
 
+.mission-list {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.mission-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.mission-card h2 {
+  margin-top: 0;
+}
+
+.mission-done {
+  border-color: #9ac7a5;
+  background: #f2fbf4;
+}
+
 .error-message {
   color: #a61b1b;
   font-weight: 700;
