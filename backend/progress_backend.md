@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Perfil publico do usuario
+
+### Arquivos alterados
+backend/app.py, backend/repositories/user_repository.py, backend/services/public_profile_service.py, backend/controllers/public_profile_controller.py
+
+### Resumo
+Implementada pagina publica acessivel por /profile/<id> sem autenticacao. O perfil publico exibe dados publicos do usuario, classe, XP, DISC Inicial, projetos, certificados e indicadores basicos.
+
+### Impacto
+Terceiros passam a visualizar o Curriculo Vivo do usuario de forma simples e compartilhavel, sem sistema social, curtidas, comentarios ou compartilhamento em redes.
+
+## 2026-09-18
+
+### Funcionalidade
 Cadastro de certificados do Curriculo Vivo
 
 ### Arquivos alterados

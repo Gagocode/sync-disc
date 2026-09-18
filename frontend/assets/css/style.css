@@ -113,6 +113,51 @@ a {
   margin: 24px 0;
 }
 
+.public-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.public-header h1 {
+  margin-top: 0;
+}
+
+.public-xp {
+  display: grid;
+  gap: 4px;
+  min-width: 96px;
+  text-align: center;
+}
+
+.public-xp strong {
+  font-size: 32px;
+}
+
+.indicator-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin: 24px 0;
+}
+
+.indicator-grid .panel {
+  width: auto;
+}
+
+.indicator-grid strong {
+  font-size: 28px;
+}
+
+.public-disc {
+  width: 100%;
+}
+
 .disc-list {
   display: grid;
   gap: 8px;

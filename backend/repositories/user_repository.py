@@ -41,6 +41,10 @@ def find_by_id(user_id):
         return User.from_row(row) if row else None
 
 
+def find_public_by_id(user_id):
+    return find_by_id(user_id)
+
+
 def update_profile_class(user_id, classe):
     with get_connection() as connection:
         connection.execute(
