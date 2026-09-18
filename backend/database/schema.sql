@@ -18,3 +18,17 @@ CREATE TABLE IF NOT EXISTS initial_disc_results (
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+CREATE TABLE IF NOT EXISTS user_missions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  mission_key TEXT NOT NULL,
+  nome TEXT NOT NULL,
+  descricao TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'Pendente',
+  xp_recompensa INTEGER NOT NULL,
+  data_conclusao TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  UNIQUE (user_id, mission_key)
+);

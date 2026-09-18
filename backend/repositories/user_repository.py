@@ -53,3 +53,17 @@ def update_profile_class(user_id, classe):
         )
         connection.commit()
         return find_by_id(user_id)
+
+
+def add_xp(user_id, xp_amount):
+    with get_connection() as connection:
+        connection.execute(
+            """
+            UPDATE users
+            SET xp = xp + ?
+            WHERE id = ?
+            """,
+            (xp_amount, user_id),
+        )
+        connection.commit()
+        return find_by_id(user_id)

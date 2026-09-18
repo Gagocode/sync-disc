@@ -1,6 +1,20 @@
 ## 2026-09-18
 
 ### Funcionalidade
+Sistema de missoes fixas do MVP
+
+### Arquivos alterados
+backend/app.py, backend/database/schema.sql, backend/models/mission.py, backend/repositories/mission_repository.py, backend/repositories/user_repository.py, backend/services/auth_service.py, backend/services/mission_service.py, backend/controllers/mission_controller.py
+
+### Resumo
+Implementado o sistema inicial de missoes fixas com criacao automatica para novos usuarios, listagem, conclusao, status pendente/concluida e concessao de XP ao concluir cada missao uma unica vez.
+
+### Impacto
+Usuarios passam a possuir missoes persistidas no SQLite e podem concluir missoes fixas do MVP para evoluir XP, sem missoes adaptativas, recomendacao ou DISC observado.
+
+## 2026-09-18
+
+### Funcionalidade
 Perfil inicial do usuario
 
 ### Arquivos alterados
