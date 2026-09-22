@@ -12,7 +12,7 @@ def create_project(user_id, data):
     tecnologias = _require_text(data.get("tecnologias"), "Tecnologias obrigatorias")
     link = _optional_text(data.get("link"))
 
-    is_first_project = project_repository.count_by_user_id(user_id) == 0
+    current_project_count = project_repository.count_by_user_id(user_id)
     project = project_repository.create_project(
         user_id=user_id,
         titulo=titulo,
@@ -21,8 +21,10 @@ def create_project(user_id, data):
         link=link,
     )
 
-    if is_first_project:
+    if current_project_count == 0:
         complete_user_mission_by_key(user_id, "first_project")
+    elif current_project_count == 1:
+        complete_user_mission_by_key(user_id, "second_project")
 
     return project
 

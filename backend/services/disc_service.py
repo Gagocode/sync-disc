@@ -1,4 +1,5 @@
 from repositories import disc_repository
+from services.mission_service import complete_user_mission_by_key
 
 
 DISC_DIMENSIONS = ("D", "I", "S", "C")
@@ -136,8 +137,13 @@ def get_questions():
 
 
 def submit_initial_disc(user_id, answers):
+    existing_result = get_initial_disc_result(user_id)
+    if existing_result:
+        raise DiscError("DISC inicial ja realizado")
+
     scores = calculate_scores(answers)
     result = disc_repository.save_initial_result(user_id, scores)
+    complete_user_mission_by_key(user_id, "complete_disc_quiz")
     return build_result_summary(result)
 
 

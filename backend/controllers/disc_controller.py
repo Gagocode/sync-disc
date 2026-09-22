@@ -10,6 +10,9 @@ disc_bp = Blueprint("disc", __name__, url_prefix="/disc")
 @disc_bp.get("/")
 @login_required
 def quiz_page(user):
+    result = get_initial_disc_result(user.id)
+    if result:
+        return render_template("disc_result.html", user=user, result=result)
     return render_template("disc_quiz.html", user=user, questions=get_questions(), error=None)
 
 
@@ -20,6 +23,11 @@ def submit_quiz(user):
     try:
         result = submit_initial_disc(user.id, answers)
     except DiscError as error:
+        existing_result = get_initial_disc_result(user.id)
+        if existing_result and str(error) == "DISC inicial ja realizado":
+            if _wants_json():
+                return jsonify({"result": existing_result})
+            return redirect(url_for("disc.result_page"))
         if _wants_json():
             return jsonify({"error": str(error)}), 400
         return render_template(

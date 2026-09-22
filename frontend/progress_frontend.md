@@ -1,3 +1,17 @@
+## 2026-09-22
+
+### Funcionalidade
+Fluxo principal DISC e missoes automaticas
+
+### Arquivos alterados
+frontend/pages/missoes.html, frontend/pages/disc_quiz.html, frontend/pages/disc_result.html, frontend/pages/index.html
+
+### Resumo
+Removida a acao manual de concluir missao da tela de missoes. A tela de resultado DISC passou a informar que o DISC Inicial ja foi registrado e nao pode ser refeito. O Dashboard deixou de oferecer link de refazer o quiz, mantendo apenas a consulta ao resultado.
+
+### Impacto
+A interface passa a refletir o fluxo principal definido para o produto: o DISC Inicial e obrigatorio, nao e repetivel, e a progressao por missoes/XP acontece automaticamente a partir das acoes do usuario.
+
 ## 2026-09-18
 
 ### Funcionalidade

@@ -22,7 +22,7 @@ def create_certificate(user_id, data, file_storage=None):
     data_conclusao = _require_text(data.get("data_conclusao"), "Data de conclusao obrigatoria")
     arquivo_path = _save_file(file_storage)
 
-    is_first_certificate = certificate_repository.count_by_user_id(user_id) == 0
+    current_certificate_count = certificate_repository.count_by_user_id(user_id)
     certificate = certificate_repository.create_certificate(
         user_id=user_id,
         nome=nome,
@@ -32,8 +32,10 @@ def create_certificate(user_id, data, file_storage=None):
         arquivo_path=arquivo_path,
     )
 
-    if is_first_certificate:
+    if current_certificate_count == 0:
         complete_user_mission_by_key(user_id, "first_certificate")
+    elif current_certificate_count == 1:
+        complete_user_mission_by_key(user_id, "second_certificate")
 
     return certificate
 
