@@ -7,8 +7,8 @@ def create_user_missions(user_id, missions):
         connection.executemany(
             """
             INSERT OR IGNORE INTO user_missions
-              (user_id, mission_key, nome, descricao, xp_recompensa)
-            VALUES (?, ?, ?, ?, ?)
+              (user_id, mission_key, nome, descricao, status, xp_recompensa)
+            VALUES (?, ?, ?, ?, ?, ?)
             """,
             [
                 (
@@ -16,6 +16,7 @@ def create_user_missions(user_id, missions):
                     mission["key"],
                     mission["nome"],
                     mission["descricao"],
+                    mission["status"],
                     mission["xp_recompensa"],
                 )
                 for mission in missions
@@ -106,3 +107,44 @@ def complete_mission(mission_id, user_id):
         connection.commit()
 
     return find_by_id_for_user(mission_id, user_id)
+
+
+def has_available_mission(user_id):
+    with get_connection() as connection:
+        row = connection.execute(
+            """
+            SELECT 1
+            FROM user_missions
+            WHERE user_id = ? AND status = 'Pendente'
+            LIMIT 1
+            """,
+            (user_id,),
+        ).fetchone()
+        return row is not None
+
+
+def activate_next_pending_mission(user_id):
+    with get_connection() as connection:
+        row = connection.execute(
+            """
+            SELECT id
+            FROM user_missions
+            WHERE user_id = ? AND status = 'Bloqueada'
+            ORDER BY id
+            LIMIT 1
+            """,
+            (user_id,),
+        ).fetchone()
+        if not row:
+            return None
+
+        connection.execute(
+            """
+            UPDATE user_missions
+            SET status = 'Pendente'
+            WHERE id = ?
+            """,
+            (row["id"],),
+        )
+        connection.commit()
+        return find_by_id_for_user(row["id"], user_id)

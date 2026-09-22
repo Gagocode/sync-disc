@@ -3,6 +3,7 @@ from functools import wraps
 from flask import Blueprint, jsonify, redirect, request, session, url_for
 
 from services.auth_service import AuthError, authenticate_user, get_user_by_id, register_user
+from services.disc_service import get_initial_disc_result
 
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -73,6 +74,10 @@ def _request_data():
 def _success_response(user, status_code=200):
     if _wants_json():
         return jsonify({"user": user.to_public_dict()}), status_code
+    if not get_initial_disc_result(user.id):
+        return redirect(url_for("disc.quiz_page"))
+    if not user.classe:
+        return redirect(url_for("profile.profile_page"))
     return redirect(url_for("pages.dashboard_page"))
 
 

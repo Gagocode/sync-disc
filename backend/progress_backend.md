@@ -1,3 +1,17 @@
+## 2026-09-22
+
+### Funcionalidade
+Fluxo principal DISC, missoes e XP automaticos
+
+### Arquivos alterados
+backend/repositories/disc_repository.py, backend/repositories/mission_repository.py, backend/services/mission_service.py, backend/services/disc_service.py, backend/services/project_service.py, backend/services/certificate_service.py, backend/services/profile_service.py, backend/controllers/disc_controller.py, backend/controllers/page_controller.py, backend/controllers/auth_controller.py, backend/controllers/mission_controller.py
+
+### Resumo
+O Dashboard passou a exigir DISC Inicial concluido e perfil inicial gerado, com redirecionamento automatico para o quiz quando o usuario ainda nao possui resultado e para o perfil quando a classe inicial ainda nao foi persistida. O DISC Inicial deixou de ser sobrescrito e, apos concluido, a rota do quiz exibe o resultado existente. O catalogo de missoes foi ampliado com DISC, perfil, primeiro/segundo projeto, primeiro/segundo certificado e uma missao final de continuidade, com ativacao automatica da proxima missao e conclusao por eventos de dominio. O endpoint manual de conclusao de missao foi removido.
+
+### Impacto
+O fluxo Cadastro/Login -> DISC Inicial -> Perfil Inicial -> Dashboard fica protegido no backend. Missoes passam a conceder XP automaticamente no momento da acao correspondente e o usuario recebe uma proxima missao disponivel sem depender de clique manual.
+
 ## 2026-09-18
 
 ### Funcionalidade

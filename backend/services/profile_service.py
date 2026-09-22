@@ -1,6 +1,7 @@
 from repositories import user_repository
 from services.certificate_service import list_certificates
 from services.disc_service import get_initial_disc_result
+from services.mission_service import complete_user_mission_by_key
 from services.project_service import list_projects
 
 
@@ -20,6 +21,7 @@ def get_profile(user_id):
         classe = calculate_initial_class(disc_result["predominant_dimension"])
         if user.classe != classe:
             user = user_repository.update_profile_class(user_id, classe)
+        complete_user_mission_by_key(user_id, "complete_profile")
 
     return {
         "user": user,

@@ -9,12 +9,6 @@ def save_initial_result(user_id, scores):
             INSERT INTO initial_disc_results
               (user_id, d_score, i_score, s_score, c_score)
             VALUES (?, ?, ?, ?, ?)
-            ON CONFLICT(user_id) DO UPDATE SET
-              d_score = excluded.d_score,
-              i_score = excluded.i_score,
-              s_score = excluded.s_score,
-              c_score = excluded.c_score,
-              created_at = CURRENT_TIMESTAMP
             """,
             (
                 user_id,

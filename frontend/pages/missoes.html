@@ -22,11 +22,6 @@
                 <p><strong>Concluida em:</strong> {{ mission.data_conclusao }}</p>
               {% endif %}
             </div>
-            {% if mission.status == "Pendente" %}
-              <form action="/missoes/{{ mission.id }}/concluir" method="post">
-                <button type="submit">Concluir</button>
-              </form>
-            {% endif %}
           </article>
         {% endfor %}
       </section>
