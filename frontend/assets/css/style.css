@@ -198,7 +198,8 @@ a {
 
 .project-card,
 .certificate-card,
-.achievement-card {
+.achievement-card,
+.activity-card {
   display: grid;
   gap: 8px;
   padding: 20px;
@@ -208,9 +209,17 @@ a {
 }
 
 .certificate-list,
-.achievement-list {
+.achievement-list,
+.activity-list {
   display: grid;
   gap: 16px;
+  margin: 24px 0;
+}
+
+.evolution-profile-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   margin: 24px 0;
 }
 
@@ -218,7 +227,8 @@ a {
 .project-card h3,
 .certificate-card h2,
 .certificate-card h3,
-.achievement-card h3 {
+.achievement-card h3,
+.activity-card h3 {
   margin: 0;
 }
 
@@ -271,5 +281,5 @@ a {
 .section-block { margin-top: 54px; }.section-block > .section-heading { margin-bottom: 18px; }.mission-row { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }.mission-small { display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 17px; }.mission-small > strong { grid-column: 2; color: var(--purple); font-size: 12px; }.mission-small h3 { margin: 0; font-size: 14px; }.mission-small p { margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.45; }.mission-number { color: #b5afdd; font: 700 16px "Space Grotesk", sans-serif; }
 .curriculum-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.collection-card { position: relative; display: grid; grid-template-columns: 42px 1fr auto; gap: 13px; padding: 20px; }.collection-icon { width: 42px; height: 42px; font-size: 20px; }.collection-card h3 { margin: 2px 0 5px; font-size: 16px; }.collection-card p { margin: 0; color: var(--muted); font-size: 12px; }.stretched-link { color: #aaa6bd; font-size: 24px; text-decoration: none; }.collection-preview { grid-column: 2 / -1; display: flex; gap: 7px; overflow: hidden; }.collection-preview span { padding: 5px 8px; border-radius: 6px; background: #f8f7fc; color: var(--muted); font-size: 10px; white-space: nowrap; }
 .achievement-dashboard-grid { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }.achievement-dashboard-card { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 16px; }.achievement-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: #e3f8ef; color: #317e57; font-weight: 700; }.achievement-dashboard-card h3 { margin: 0; font-size: 14px; }.achievement-dashboard-card p { margin: 5px 0 7px; color: var(--muted); font-size: 12px; line-height: 1.45; }.achievement-dashboard-card small { color: #aaa6bd; font-size: 10px; }
-.evolution-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 22px; }.stat-item { display: grid; gap: 7px; padding: 0 20px; border-right: 1px solid var(--line); }.stat-item:first-child { padding-left: 0; }.stat-item:last-child { padding-right: 0; border: 0; }.stat-icon { width: 30px; height: 30px; font-size: 13px; }.stat-item strong { font: 700 25px "Space Grotesk", sans-serif; }.stat-item > span:last-child { color: var(--muted); font-size: 11px; }.dashboard-footer { margin-top: 60px; color: #aaa8bb; text-align: center; font-size: 12px; }
-@media (max-width: 720px) { .dashboard-shell { width: min(100% - 28px, 560px); padding-top: 16px; }.topbar { margin-bottom: 42px; }.topbar-actions .text-link { display: none; }.welcome-row { align-items: start; }.welcome-row h1 { font-size: 31px; }.profile-hero { align-items: start; flex-wrap: wrap; padding: 19px; }.profile-summary { min-width: calc(100% - 84px); }.profile-hero .button { margin-left: 84px; }.dashboard-grid, .mission-row, .curriculum-grid, .achievement-dashboard-grid { grid-template-columns: 1fr; }.disc-card, .mission-feature { min-height: auto; }.mission-feature { min-height: 300px; }.section-block { margin-top: 42px; }.evolution-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 0; }.stat-item, .stat-item:first-child, .stat-item:last-child { padding: 0 14px; border-right: 1px solid var(--line); }.stat-item:nth-child(2n) { border-right: 0; }.disc-empty { margin-top: 30px; } }
+.evolution-grid { display: grid; grid-template-columns: repeat(5, 1fr); padding: 22px; }.stat-item { display: grid; gap: 7px; padding: 0 20px; border-right: 1px solid var(--line); }.stat-item:first-child { padding-left: 0; }.stat-item:last-child { padding-right: 0; border: 0; }.stat-icon { width: 30px; height: 30px; font-size: 13px; }.stat-item strong { font: 700 25px "Space Grotesk", sans-serif; }.stat-item > span:last-child { color: var(--muted); font-size: 11px; }.activity-dashboard-list { display: grid; gap: 10px; }.activity-dashboard-card { display: grid; grid-template-columns: 160px 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; }.activity-dashboard-card span { color: var(--muted); font-size: 12px; }.activity-dashboard-card strong { font-size: 13px; }.activity-dashboard-card small { color: #aaa6bd; font-size: 10px; text-align: right; }.dashboard-footer { margin-top: 60px; color: #aaa8bb; text-align: center; font-size: 12px; }
+@media (max-width: 720px) { .dashboard-shell { width: min(100% - 28px, 560px); padding-top: 16px; }.topbar { margin-bottom: 42px; }.topbar-actions .text-link { display: none; }.welcome-row { align-items: start; }.welcome-row h1 { font-size: 31px; }.profile-hero { align-items: start; flex-wrap: wrap; padding: 19px; }.profile-summary { min-width: calc(100% - 84px); }.profile-hero .button { margin-left: 84px; }.dashboard-grid, .mission-row, .curriculum-grid, .achievement-dashboard-grid { grid-template-columns: 1fr; }.disc-card, .mission-feature { min-height: auto; }.mission-feature { min-height: 300px; }.section-block { margin-top: 42px; }.evolution-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 0; }.stat-item, .stat-item:first-child, .stat-item:last-child { padding: 0 14px; border-right: 1px solid var(--line); }.stat-item:nth-child(2n) { border-right: 0; }.activity-dashboard-card { grid-template-columns: 1fr; }.activity-dashboard-card small { text-align: left; }.disc-empty { margin-top: 30px; } }

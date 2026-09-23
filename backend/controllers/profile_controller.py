@@ -18,6 +18,7 @@ def profile_page(user):
         projects=profile["projects"],
         certificates=profile["certificates"],
         achievements=profile["achievements"],
+        evolution=profile["evolution"],
     )
 
 
@@ -42,6 +43,14 @@ def profile_json(user):
                 ],
                 "unlocked_count": profile["achievements"]["unlocked_count"],
                 "total_count": profile["achievements"]["total_count"],
+            },
+            "evolution": {
+                "level": profile["evolution"]["level"],
+                "indicators": profile["evolution"]["indicators"],
+                "history": [
+                    event.to_dict()
+                    for event in profile["evolution"]["history"]
+                ],
             },
         }
     )

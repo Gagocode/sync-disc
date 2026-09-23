@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Evolucao visual do perfil
+
+### Arquivos alterados
+frontend/pages/index.html, frontend/pages/perfil.html, frontend/assets/js/main.js, frontend/assets/css/style.css
+
+### Resumo
+Adicionadas secoes simples para exibir nivel atual, XP, proximo nivel, barra de progresso, indicadores de evolucao e historico recente. O dashboard passou a renderizar os dados calculados pelo backend em vez de manter nivel/progresso fixos.
+
+### Impacto
+O usuario passa a perceber crescimento ao longo do tempo diretamente no dashboard e no perfil, com cards simples e sem adicionar recomendacoes, IA ou analises avancadas.
+
+## 2026-09-23
+
+### Funcionalidade
 Dashboard autenticado em tela única
 
 ### Arquivos alterados

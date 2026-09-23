@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 
 from repositories import certificate_repository
 from services.achievement_service import evaluate_user_achievements
+from services.evolution_service import record_certificate_created
 from services.mission_service import complete_user_mission_by_key
 
 
@@ -32,6 +33,7 @@ def create_certificate(user_id, data, file_storage=None):
         data_conclusao=data_conclusao,
         arquivo_path=arquivo_path,
     )
+    record_certificate_created(user_id, certificate)
 
     if current_certificate_count == 0:
         complete_user_mission_by_key(user_id, "first_certificate")
