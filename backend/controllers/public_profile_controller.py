@@ -20,6 +20,7 @@ def public_profile_page(user_id):
         projects=profile["projects"],
         certificates=profile["certificates"],
         indicators=profile["indicators"],
+        observed_disc_result=profile["observed_disc_result"],
     )
 
 
@@ -41,6 +42,7 @@ def public_profile_json(user_id):
                 "xp": user.xp,
             },
             "disc_result": profile["disc_result"],
+            "observed_disc_result": profile["observed_disc_result"],
             "projects": [project.to_dict() for project in profile["projects"]],
             "certificates": [
                 certificate.to_dict() for certificate in profile["certificates"]

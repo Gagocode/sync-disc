@@ -18,6 +18,7 @@ def profile_page(user):
         projects=profile["projects"],
         certificates=profile["certificates"],
         achievements=profile["achievements"],
+        observed_disc_result=profile["observed_disc_result"],
         evolution=profile["evolution"],
     )
 
@@ -32,6 +33,7 @@ def profile_json(user):
         {
             "user": current_user.to_public_dict(),
             "disc_result": disc_result,
+            "observed_disc_result": profile["observed_disc_result"],
             "projects": [project.to_dict() for project in profile["projects"]],
             "certificates": [
                 certificate.to_dict() for certificate in profile["certificates"]

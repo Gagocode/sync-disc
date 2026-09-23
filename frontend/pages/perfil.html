@@ -21,23 +21,47 @@
         </article>
 
         <article class="panel">
-          <h2>DISC Inicial</h2>
+          <h2>DISC</h2>
           {% if disc_result %}
-            <p><strong>Dimensao predominante:</strong> {{ disc_result.predominant_dimension }}</p>
-            <ul class="disc-list">
-              {% for dimension, percentage in disc_result.percentages.items() %}
-                <li>
-                  <strong>{{ dimension }}:</strong>
-                  {{ percentage }}%
-                  <span>({{ disc_result.scores[dimension] }} pontos)</span>
-                </li>
-              {% endfor %}
-            </ul>
+            <p><strong>Inicial:</strong> {{ disc_result.predominant_dimension }} predominante</p>
+            {% if observed_disc_result.predominant_dimension %}
+              <p><strong>Observado:</strong> {{ observed_disc_result.predominant_dimension }} em destaque pelas atividades</p>
+            {% else %}
+              <p><strong>Observado:</strong> aguardando atividades no Curriculo Vivo.</p>
+            {% endif %}
           {% else %}
             <p>Resultado DISC Inicial ainda nao realizado.</p>
             <p><a href="/disc/">Realizar Quiz DISC Inicial</a></p>
           {% endif %}
         </article>
+      </section>
+      <section>
+        <h2>DISC Inicial x DISC Observado</h2>
+        <div class="disc-comparison-grid">
+          <article class="panel disc-comparison-card">
+            <h3>DISC Inicial</h3>
+            <p>Resultado do quiz narrativo. Ele continua intacto e nao e sobrescrito.</p>
+            {% if disc_result %}
+              <div class="disc-score-grid">
+                {% for dimension, score in disc_result.scores.items() %}
+                  <div><strong>{{ dimension }}</strong><span>{{ score }} pts</span></div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p>DISC Inicial ainda nao realizado.</p>
+            {% endif %}
+          </article>
+          <article class="panel disc-comparison-card">
+            <h3>DISC Observado</h3>
+            <p>Calculado automaticamente a partir de projetos, certificados, missoes e conquistas.</p>
+            <div class="disc-score-grid">
+              {% for dimension, score in observed_disc_result.scores.items() %}
+                <div><strong>{{ dimension }}</strong><span>{{ score }} pts</span></div>
+              {% endfor %}
+            </div>
+            <p><strong>Atualizado em:</strong> {{ observed_disc_result.updated_at }}</p>
+          </article>
+        </div>
       </section>
       <section>
         <h2>Evolucao</h2>

@@ -4,6 +4,7 @@ from repositories import disc_repository
 from repositories import mission_repository
 from repositories import project_repository
 from services.evolution_service import record_achievement_unlocked
+from services.observed_disc_service import update_observed_disc
 
 
 ACHIEVEMENT_CATALOG = [
@@ -82,4 +83,5 @@ def _unlock_achievement(user_id, achievement_key):
     )
     if created:
         record_achievement_unlocked(user_id, achievement)
+        update_observed_disc(user_id)
     return achievement

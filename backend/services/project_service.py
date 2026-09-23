@@ -2,6 +2,7 @@ from repositories import project_repository
 from services.achievement_service import evaluate_user_achievements
 from services.evolution_service import record_project_created
 from services.mission_service import complete_user_mission_by_key
+from services.observed_disc_service import update_observed_disc
 
 
 class ProjectError(Exception):
@@ -32,6 +33,7 @@ def create_project(user_id, data):
         complete_user_mission_by_key(user_id, "third_project")
 
     evaluate_user_achievements(user_id)
+    update_observed_disc(user_id)
     return project
 
 

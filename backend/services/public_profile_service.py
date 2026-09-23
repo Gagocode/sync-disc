@@ -1,6 +1,7 @@
 from repositories import user_repository
 from services.certificate_service import list_certificates
 from services.disc_service import get_initial_disc_result
+from services.observed_disc_service import get_observed_disc_result
 from services.profile_service import calculate_initial_class
 from services.project_service import list_projects
 
@@ -26,6 +27,7 @@ def get_public_profile(user_id):
     return {
         "user": user,
         "disc_result": disc_result,
+        "observed_disc_result": get_observed_disc_result(user_id),
         "projects": projects,
         "certificates": certificates,
         "indicators": {

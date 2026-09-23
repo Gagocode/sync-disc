@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Exibicao do DISC Observado
+
+### Arquivos alterados
+frontend/pages/perfil.html, frontend/pages/perfil_publico.html, frontend/assets/css/style.css
+
+### Resumo
+Adicionada comparacao entre DISC Inicial e DISC Observado no perfil interno, com pontuacoes D/I/S/C lado a lado. O perfil publico passou a exibir o DISC Observado com texto indicando que ele e calculado pelas atividades realizadas na plataforma.
+
+### Impacto
+Usuarios e visitantes conseguem visualizar a diferenca entre o resultado inicial do quiz e o perfil observado pelas acoes do Curriculo Vivo, sem permitir refazer o DISC Inicial e sem adicionar IA ou analises complexas.
+
+## 2026-09-23
+
+### Funcionalidade
 Evolucao visual do perfil
 
 ### Arquivos alterados

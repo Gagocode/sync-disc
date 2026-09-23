@@ -94,3 +94,13 @@ CREATE TABLE IF NOT EXISTS evolution_events (
   FOREIGN KEY (user_id) REFERENCES users (id),
   UNIQUE (user_id, event_key)
 );
+
+CREATE TABLE IF NOT EXISTS observed_disc_results (
+  user_id INTEGER PRIMARY KEY,
+  d_observed INTEGER NOT NULL DEFAULT 0,
+  i_observed INTEGER NOT NULL DEFAULT 0,
+  s_observed INTEGER NOT NULL DEFAULT 0,
+  c_observed INTEGER NOT NULL DEFAULT 0,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
