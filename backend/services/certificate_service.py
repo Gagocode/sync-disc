@@ -36,6 +36,8 @@ def create_certificate(user_id, data, file_storage=None):
         complete_user_mission_by_key(user_id, "first_certificate")
     elif current_certificate_count == 1:
         complete_user_mission_by_key(user_id, "second_certificate")
+    elif current_certificate_count == 2:
+        complete_user_mission_by_key(user_id, "third_certificate")
 
     return certificate
 

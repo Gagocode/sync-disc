@@ -123,3 +123,16 @@ Criada a organizacao base em camadas com controllers, services, repositories, mo
 
 ### Impacto
 O backend passa a ter uma base organizada para desenvolvimento futuro, preservando separacao de responsabilidades e sem implementar regras de negocio.
+## 2026-09-22
+
+### Funcionalidade
+Catalogo persistido e progressao automatica de missoes
+
+### Arquivos alterados
+backend/database/schema.sql, backend/models/mission.py, backend/repositories/mission_repository.py, backend/services/mission_service.py, backend/services/project_service.py, backend/services/certificate_service.py
+
+### Resumo
+Criada a tabela de catalogo `missions` com id, nome, descricao, XP, ordem e tipo de evento. O service sincroniza o catalogo, gera o progresso individual a partir dele e ativa a proxima missao bloqueada automaticamente. Foram adicionadas as missoes de terceiro projeto e terceiro certificado.
+
+### Impacto
+O painel passa a receber uma jornada persistente com missao ativa e proximas missoes. Cada conclusao concede XP uma unica vez, registra a data e nao permite reativar uma missao concluida.

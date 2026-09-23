@@ -19,6 +19,16 @@ CREATE TABLE IF NOT EXISTS initial_disc_results (
   FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
+CREATE TABLE IF NOT EXISTS missions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  mission_key TEXT NOT NULL UNIQUE,
+  nome TEXT NOT NULL,
+  descricao TEXT NOT NULL,
+  xp_recompensa INTEGER NOT NULL,
+  ordem INTEGER NOT NULL,
+  tipo_evento TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS user_missions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   user_id INTEGER NOT NULL,
