@@ -164,6 +164,43 @@ a {
   padding-left: 20px;
 }
 
+.disc-comparison-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin: 24px 0;
+}
+
+.disc-comparison-card {
+  display: grid;
+  gap: 12px;
+}
+
+.disc-score-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.disc-score-grid div {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #f8f9fb;
+  text-align: center;
+}
+
+.disc-score-grid strong {
+  font-size: 18px;
+}
+
+.disc-score-grid span {
+  color: #667085;
+  font-size: 12px;
+}
+
 .mission-list {
   display: grid;
   gap: 16px;

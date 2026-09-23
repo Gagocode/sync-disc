@@ -36,20 +36,36 @@
       </section>
 
       <section class="panel public-disc">
-        <h2>DISC Inicial</h2>
-        {% if disc_result %}
-          <p><strong>Dimensao predominante:</strong> {{ disc_result.predominant_dimension }}</p>
-          <ul class="disc-list">
-            {% for dimension, percentage in disc_result.percentages.items() %}
-              <li>
-                <strong>{{ dimension }}:</strong>
-                {{ percentage }}%
-              </li>
-            {% endfor %}
-          </ul>
-        {% else %}
-          <p>Resultado DISC Inicial ainda nao disponivel.</p>
-        {% endif %}
+        <h2>DISC Inicial x DISC Observado</h2>
+        <p>O DISC Observado e calculado a partir das atividades realizadas dentro da plataforma.</p>
+        <div class="disc-comparison-grid">
+          <article class="disc-comparison-card">
+            <h3>DISC Inicial</h3>
+            {% if disc_result %}
+              <p><strong>Dimensao predominante:</strong> {{ disc_result.predominant_dimension }}</p>
+              <div class="disc-score-grid">
+                {% for dimension, score in disc_result.scores.items() %}
+                  <div><strong>{{ dimension }}</strong><span>{{ score }} pts</span></div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p>Resultado DISC Inicial ainda nao disponivel.</p>
+            {% endif %}
+          </article>
+          <article class="disc-comparison-card">
+            <h3>DISC Observado</h3>
+            {% if observed_disc_result.predominant_dimension %}
+              <p><strong>Dimensao em destaque:</strong> {{ observed_disc_result.predominant_dimension }}</p>
+            {% else %}
+              <p>Aguardando atividades suficientes no Curriculo Vivo.</p>
+            {% endif %}
+            <div class="disc-score-grid">
+              {% for dimension, score in observed_disc_result.scores.items() %}
+                <div><strong>{{ dimension }}</strong><span>{{ score }} pts</span></div>
+              {% endfor %}
+            </div>
+          </article>
+        </div>
       </section>
 
       <section>

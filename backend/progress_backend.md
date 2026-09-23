@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Primeira versao do DISC Observado
+
+### Arquivos alterados
+backend/database/schema.sql, backend/models/disc_result.py, backend/repositories/disc_repository.py, backend/services/observed_disc_service.py, backend/services/disc_service.py, backend/services/project_service.py, backend/services/certificate_service.py, backend/services/mission_service.py, backend/services/achievement_service.py, backend/services/profile_service.py, backend/services/public_profile_service.py, backend/controllers/profile_controller.py, backend/controllers/public_profile_controller.py
+
+### Resumo
+Criada a tabela `observed_disc_results` para armazenar D/I/S/C observados por usuario e data de atualizacao. Implementado service com calculo simples: projetos somam D, certificados somam C, missoes concluidas somam S e conquistas desbloqueadas somam I. A atualizacao ocorre automaticamente apos eventos relevantes e tambem ao carregar perfis para cobrir dados ja existentes.
+
+### Impacto
+O DISC Inicial permanece intacto e separado, enquanto o DISC Observado passa a persistir a evolucao comportamental baseada nas acoes do usuario. Perfil interno, perfil publico e JSONs passam a expor os dois resultados para comparacao.
+
+## 2026-09-23
+
+### Funcionalidade
 Primeira versao da evolucao do perfil
 
 ### Arquivos alterados
