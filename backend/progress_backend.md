@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Revisao final do MVP para demonstracao
+
+### Arquivos alterados
+backend/app.py, backend/seed_demo.py, backend/repositories/user_repository.py, backend/services/public_profile_service.py, backend/controllers/public_profile_controller.py
+
+### Resumo
+Auditados os fluxos principais do MVP e ajustada a rota raiz para direcionar ao dashboard, mantendo `/health` para status tecnico. Criado seed idempotente de demonstracao com usuarios ficticios, DISC Inicial concluido, projetos, certificados, missoes, conquistas, evolucao e DISC Observado. O perfil publico passou a expor conquistas, progressao, nivel e indicadores de missoes/conquistas usando estruturas existentes.
+
+### Impacto
+O MVP fica mais adequado para apresentacao academica, com entrada de produto mais clara, dados prontos para demonstracao e perfil publico alinhado ao Curriculo Vivo sem alterar autenticacao, arquitetura ou criar funcionalidades complexas.
+
+## 2026-09-23
+
+### Funcionalidade
 Primeira versao do DISC Observado
 
 ### Arquivos alterados

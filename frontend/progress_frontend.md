@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Acabamento final do MVP para demonstracao
+
+### Arquivos alterados
+frontend/pages/login.html, frontend/pages/perfil_publico.html, frontend/assets/css/style.css
+
+### Resumo
+Adicionada caixa com credenciais da conta de demonstracao na tela de login. O perfil publico foi enriquecido com progressao, nivel, indicadores ampliados e conquistas desbloqueadas, reduzindo a sensacao de lista estatica e reforcando o Curriculo Vivo.
+
+### Impacto
+A experiencia de demonstracao fica mais fluida para avaliadores, com acesso imediato a dados completos e perfil publico mais consistente com o Dashboard V2 e com a proposta do produto.
+
+## 2026-09-23
+
+### Funcionalidade
 Exibicao do DISC Observado
 
 ### Arquivos alterados

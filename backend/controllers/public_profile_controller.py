@@ -19,6 +19,8 @@ def public_profile_page(user_id):
         disc_result=profile["disc_result"],
         projects=profile["projects"],
         certificates=profile["certificates"],
+        achievements=profile["achievements"],
+        evolution=profile["evolution"],
         indicators=profile["indicators"],
         observed_disc_result=profile["observed_disc_result"],
     )
@@ -47,6 +49,18 @@ def public_profile_json(user_id):
             "certificates": [
                 certificate.to_dict() for certificate in profile["certificates"]
             ],
+            "achievements": {
+                "unlocked": [
+                    achievement.to_dict()
+                    for achievement in profile["achievements"]["unlocked"]
+                ],
+                "unlocked_count": profile["achievements"]["unlocked_count"],
+                "total_count": profile["achievements"]["total_count"],
+            },
+            "evolution": {
+                "level": profile["evolution"]["level"],
+                "indicators": profile["evolution"]["indicators"],
+            },
             "indicators": profile["indicators"],
         }
     )
