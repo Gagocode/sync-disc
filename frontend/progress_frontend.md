@@ -123,3 +123,16 @@ Criada a estrutura base com pages e assets separados em css, js e images. Adicio
 
 ### Impacto
 O frontend passa a ter uma base organizada para desenvolvimento futuro, sem implementar fluxos de produto ou regras de negocio.
+## 2026-09-23
+
+### Funcionalidade
+Dashboard autenticado em tela única
+
+### Arquivos alterados
+frontend/pages/index.html, frontend/assets/css/style.css, frontend/assets/js/main.js
+
+### Resumo
+Reestruturada a Home como centro da experiência autenticada, reunindo perfil, XP, progresso, DISC, missão ativa, próximas missões, Currículo Vivo e indicadores de evolução. A interface passou a consumir os endpoints existentes para atualizar os cards sem criar novas regras ou funcionalidades.
+
+### Impacto
+A experiência reduz a fragmentação entre telas, dá destaque às missões e torna projetos e certificados visíveis como evidências do Currículo Vivo, com adaptação para desktop, notebook e tablet.

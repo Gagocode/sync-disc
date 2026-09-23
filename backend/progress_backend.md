@@ -123,3 +123,16 @@ Criada a organizacao base em camadas com controllers, services, repositories, mo
 
 ### Impacto
 O backend passa a ter uma base organizada para desenvolvimento futuro, preservando separacao de responsabilidades e sem implementar regras de negocio.
+## 2026-09-23
+
+### Funcionalidade
+Renderização da Home para diferentes estados de perfil
+
+### Arquivos alterados
+backend/controllers/page_controller.py
+
+### Resumo
+Removidos redirecionamentos de apresentação que impediam a Home de ser renderizada antes do DISC ou da classe. A página continua protegida pela autenticação existente e passa a exibir o estado apropriado no frontend.
+
+### Impacto
+A área autenticada mantém a Home como centro da plataforma, inclusive para orientar o usuário a realizar o DISC Inicial, sem alterar autenticação, persistência ou regras de negócio.

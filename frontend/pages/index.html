@@ -3,34 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sync Disc</title>
+    <title>Início - Sync Disc</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
-  <body>
-    <main class="app-shell">
-      <h1>Sync Disc</h1>
-      <p>Sessao autenticada ativa.</p>
-      {% if user %}
-        <section class="panel">
-          <h2>{{ user.nome }}</h2>
-          <p>{{ user.email }}</p>
-          {% if user.curso %}
-            <p>{{ user.curso }}</p>
-          {% endif %}
-        </section>
-      {% endif %}
-      <p><a href="/perfil/">Ver perfil</a></p>
-      {% if user %}
-        <p><a href="/profile/{{ user.id }}">Ver perfil publico</a></p>
-      {% endif %}
-      <p><a href="/missoes/">Ver missoes</a></p>
-      <p><a href="/projetos/">Ver projetos</a></p>
-      <p><a href="/certificados/">Ver certificados</a></p>
-      <p><a href="/disc/resultado">Ver resultado DISC Inicial</a></p>
-      <form action="/auth/logout" method="post">
-        <button type="submit">Sair</button>
-      </form>
-    </main>
-    <script src="/assets/js/main.js"></script>
+  <body class="dashboard-page">
+    <div class="dashboard-shell">
+      <header class="topbar">
+        <a class="brand" href="/dashboard"><span class="brand-mark">S</span><span>Sync Disc</span></a>
+        <nav class="topbar-actions" aria-label="Navegação principal">
+          <a class="text-link" href="/profile/{{ user.id }}">Perfil público</a>
+          <form action="/auth/logout" method="post"><button class="button button-ghost" type="submit">Sair</button></form>
+        </nav>
+      </header>
+      <main>
+        <section class="welcome-row"><div><p class="eyebrow">SEU CURRÍCULO VIVO</p><h1>Olá, {{ user.nome.split(' ')[0] }} <span aria-hidden="true">✦</span></h1><p class="muted">Cada experiência é uma nova evidência da sua evolução.</p></div><div class="xp-pill"><span>XP atual</span><strong>{{ user.xp }}</strong></div></section>
+        <section class="profile-hero card" aria-labelledby="profile-heading"><div class="profile-avatar">{{ user.nome[0] }}</div><div class="profile-summary"><div class="section-heading compact"><div><p class="eyebrow">PERFIL</p><h2 id="profile-heading">{{ user.nome }}</h2></div><span class="level-badge">Nível 1</span></div><p class="profile-meta">{{ user.curso or "Curso não informado" }} <span>•</span> {{ user.classe or "Classe aguardando DISC" }}</p><div class="progress-track" aria-label="Progresso de XP"><span style="width: {{ [user.xp, 100] | min }}%"></span></div><p class="progress-caption"><strong>{{ user.xp }} XP</strong> para continuar sua jornada</p></div><a class="button button-soft" href="/perfil/">Ver perfil</a></section>
+        <section class="dashboard-grid top-grid"><article class="disc-card card" id="disc-card"><div class="section-heading"><div><p class="eyebrow">SEU PERFIL COMPORTAMENTAL</p><h2>DISC Inicial</h2></div><span class="icon-bubble purple">◌</span></div><div id="disc-content" class="loading-state">Carregando seu perfil...</div></article><article class="mission-feature card" id="mission-feature"><div class="section-heading"><div><p class="eyebrow light-eyebrow">PRÓXIMO PASSO</p><h2>Missão ativa</h2></div><span class="mission-flame">✦</span></div><div id="active-mission" class="loading-state">Carregando missão...</div></article></section>
+        <section class="section-block" aria-labelledby="next-missions-heading"><div class="section-heading"><div><p class="eyebrow">CONTINUE AVANÇANDO</p><h2 id="next-missions-heading">Próximas missões</h2></div><a class="text-link" href="/missoes/">Ver todas</a></div><div id="next-missions" class="mission-row loading-state">Carregando missões...</div></section>
+        <section class="section-block" aria-labelledby="curriculum-heading"><div class="section-heading"><div><p class="eyebrow">EVIDÊNCIAS DA SUA JORNADA</p><h2 id="curriculum-heading">Currículo Vivo</h2></div></div><div class="dashboard-grid curriculum-grid"><article class="collection-card card"><div class="collection-icon blue">↗</div><div><h3>Projetos</h3><p id="project-count">0 experiências registradas</p></div><a class="stretched-link" href="/projetos/" aria-label="Ver projetos">→</a><div id="project-preview" class="collection-preview"></div></article><article class="collection-card card"><div class="collection-icon orange">✧</div><div><h3>Certificados</h3><p id="certificate-count">0 conquistas registradas</p></div><a class="stretched-link" href="/certificados/" aria-label="Ver certificados">→</a><div id="certificate-preview" class="collection-preview"></div></article></div></section>
+        <section class="section-block" aria-labelledby="evolution-heading"><div class="section-heading"><div><p class="eyebrow">VISÃO GERAL</p><h2 id="evolution-heading">Sua evolução</h2></div></div><div class="evolution-grid card"><div class="stat-item"><span class="stat-icon purple">★</span><strong id="evolution-projects">0</strong><span>Projetos cadastrados</span></div><div class="stat-item"><span class="stat-icon orange">✧</span><strong id="evolution-certificates">0</strong><span>Certificados cadastrados</span></div><div class="stat-item"><span class="stat-icon green">✓</span><strong id="evolution-missions">0</strong><span>Missões concluídas</span></div><div class="stat-item"><span class="stat-icon blue">⚡</span><strong>{{ user.xp }}</strong><span>XP acumulado</span></div></div></section>
+      </main><footer class="dashboard-footer">Sync Disc · seu desenvolvimento, em movimento.</footer>
+    </div><script src="/assets/js/main.js"></script>
   </body>
 </html>
