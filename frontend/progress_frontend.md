@@ -1,3 +1,31 @@
+## 2026-09-23
+
+### Funcionalidade
+Dashboard autenticado em tela única
+
+### Arquivos alterados
+frontend/pages/index.html, frontend/assets/css/style.css, frontend/assets/js/main.js
+
+### Resumo
+Reestruturada a Home como centro da experiência autenticada, reunindo perfil, XP, progresso, DISC, missão ativa, próximas missões, Currículo Vivo e indicadores de evolução. A interface passou a consumir os endpoints existentes para atualizar os cards sem criar novas regras ou funcionalidades.
+
+### Impacto
+A experiência reduz a fragmentação entre telas, dá destaque às missões e torna projetos e certificados visíveis como evidências do Currículo Vivo, com adaptação para desktop, notebook e tablet.
+
+## 2026-09-22
+
+### Funcionalidade
+Exibicao do painel de missoes baseado em catalogo
+
+### Arquivos alterados
+frontend/progress_frontend.md
+
+### Resumo
+Registrada a integracao do painel existente com o progresso de missoes gerado pelo catalogo backend. A tela continua exibindo a missao ativa pelo status Pendente e as proximas pelo status Bloqueada, sem alteracao visual ou de layout.
+
+### Impacto
+O usuario sempre visualiza um objetivo ativo e a sequencia de proximas missoes, enquanto a conclusao e a ativacao permanecem automaticas no backend.
+
 ## 2026-09-22
 
 ### Funcionalidade
@@ -123,29 +151,3 @@ Criada a estrutura base com pages e assets separados em css, js e images. Adicio
 
 ### Impacto
 O frontend passa a ter uma base organizada para desenvolvimento futuro, sem implementar fluxos de produto ou regras de negocio.
-## 2026-09-23
-
-### Funcionalidade
-Dashboard autenticado em tela única
-
-### Arquivos alterados
-frontend/pages/index.html, frontend/assets/css/style.css, frontend/assets/js/main.js
-
-### Resumo
-Reestruturada a Home como centro da experiência autenticada, reunindo perfil, XP, progresso, DISC, missão ativa, próximas missões, Currículo Vivo e indicadores de evolução. A interface passou a consumir os endpoints existentes para atualizar os cards sem criar novas regras ou funcionalidades.
-
-### Impacto
-A experiência reduz a fragmentação entre telas, dá destaque às missões e torna projetos e certificados visíveis como evidências do Currículo Vivo, com adaptação para desktop, notebook e tablet.
-## 2026-09-22
-
-### Funcionalidade
-Exibicao do painel de missoes baseado em catalogo
-
-### Arquivos alterados
-frontend/progress_frontend.md
-
-### Resumo
-Registrada a integracao do painel existente com o progresso de missoes gerado pelo catalogo backend. A tela continua exibindo a missao ativa pelo status Pendente e as proximas pelo status Bloqueada, sem alteracao visual ou de layout.
-
-### Impacto
-O usuario sempre visualiza um objetivo ativo e a sequencia de proximas missoes, enquanto a conclusao e a ativacao permanecem automaticas no backend.
