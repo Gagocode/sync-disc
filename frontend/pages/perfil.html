@@ -73,6 +73,23 @@
           <p>Nenhum certificado cadastrado.</p>
         {% endif %}
       </section>
+      <section>
+        <h2>Conquistas</h2>
+        <p>{{ achievements.unlocked_count }} de {{ achievements.total_count }} conquistas desbloqueadas.</p>
+        {% if achievements.unlocked %}
+          <div class="achievement-list">
+            {% for achievement in achievements.unlocked %}
+              <article class="achievement-card">
+                <h3>{{ achievement.nome }}</h3>
+                <p>{{ achievement.descricao }}</p>
+                <p><strong>Desbloqueada em:</strong> {{ achievement.data_desbloqueio }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhuma conquista desbloqueada ainda.</p>
+        {% endif %}
+      </section>
       <p><a href="/missoes/">Ver missoes</a></p>
       <p><a href="/projetos/">Gerenciar projetos</a></p>
       <p><a href="/certificados/">Gerenciar certificados</a></p>

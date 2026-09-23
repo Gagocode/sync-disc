@@ -1,4 +1,5 @@
 from repositories import mission_repository
+from services.achievement_service import evaluate_user_achievements
 
 
 MISSION_CATALOG = [
@@ -89,6 +90,7 @@ def complete_user_mission_by_key(user_id, mission_key):
 
     completed_mission = mission_repository.complete_mission(mission.id, user_id)
     ensure_available_mission(user_id)
+    evaluate_user_achievements(user_id)
     return completed_mission
 
 
