@@ -68,6 +68,20 @@ Criadas telas simples para listar, criar, visualizar, editar e excluir certifica
 ### Impacto
 O frontend passa a oferecer o fluxo basico de cadastro de certificados do Curriculo Vivo, sem OCR, validacao externa ou integracoes.
 
+## 2026-09-23
+
+### Funcionalidade
+Exibicao de conquistas no dashboard
+
+### Arquivos alterados
+frontend/pages/index.html, frontend/pages/perfil.html, frontend/assets/js/main.js, frontend/assets/css/style.css
+
+### Resumo
+Adicionada secao simples de conquistas no dashboard e no perfil, exibindo cards das conquistas desbloqueadas e contador de desbloqueadas sobre o total. A interface consome os dados de conquistas retornados pelo perfil JSON.
+
+### Impacto
+Usuarios conseguem visualizar os marcos alcancados no Curriculo Vivo sem acao manual de desbloqueio, mantendo cards simples e foco no funcionamento do MVP.
+
 ## 2026-09-18
 
 ### Funcionalidade

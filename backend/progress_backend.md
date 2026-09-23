@@ -68,6 +68,20 @@ Implementado CRUD autenticado de certificados com nome, instituicao, carga horar
 ### Impacto
 Usuarios passam a registrar certificados no Curriculo Vivo com persistencia em SQLite, upload local simples e concessao de XP apenas uma vez pela missao de primeiro certificado.
 
+## 2026-09-23
+
+### Funcionalidade
+Sistema MVP de conquistas do Curriculo Vivo
+
+### Arquivos alterados
+backend/database/schema.sql, backend/models/achievement.py, backend/repositories/achievement_repository.py, backend/services/achievement_service.py, backend/services/disc_service.py, backend/services/project_service.py, backend/services/certificate_service.py, backend/services/mission_service.py, backend/services/profile_service.py, backend/controllers/profile_controller.py
+
+### Resumo
+Criadas as tabelas achievement e user_achievement, com catalogo inicial de cinco conquistas: Primeiro Passo, Construtor, Desenvolvendo Habilidades, Explorador e Curriculo Vivo. As regras de desbloqueio automatico foram implementadas na camada Service para DISC Inicial concluido, primeiro projeto, primeiro certificado, 3 missoes concluidas e combinacao de 3 projetos com 3 certificados.
+
+### Impacto
+Usuarios passam a ter conquistas persistidas no SQLite, desbloqueadas automaticamente e sem duplicidade por usuario/conquista. O perfil JSON passa a expor conquistas desbloqueadas e quantidade total para exibicao no dashboard.
+
 ## 2026-09-18
 
 ### Funcionalidade

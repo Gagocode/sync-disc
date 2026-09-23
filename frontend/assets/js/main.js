@@ -29,14 +29,24 @@ const renderCollections = (projects, certificates) => {
   document.querySelector("#certificate-preview").innerHTML = certificates.slice(0, 2).map((certificate) => `<span>${escapeHtml(certificate.nome)}</span>`).join("");
 };
 
+const renderAchievements = (achievements) => {
+  const unlocked = achievements?.unlocked || [];
+  const total = achievements?.total_count || 0;
+  document.querySelector("#achievement-count").textContent = `${unlocked.length} de ${total} desbloqueadas`;
+  document.querySelector("#achievement-list").innerHTML = unlocked.length
+    ? unlocked.map((achievement) => `<article class="achievement-dashboard-card card"><span class="achievement-icon">✓</span><div><h3>${escapeHtml(achievement.nome)}</h3><p>${escapeHtml(achievement.descricao)}</p><small>${escapeHtml(achievement.data_desbloqueio)}</small></div></article>`).join("")
+    : '<p class="muted">Suas conquistas aparecem automaticamente conforme você evolui.</p>';
+};
+
 const loadDashboard = async () => {
   const [profileResponse, missionsResponse] = await Promise.all([fetch("/perfil/json"), fetch("/missoes/json")]);
   if (!profileResponse.ok || !missionsResponse.ok) throw new Error("Não foi possível carregar o painel.");
   const profile = await profileResponse.json();
-  const { disc_result: disc, projects, certificates } = profile;
+  const { disc_result: disc, projects, certificates, achievements } = profile;
   renderDisc(disc);
   renderMissions((await missionsResponse.json()).missions || []);
   renderCollections(projects || [], certificates || []);
+  renderAchievements(achievements);
 };
 
 if (document.body.classList.contains("dashboard-page")) {

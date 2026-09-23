@@ -1,4 +1,5 @@
 from repositories import user_repository
+from services.achievement_service import get_user_achievements
 from services.certificate_service import list_certificates
 from services.disc_service import get_initial_disc_result
 from services.mission_service import complete_user_mission_by_key
@@ -28,6 +29,7 @@ def get_profile(user_id):
         "disc_result": disc_result,
         "projects": list_projects(user_id),
         "certificates": list_certificates(user_id),
+        "achievements": get_user_achievements(user_id),
     }
 
 

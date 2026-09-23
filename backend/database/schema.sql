@@ -65,3 +65,20 @@ CREATE TABLE IF NOT EXISTS certificates (
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+CREATE TABLE IF NOT EXISTS achievement (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  achievement_key TEXT NOT NULL UNIQUE,
+  nome TEXT NOT NULL,
+  descricao TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_achievement (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  achievement_key TEXT NOT NULL,
+  data_desbloqueio TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (achievement_key) REFERENCES achievement (achievement_key),
+  UNIQUE (user_id, achievement_key)
+);

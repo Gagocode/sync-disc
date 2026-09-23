@@ -1,4 +1,5 @@
 from repositories import project_repository
+from services.achievement_service import evaluate_user_achievements
 from services.mission_service import complete_user_mission_by_key
 
 
@@ -28,6 +29,7 @@ def create_project(user_id, data):
     elif current_project_count == 2:
         complete_user_mission_by_key(user_id, "third_project")
 
+    evaluate_user_achievements(user_id)
     return project
 
 

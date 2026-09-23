@@ -17,6 +17,7 @@ def profile_page(user):
         disc_result=profile["disc_result"],
         projects=profile["projects"],
         certificates=profile["certificates"],
+        achievements=profile["achievements"],
     )
 
 
@@ -34,5 +35,13 @@ def profile_json(user):
             "certificates": [
                 certificate.to_dict() for certificate in profile["certificates"]
             ],
+            "achievements": {
+                "unlocked": [
+                    achievement.to_dict()
+                    for achievement in profile["achievements"]["unlocked"]
+                ],
+                "unlocked_count": profile["achievements"]["unlocked_count"],
+                "total_count": profile["achievements"]["total_count"],
+            },
         }
     )
