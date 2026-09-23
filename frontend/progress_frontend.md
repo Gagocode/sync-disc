@@ -136,3 +136,16 @@ Reestruturada a Home como centro da experiência autenticada, reunindo perfil, X
 
 ### Impacto
 A experiência reduz a fragmentação entre telas, dá destaque às missões e torna projetos e certificados visíveis como evidências do Currículo Vivo, com adaptação para desktop, notebook e tablet.
+## 2026-09-22
+
+### Funcionalidade
+Exibicao do painel de missoes baseado em catalogo
+
+### Arquivos alterados
+frontend/progress_frontend.md
+
+### Resumo
+Registrada a integracao do painel existente com o progresso de missoes gerado pelo catalogo backend. A tela continua exibindo a missao ativa pelo status Pendente e as proximas pelo status Bloqueada, sem alteracao visual ou de layout.
+
+### Impacto
+O usuario sempre visualiza um objetivo ativo e a sequencia de proximas missoes, enquanto a conclusao e a ativacao permanecem automaticas no backend.
