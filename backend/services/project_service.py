@@ -1,5 +1,6 @@
 from repositories import project_repository
 from services.achievement_service import evaluate_user_achievements
+from services.evolution_service import record_project_created
 from services.mission_service import complete_user_mission_by_key
 
 
@@ -21,6 +22,7 @@ def create_project(user_id, data):
         tecnologias=tecnologias,
         link=link,
     )
+    record_project_created(user_id, project)
 
     if current_project_count == 0:
         complete_user_mission_by_key(user_id, "first_project")

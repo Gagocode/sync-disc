@@ -23,16 +23,22 @@ def sync_catalog(catalog):
 
 
 def unlock_for_user(user_id, achievement_key):
+    achievement, _created = unlock_for_user_with_status(user_id, achievement_key)
+    return achievement
+
+
+def unlock_for_user_with_status(user_id, achievement_key):
     with get_connection() as connection:
-        connection.execute(
+        cursor = connection.execute(
             """
             INSERT OR IGNORE INTO user_achievement (user_id, achievement_key)
             VALUES (?, ?)
             """,
             (user_id, achievement_key),
         )
+        created = cursor.rowcount == 1
         connection.commit()
-    return find_for_user(user_id, achievement_key)
+    return find_for_user(user_id, achievement_key), created
 
 
 def list_unlocked_by_user_id(user_id):

@@ -40,6 +40,49 @@
         </article>
       </section>
       <section>
+        <h2>Evolucao</h2>
+        <div class="evolution-profile-grid">
+          <article class="panel">
+            <h3>Nivel atual</h3>
+            <p><strong>Nivel {{ evolution.level.current }}</strong></p>
+            <p><strong>XP atual:</strong> {{ evolution.indicators.xp_current }}</p>
+            {% if evolution.level.next %}
+              <p><strong>Proximo nivel:</strong> Nivel {{ evolution.level.next }}</p>
+              <p><strong>XP para o proximo nivel:</strong> {{ evolution.level.xp_to_next }}</p>
+            {% else %}
+              <p><strong>Proximo nivel:</strong> Nivel maximo alcancado</p>
+            {% endif %}
+            <div class="progress-track" aria-label="Progresso para o proximo nivel">
+              <span style="width: {{ evolution.level.progress_percent }}%"></span>
+            </div>
+            <p>{{ evolution.level.progress_percent }}% de progresso</p>
+          </article>
+          <article class="panel">
+            <h3>Indicadores</h3>
+            <p><strong>Missoes concluidas:</strong> {{ evolution.indicators.missions_completed }}</p>
+            <p><strong>Projetos criados:</strong> {{ evolution.indicators.projects_created }}</p>
+            <p><strong>Certificados adicionados:</strong> {{ evolution.indicators.certificates_added }}</p>
+            <p><strong>Conquistas desbloqueadas:</strong> {{ evolution.indicators.achievements_unlocked }}</p>
+          </article>
+        </div>
+      </section>
+      <section>
+        <h2>Historico recente</h2>
+        {% if evolution.history %}
+          <div class="activity-list">
+            {% for event in evolution.history %}
+              <article class="activity-card">
+                <h3>{{ event.titulo }}</h3>
+                <p>{{ event.descricao }}</p>
+                <p><strong>Data:</strong> {{ event.created_at }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhuma atividade registrada ainda.</p>
+        {% endif %}
+      </section>
+      <section>
         <h2>Projetos</h2>
         {% if projects %}
           <div class="project-list">

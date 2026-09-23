@@ -82,3 +82,15 @@ CREATE TABLE IF NOT EXISTS user_achievement (
   FOREIGN KEY (achievement_key) REFERENCES achievement (achievement_key),
   UNIQUE (user_id, achievement_key)
 );
+
+CREATE TABLE IF NOT EXISTS evolution_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  event_key TEXT NOT NULL,
+  event_type TEXT NOT NULL,
+  titulo TEXT NOT NULL,
+  descricao TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  UNIQUE (user_id, event_key)
+);

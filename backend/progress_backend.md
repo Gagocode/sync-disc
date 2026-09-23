@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Primeira versao da evolucao do perfil
+
+### Arquivos alterados
+backend/database/schema.sql, backend/models/evolution_event.py, backend/repositories/evolution_repository.py, backend/services/evolution_service.py, backend/services/achievement_service.py, backend/repositories/achievement_repository.py, backend/services/disc_service.py, backend/services/mission_service.py, backend/services/project_service.py, backend/services/certificate_service.py, backend/services/profile_service.py, backend/controllers/profile_controller.py
+
+### Resumo
+Criada a tabela `evolution_events` para historico simples e persistente de eventos do usuario. Implementado service de evolucao com indicadores derivados, calculo automatico de niveis pela curva 0/200/500/900/1400 XP, progresso para o proximo nivel e registro idempotente de DISC concluido, missao concluida, projeto criado, certificado criado e conquista desbloqueada.
+
+### Impacto
+O perfil passa a expor uma evolucao visual persistente sem DISC Observado, IA ou analises avancadas. O dashboard e o perfil recebem nivel, XP, progresso, indicadores consolidados e ultimos eventos registrados no SQLite.
+
+## 2026-09-23
+
+### Funcionalidade
 Renderização da Home para diferentes estados de perfil
 
 ### Arquivos alterados

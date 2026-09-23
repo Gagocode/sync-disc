@@ -3,6 +3,7 @@ from repositories import certificate_repository
 from repositories import disc_repository
 from repositories import mission_repository
 from repositories import project_repository
+from services.evolution_service import record_achievement_unlocked
 
 
 ACHIEVEMENT_CATALOG = [
@@ -48,15 +49,15 @@ def evaluate_user_achievements(user_id):
     _ensure_catalog()
 
     if disc_repository.find_initial_result_by_user_id(user_id):
-        achievement_repository.unlock_for_user(user_id, "primeiro_passo")
+        _unlock_achievement(user_id, "primeiro_passo")
 
     project_count = project_repository.count_by_user_id(user_id)
     if project_count >= 1:
-        achievement_repository.unlock_for_user(user_id, "construtor")
+        _unlock_achievement(user_id, "construtor")
 
     certificate_count = certificate_repository.count_by_user_id(user_id)
     if certificate_count >= 1:
-        achievement_repository.unlock_for_user(user_id, "desenvolvendo_habilidades")
+        _unlock_achievement(user_id, "desenvolvendo_habilidades")
 
     completed_missions = [
         mission
@@ -64,11 +65,21 @@ def evaluate_user_achievements(user_id):
         if mission.status == "Concluida"
     ]
     if len(completed_missions) >= 3:
-        achievement_repository.unlock_for_user(user_id, "explorador")
+        _unlock_achievement(user_id, "explorador")
 
     if project_count >= 3 and certificate_count >= 3:
-        achievement_repository.unlock_for_user(user_id, "curriculo_vivo")
+        _unlock_achievement(user_id, "curriculo_vivo")
 
 
 def _ensure_catalog():
     achievement_repository.sync_catalog(ACHIEVEMENT_CATALOG)
+
+
+def _unlock_achievement(user_id, achievement_key):
+    achievement, created = achievement_repository.unlock_for_user_with_status(
+        user_id,
+        achievement_key,
+    )
+    if created:
+        record_achievement_unlocked(user_id, achievement)
+    return achievement
