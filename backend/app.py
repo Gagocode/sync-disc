@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect, url_for
 
 from controllers.auth_controller import auth_bp
 from controllers.certificate_controller import certificate_bp
@@ -41,6 +41,10 @@ def create_app():
     app.register_blueprint(public_profile_bp)
 
     @app.get("/")
+    def home():
+        return redirect(url_for("pages.dashboard_page"))
+
+    @app.get("/health")
     def health_check():
         return jsonify(
             {

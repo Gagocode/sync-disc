@@ -17,6 +17,7 @@
         <div class="public-xp">
           <strong>{{ user.xp }}</strong>
           <span>XP</span>
+          <span>Nivel {{ evolution.level.current }}</span>
         </div>
       </section>
 
@@ -30,9 +31,30 @@
           <span>Certificados</span>
         </article>
         <article class="panel">
+          <strong>{{ indicators.missions_completed }}</strong>
+          <span>Missoes concluidas</span>
+        </article>
+        <article class="panel">
+          <strong>{{ indicators.achievements_unlocked }}</strong>
+          <span>Conquistas</span>
+        </article>
+        <article class="panel">
           <strong>{{ indicators.xp_total }}</strong>
           <span>XP Total</span>
         </article>
+      </section>
+
+      <section class="panel public-disc">
+        <h2>Progressao</h2>
+        {% if evolution.level.next %}
+          <p>Nivel {{ evolution.level.current }} rumo ao Nivel {{ evolution.level.next }}.</p>
+        {% else %}
+          <p>Nivel maximo alcancado nesta versao do MVP.</p>
+        {% endif %}
+        <div class="progress-track" aria-label="Progresso de nivel">
+          <span style="width: {{ evolution.level.progress_percent }}%"></span>
+        </div>
+        <p>{{ evolution.level.progress_percent }}% de progresso no nivel atual.</p>
       </section>
 
       <section class="panel public-disc">
@@ -103,6 +125,23 @@
           </div>
         {% else %}
           <p>Nenhum certificado cadastrado.</p>
+        {% endif %}
+      </section>
+
+      <section>
+        <h2>Conquistas</h2>
+        {% if achievements.unlocked %}
+          <div class="achievement-list">
+            {% for achievement in achievements.unlocked %}
+              <article class="achievement-card">
+                <h3>{{ achievement.nome }}</h3>
+                <p>{{ achievement.descricao }}</p>
+                <p><strong>Desbloqueada em:</strong> {{ achievement.data_desbloqueio }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Nenhuma conquista desbloqueada ainda.</p>
         {% endif %}
       </section>
     </main>

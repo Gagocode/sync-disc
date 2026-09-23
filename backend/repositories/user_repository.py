@@ -59,6 +59,20 @@ def update_profile_class(user_id, classe):
         return find_by_id(user_id)
 
 
+def update_password_hash(user_id, senha_hash):
+    with get_connection() as connection:
+        connection.execute(
+            """
+            UPDATE users
+            SET senha_hash = ?
+            WHERE id = ?
+            """,
+            (senha_hash, user_id),
+        )
+        connection.commit()
+        return find_by_id(user_id)
+
+
 def add_xp(user_id, xp_amount):
     with get_connection() as connection:
         connection.execute(
