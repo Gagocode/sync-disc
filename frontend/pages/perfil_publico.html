@@ -3,148 +3,172 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ user.nome }} - Sync Disc</title>
+    <meta name="theme-color" content="#f3f7ff">
+    <title>{{ user.nome }} · Sync Disc</title>
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
-  <body>
-    <main class="app-shell public-profile">
-      <section class="public-header">
-        <div>
+  <body class="public-profile-page">
+    <main class="public-profile">
+      <header class="public-hero">
+        <div class="public-hero-copy">
+          <a class="public-brand" href="/" aria-label="Sync Disc, início">
+            <span class="public-brand-mark" aria-hidden="true">S</span>
+            <span>Sync Disc</span>
+          </a>
+          <p class="public-eyebrow">Currículo Vivo</p>
           <h1>{{ user.nome }}</h1>
-          <p>{{ user.curso or "Curso nao informado" }}</p>
-          <p>{{ user.classe or "Classe ainda nao definida" }}</p>
-        </div>
-        <div class="public-xp">
-          <strong>{{ user.xp }}</strong>
-          <span>XP</span>
-          <span>Nivel {{ evolution.level.current }}</span>
-        </div>
-      </section>
-
-      <section class="indicator-grid">
-        <article class="panel">
-          <strong>{{ indicators.projects_count }}</strong>
-          <span>Projetos</span>
-        </article>
-        <article class="panel">
-          <strong>{{ indicators.certificates_count }}</strong>
-          <span>Certificados</span>
-        </article>
-        <article class="panel">
-          <strong>{{ indicators.missions_completed }}</strong>
-          <span>Missoes concluidas</span>
-        </article>
-        <article class="panel">
-          <strong>{{ indicators.achievements_unlocked }}</strong>
-          <span>Conquistas</span>
-        </article>
-        <article class="panel">
-          <strong>{{ indicators.xp_total }}</strong>
-          <span>XP Total</span>
-        </article>
-      </section>
-
-      <section class="panel public-disc">
-        <h2>Progressao</h2>
-        {% if evolution.level.next %}
-          <p>Nivel {{ evolution.level.current }} rumo ao Nivel {{ evolution.level.next }}.</p>
-        {% else %}
-          <p>Nivel maximo alcancado nesta versao do MVP.</p>
-        {% endif %}
-        <div class="progress-track" aria-label="Progresso de nivel">
-          <span style="width: {{ evolution.level.progress_percent }}%"></span>
-        </div>
-        <p>{{ evolution.level.progress_percent }}% de progresso no nivel atual.</p>
-      </section>
-
-      <section class="panel public-disc">
-        <h2>DISC Inicial x DISC Observado</h2>
-        <p>O DISC Observado e calculado a partir das atividades realizadas dentro da plataforma.</p>
-        <div class="disc-comparison-grid">
-          <article class="disc-comparison-card">
-            <h3>DISC Inicial</h3>
-            {% if disc_result %}
-              <p><strong>Dimensao predominante:</strong> {{ disc_result.predominant_dimension }}</p>
-              <div class="disc-score-grid">
-                {% for dimension, score in disc_result.scores.items() %}
-                  <div><strong>{{ dimension }}</strong><span>{{ score }} pts</span></div>
-                {% endfor %}
-              </div>
+          <div class="public-identity">
+            {% if user.classe %}<span class="public-class">{{ user.classe }}</span>{% endif %}
+            {% if user.curso %}<span>{{ user.curso }}</span>{% endif %}
+          </div>
+          <p class="public-summary">
+            {% if projects or certificates %}
+              Uma trajetória construída com {{ indicators.projects_count }} {{ 'projeto' if indicators.projects_count == 1 else 'projetos' }} e {{ indicators.certificates_count }} {{ 'certificado' if indicators.certificates_count == 1 else 'certificados' }}, acompanhada por missões e marcos de evolução.
             {% else %}
-              <p>Resultado DISC Inicial ainda nao disponivel.</p>
+              Uma trajetória profissional em construção, com evolução acompanhada por XP, nível e missões concluídas.
             {% endif %}
-          </article>
-          <article class="disc-comparison-card">
-            <h3>DISC Observado</h3>
-            {% if observed_disc_result.predominant_dimension %}
-              <p><strong>Dimensao em destaque:</strong> {{ observed_disc_result.predominant_dimension }}</p>
-            {% else %}
-              <p>Aguardando atividades suficientes no Curriculo Vivo.</p>
-            {% endif %}
-            <div class="disc-score-grid">
-              {% for dimension, score in observed_disc_result.scores.items() %}
-                <div><strong>{{ dimension }}</strong><span>{{ score }} pts</span></div>
-              {% endfor %}
+          </p>
+        </div>
+        <div class="public-level" aria-label="Nível {{ evolution.level.current }} e {{ user.xp }} XP acumulados">
+          <span class="public-level-label">Nível atual</span>
+          <strong>{{ evolution.level.current }}</strong>
+          <span class="public-xp-value">{{ user.xp }} XP</span>
+          {% if evolution.level.next %}
+            <div class="public-level-progress" role="img" aria-label="{{ evolution.level.progress_percent }}% do nível atual concluído">
+              <span style="width: {{ evolution.level.progress_percent }}%"></span>
             </div>
-          </article>
+            <small>{{ evolution.level.progress_percent }}% até o nível {{ evolution.level.next }}</small>
+          {% else %}
+            <small>Nível máximo disponível</small>
+          {% endif %}
+        </div>
+      </header>
+
+      <section class="public-section public-growth" aria-labelledby="growth-title">
+        <div class="section-heading">
+          <p class="public-eyebrow">Uma jornada em movimento</p>
+          <h2 id="growth-title">Evolução em números</h2>
+        </div>
+        <div class="growth-line" aria-label="Indicadores de evolução">
+          <article class="growth-stat growth-stat-xp"><strong>{{ indicators.xp_total }}</strong><span>XP acumulados</span></article>
+          <article class="growth-stat"><strong>{{ evolution.level.current }}</strong><span>Nível atual</span></article>
+          <article class="growth-stat"><strong>{{ indicators.projects_count }}</strong><span>Projetos</span></article>
+          <article class="growth-stat"><strong>{{ indicators.certificates_count }}</strong><span>Certificados</span></article>
+          <article class="growth-stat"><strong>{{ indicators.missions_completed }}</strong><span>Missões concluídas</span></article>
+          <article class="growth-stat growth-stat-achievement"><strong>{{ indicators.achievements_unlocked }}</strong><span>Conquistas</span></article>
         </div>
       </section>
 
-      <section>
-        <h2>Projetos</h2>
+      <section class="public-section public-disc-section" aria-labelledby="disc-title">
+        <div class="section-heading">
+          <p class="public-eyebrow">Ponto de partida e prática</p>
+          <h2 id="disc-title">Um perfil que também evolui</h2>
+          <p>O DISC Inicial registra o resultado do quiz. O Observado reflete atividades realizadas na plataforma.</p>
+        </div>
+        <div class="disc-legend" aria-hidden="true"><span><i class="disc-dot disc-dot-initial"></i>Inicial</span><span><i class="disc-dot disc-dot-observed"></i>Observado</span></div>
+        <div class="disc-rows">
+          {% set dimension_names = {'D': 'Dominância', 'I': 'Influência', 'S': 'Estabilidade', 'C': 'Conformidade'} %}
+          {% if disc_result %}
+            {% for dimension, initial_score in disc_result.scores.items() %}
+              {% set observed_score = observed_disc_result.scores[dimension] %}
+              <article class="disc-row disc-dimension-{{ dimension|lower }}">
+                <div class="disc-row-title"><strong>{{ dimension }}</strong><span>{{ dimension_names[dimension] }}</span></div>
+                <div class="disc-scale" role="img" aria-label="{{ dimension_names[dimension] }}: Inicial {{ initial_score }} pontos, Observado {{ observed_score }} pontos">
+                  <span class="disc-scale-marker disc-scale-initial" style="left: {{ initial_score }}%"></span>
+                  <span class="disc-scale-marker disc-scale-observed" style="left: {{ observed_score }}%"></span>
+                </div>
+                <div class="disc-row-values"><span>{{ initial_score }}</span><span>{{ observed_score }}</span></div>
+              </article>
+            {% endfor %}
+          {% else %}
+            <p class="public-empty">O DISC Inicial ainda não está disponível.</p>
+          {% endif %}
+        </div>
+        {% if not disc_result %}<p class="disc-observed-note">DISC Observado: {{ observed_disc_result.predominant_dimension or 'aguardando atividades' }}</p>{% endif %}
+      </section>
+
+      <section class="public-section public-timeline-section" aria-labelledby="timeline-title">
+        <div class="section-heading">
+          <p class="public-eyebrow">Marcos registrados</p>
+          <h2 id="timeline-title">Trajetória</h2>
+        </div>
+        {% if evolution.history %}
+          <ol class="public-timeline">
+            {% for event in evolution.history %}
+              <li class="timeline-event">
+                <span class="timeline-marker" aria-hidden="true"></span>
+                <div><h3>{{ event.titulo }}</h3><p>{{ event.descricao }}</p></div>
+                <time datetime="{{ event.created_at }}">{{ event.created_at }}</time>
+              </li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          <p class="public-empty">Os marcos da trajetória aparecerão aqui conforme forem registrados.</p>
+        {% endif %}
+      </section>
+
+      <section class="public-section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="public-eyebrow">Evidências de trabalho</p>
+          <h2 id="projects-title">Projetos</h2>
+        </div>
         {% if projects %}
-          <div class="project-list">
+          <div class="public-project-list">
             {% for project in projects %}
-              <article class="project-card">
-                <h3>{{ project.titulo }}</h3>
-                <p>{{ project.descricao }}</p>
-                <p><strong>Tecnologias:</strong> {{ project.tecnologias }}</p>
-                {% if project.link %}
-                  <p><strong>Link:</strong> <a href="{{ project.link }}">{{ project.link }}</a></p>
-                {% endif %}
+              <article class="public-project">
+                <div class="project-index">{{ '%02d'|format(loop.index) }}</div>
+                <div class="project-content"><h3>{{ project.titulo }}</h3><p>{{ project.descricao }}</p>
+                  {% if project.tecnologias %}<p class="project-tools"><span>Tecnologias</span> {{ project.tecnologias }}</p>{% endif %}
+                  {% if project.link and (project.link.startswith('https://') or project.link.startswith('http://')) and project.link.split('/')[2] != request.host %}
+                    <p class="public-project-url"><span>Link do projeto</span><a class="public-project-link" href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.link }}</a></p>
+                  {% else %}
+                    <p class="public-project-link-empty">Endereço público do projeto não informado.</p>
+                  {% endif %}
+                </div>
+                <time datetime="{{ project.created_at }}">{{ project.created_at }}</time>
               </article>
             {% endfor %}
           </div>
-        {% else %}
-          <p>Nenhum projeto cadastrado.</p>
-        {% endif %}
+        {% else %}<p class="public-empty">Ainda não há projetos registrados neste perfil.</p>{% endif %}
       </section>
 
-      <section>
-        <h2>Certificados</h2>
+      <section class="public-section" aria-labelledby="certificates-title">
+        <div class="section-heading">
+          <p class="public-eyebrow">Conhecimento em prática</p>
+          <h2 id="certificates-title">Certificados</h2>
+        </div>
         {% if certificates %}
-          <div class="certificate-list">
+          <div class="public-certificate-list">
             {% for certificate in certificates %}
-              <article class="certificate-card">
-                <h3>{{ certificate.nome }}</h3>
-                <p><strong>Instituicao:</strong> {{ certificate.instituicao }}</p>
-                <p><strong>Carga horaria:</strong> {{ certificate.carga_horaria }}h</p>
-                <p><strong>Conclusao:</strong> {{ certificate.data_conclusao }}</p>
+              <article class="public-certificate">
+                <span class="certificate-stamp" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span>
+                <div><h3>{{ certificate.nome }}</h3><p>{{ certificate.instituicao }}</p><span>{{ certificate.carga_horaria }} horas · Concluído em {{ certificate.data_conclusao }}</span></div>
               </article>
             {% endfor %}
           </div>
-        {% else %}
-          <p>Nenhum certificado cadastrado.</p>
-        {% endif %}
+        {% else %}<p class="public-empty">Ainda não há certificados registrados neste perfil.</p>{% endif %}
       </section>
 
-      <section>
-        <h2>Conquistas</h2>
+      <section class="public-section public-achievements-section" aria-labelledby="achievements-title">
+        <div class="section-heading">
+          <p class="public-eyebrow">Reconhecimento da jornada</p>
+          <h2 id="achievements-title">Conquistas</h2>
+        </div>
         {% if achievements.unlocked %}
-          <div class="achievement-list">
+          <div class="public-achievement-list">
             {% for achievement in achievements.unlocked %}
-              <article class="achievement-card">
-                <h3>{{ achievement.nome }}</h3>
-                <p>{{ achievement.descricao }}</p>
-                <p><strong>Desbloqueada em:</strong> {{ achievement.data_desbloqueio }}</p>
-              </article>
+              <article class="public-achievement"><span class="achievement-mark" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span><div><h3>{{ achievement.nome }}</h3><p>{{ achievement.descricao }}</p><time datetime="{{ achievement.data_desbloqueio }}">{{ achievement.data_desbloqueio }}</time></div></article>
             {% endfor %}
           </div>
-        {% else %}
-          <p>Nenhuma conquista desbloqueada ainda.</p>
-        {% endif %}
+        {% else %}<p class="public-empty">As conquistas vão registrar os marcos alcançados nesta trajetória.</p>{% endif %}
       </section>
+
+      <section class="public-evolution-summary" aria-labelledby="summary-title">
+        <p class="public-eyebrow">O que já foi construído</p>
+        <h2 id="summary-title">Uma trajetória feita de evidências.</h2>
+        <p>Desde {{ user.created_at }}, esta jornada reúne {{ indicators.xp_total }} XP, {{ indicators.projects_count }} {{ 'projeto' if indicators.projects_count == 1 else 'projetos' }}, {{ indicators.certificates_count }} {{ 'certificado' if indicators.certificates_count == 1 else 'certificados' }} e {{ indicators.missions_completed }} {{ 'missão concluída' if indicators.missions_completed == 1 else 'missões concluídas' }}. O nível {{ evolution.level.current }} representa a progressão dentro da plataforma; projetos, certificados e o DISC Observado ajudam a mostrar o percurso na prática.</p>
+      </section>
+      <footer class="public-footer"><span class="public-brand-mark" aria-hidden="true">S</span><span>Sync Disc · Currículo Vivo</span></footer>
     </main>
-    <script src="/assets/js/main.js"></script>
   </body>
 </html>

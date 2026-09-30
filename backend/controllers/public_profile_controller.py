@@ -1,18 +1,19 @@
 from flask import Blueprint, jsonify, render_template
 
-from services.public_profile_service import PublicProfileError, get_public_profile
+from services.public_profile_service import (
+    PublicProfileError,
+    get_public_profile,
+    get_public_profile_by_name,
+)
 
 
 public_profile_bp = Blueprint("public_profile", __name__, url_prefix="/profile")
+public_profile_name_bp = Blueprint(
+    "public_profile_name", __name__, url_prefix="/perfil"
+)
 
 
-@public_profile_bp.get("/<int:user_id>")
-def public_profile_page(user_id):
-    try:
-        profile = get_public_profile(user_id)
-    except PublicProfileError as error:
-        return str(error), 404
-
+def _render_public_profile(profile):
     return render_template(
         "perfil_publico.html",
         user=profile["user"],
@@ -24,6 +25,31 @@ def public_profile_page(user_id):
         indicators=profile["indicators"],
         observed_disc_result=profile["observed_disc_result"],
     )
+
+
+@public_profile_bp.get("/<int:user_id>")
+def public_profile_page(user_id):
+    try:
+        profile = get_public_profile(user_id)
+    except PublicProfileError as error:
+        return str(error), 404
+
+    return _render_public_profile(profile)
+
+
+@public_profile_name_bp.get("/<path:username>")
+def public_profile_by_name_page(username):
+    try:
+        profile = get_public_profile_by_name(username)
+    except PublicProfileError as error:
+        status_code = (
+            409
+            if str(error) == "Este nome corresponde a mais de um perfil"
+            else 404
+        )
+        return str(error), status_code
+
+    return _render_public_profile(profile)
 
 
 @public_profile_bp.get("/<int:user_id>/json")

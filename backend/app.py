@@ -10,7 +10,10 @@ from controllers.mission_controller import mission_bp
 from controllers.page_controller import page_bp
 from controllers.profile_controller import profile_bp
 from controllers.project_controller import project_bp
-from controllers.public_profile_controller import public_profile_bp
+from controllers.public_profile_controller import (
+    public_profile_bp,
+    public_profile_name_bp,
+)
 from database.connection import init_database
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -39,6 +42,7 @@ def create_app():
     app.register_blueprint(profile_bp)
     app.register_blueprint(project_bp)
     app.register_blueprint(public_profile_bp)
+    app.register_blueprint(public_profile_name_bp)
 
     @app.get("/")
     def home():
