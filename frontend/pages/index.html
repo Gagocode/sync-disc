@@ -62,7 +62,7 @@
         </section>
 
         <section class="workspace-panel" id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" data-panel="profile" hidden>
-          <div class="workspace-heading"><div><p class="eyebrow">SUA JORNADA</p><h2>Perfil</h2><p class="muted">Uma visao reunida da sua identidade e do seu desenvolvimento.</p></div><a class="button button-soft" href="/profile/{{ user.id }}" target="_blank" rel="noopener">Ver perfil publico</a></div>
+          <div class="workspace-heading"><div><p class="eyebrow">SUA JORNADA</p><h2>Perfil</h2><p class="muted">Uma visao reunida da sua identidade e do seu desenvolvimento.</p></div><a class="button button-soft" href="/perfil/{{ user.nome|urlencode }}" target="_blank" rel="noopener">Ver perfil publico</a></div>
           <div class="profile-detail-grid"><article class="workspace-card"><div class="profile-avatar large">{{ user.nome[0] }}</div><div><h3 id="profile-name">{{ user.nome }}</h3><p id="profile-course" class="muted">{{ user.curso or "Curso nao informado" }}</p><p id="profile-class" class="profile-meta">{{ user.classe or "Classe aguardando DISC" }}</p></div><dl class="profile-facts"><div><dt>Email</dt><dd id="profile-email">Carregando...</dd></div><div><dt>Membro desde</dt><dd id="profile-created">Carregando...</dd></div><div><dt>XP acumulado</dt><dd id="profile-xp">{{ user.xp }}</dd></div></dl></article>
             <article class="workspace-card"><div class="section-heading"><div><p class="eyebrow">COMPORTAMENTO</p><h3>DISC Inicial e observado</h3></div></div><div id="profile-disc" class="loading-state">Carregando DISC...</div></article></div>
         </section>

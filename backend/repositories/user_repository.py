@@ -45,6 +45,21 @@ def find_public_by_id(user_id):
     return find_by_id(user_id)
 
 
+def find_public_by_name(nome):
+    with get_connection() as connection:
+        rows = connection.execute(
+            """
+            SELECT id, nome, email, senha_hash, curso, classe, xp, created_at
+            FROM users
+            WHERE nome = ? COLLATE NOCASE
+            ORDER BY id
+            LIMIT 2
+            """,
+            (nome,),
+        ).fetchall()
+        return [User.from_row(row) for row in rows]
+
+
 def update_profile_class(user_id, classe):
     with get_connection() as connection:
         connection.execute(

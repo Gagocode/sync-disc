@@ -50,3 +50,12 @@ def get_public_profile(user_id):
             "xp_total": user.xp,
         },
     }
+
+
+def get_public_profile_by_name(nome):
+    matches = user_repository.find_public_by_name(nome)
+    if not matches:
+        raise PublicProfileError("Perfil publico nao encontrado")
+    if len(matches) > 1:
+        raise PublicProfileError("Este nome corresponde a mais de um perfil")
+    return get_public_profile(matches[0].id)
