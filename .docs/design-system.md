@@ -1,6 +1,6 @@
 # Sync Disc — Design System
 
-**Status:** proposta oficial para aprovação  
+**Status:** Design DNA V1 — identidade emocional e gamificação visível
 **Escopo:** identidade visual, interface e experiência do frontend  
 **Princípio do produto:** cada tela deve ajudar estudantes a reconhecer, registrar e comunicar sua evolução profissional.
 
@@ -28,27 +28,28 @@ O Sync Disc não é um ERP, uma ferramenta administrativa, um dashboard corporat
 
 ### Personalidade
 
-**Profissional, curiosa, encorajadora e concreta.** A interface deve equilibrar confiança e movimento. Ela reconhece conquistas com calor, mas sempre relaciona progresso a atividades e evidências reais.
+**Profissional, curiosa, encorajadora, energética e concreta.** A interface transmite potencial e crescimento. Ela reconhece conquistas com cor e hierarquia visual, sempre relacionando progresso a atividades e evidências reais.
 
 ### Tom visual
 
-- Base clara e editorial, com azul profundo como âncora de confiança.
-- Azul petróleo e verde como sinais de identidade e crescimento.
-- Âmbar usado em pequenas doses para XP e marcos celebratórios.
+- Base clara e levemente azulada, com azul profundo para confiança e azul vibrante para ação.
+- Ciano e turquesa marcam descoberta, interação e evolução.
+- Amarelo suave identifica XP; laranja suave identifica conquistas. Ambos devem ser fáceis de localizar, sem ocupar toda a interface.
+- Cores de progresso devem aparecer em elementos reais de progressão, e não apenas como detalhes decorativos.
 - Contraste suficiente para leitura e hierarquia tipográfica visível.
-- Composição assimétrica e linhas de percurso podem dar identidade às jornadas; não transformar toda seção em um painel de cards.
+- Composição assimétrica e linhas de percurso dão identidade às jornadas. Áreas coloridas e pequenos gradientes podem ampliar energia em progresso e missão ativa; não transformar toda seção em um painel de cards.
 
 ### Linguagem visual
 
 - Usar títulos expressivos, alinhados à esquerda, e texto direto que explique a informação apresentada.
-- Preferir regras finas, áreas de cor, marcadores de etapa e linhas de evolução a sombras grandes e fundos em gradiente.
+- Preferir marcadores de etapa, linhas de evolução, superfícies coloridas e fundos claros com matiz azul a excesso de cinza e sombras grandes.
 - Usar ícones consistentes provenientes de uma biblioteca ou assets do produto. Letras isoladas podem ser usadas como iniciais ou identificadores explícitos, não como substitutos improvisados de ícones.
 - Reservar ilustrações a funções de orientação ou identidade. Evitar arte genérica de IA, ornamentos sem significado e ilustrações que prometam funcionalidades inexistentes.
 - Apresentar conteúdo real do usuário ou texto editorial que seja claramente explicativo. Não inventar métricas, depoimentos, perfis ou atividade para preencher espaços.
 
 ### Nível de gamificação
 
-**Moderado e orientado à carreira.** Progresso, níveis, XP, missões e conquistas são elementos centrais do produto, mas a linguagem visual deve fazê-los parecer reconhecimento de desenvolvimento profissional. Usar movimento sutil, contagem clara, etapas e marcos. Evitar mascotes infantis, troféus excessivos, placares competitivos, efeitos de videogame, confete permanente e urgência artificial.
+**Visível e orientado à carreira.** O usuário deve perceber XP, missão ativa, conquista e progresso sem precisar procurar por eles. Usar números legíveis, cor semântica, marcadores, animações breves e recompensas claramente associadas à ação que as gerou. A energia visual pode se aproximar de Spotify Wrapped, GitHub Profile, Duolingo e Linear: absorver a celebração de dados, a identidade construída por contribuições, o feedback imediato e a clareza de interação. Não copiar layouts, mascotes, ranking, feed ou linguagem visual proprietária. Evitar infantilização, competição artificial e urgência inventada.
 
 ## 3. Paleta Oficial
 
@@ -56,17 +57,18 @@ As cores abaixo são tokens de referência. Manter seus papéis consistentes ent
 
 | Token | Cor | Uso |
 |---|---|---|
-| **Primária — Azul profundo** | `#164B61` | Marca, títulos ou elementos de navegação prioritários, links e CTA principal. É a âncora de confiança do produto. |
-| **Secundária — Azul petróleo** | `#347D78` | Ações secundárias, foco, seleção, marcadores de percurso e elementos que conectam seções. |
-| **Evolução — Verde folha** | `#397F65` | Progresso concluído, crescimento e estados positivos. Usar em barras, indicadores e feedback; garantir contraste de texto. |
-| **XP — Âmbar** | `#B97818` | Quantidade de XP e recompensa associada a uma missão concluída. Usar como acento pontual, não como fundo dominante. |
-| **Conquistas — Ouro claro** | `#C49A3A` | Marcos desbloqueados e reconhecimento cosmético. Combinar com fundo claro `#FFF4D6`; não confundir com alerta. |
-| **Tinta principal** | `#102D3A` | Títulos, texto principal e dados prioritários. |
-| **Texto secundário** | `#60717A` | Instruções, metadados e descrições. |
-| **Fundo de página** | `#F7F8FA` | Base neutra de páginas e áreas de descanso visual. |
+| **Primária — Azul vibrante** | `#2864F0` | Ação principal, navegação ativa, identidade e progresso que precisa de alta visibilidade. |
+| **Profundo — Azul profundo** | `#153B82` | Títulos, superfícies de destaque e contraste de confiança. |
+| **Secundária — Ciano** | `#10B9D2` | Descoberta, foco, seleção, links e ligações entre etapas. |
+| **Evolução — Turquesa** | `#14A99A` | Barras de progresso, etapas concluídas e sinais de crescimento. Usar com texto escuro ou em áreas gráficas; não usar como cor de texto junto a texto principal sem hierarquia. |
+| **XP — Amarelo suave** | `#F5C84C` | XP acumulado e recompensa de missão. Dar destaque visível ao número e usar tinta escura sobre o amarelo. |
+| **Conquistas — Laranja suave** | `#F28B45` | Marcos desbloqueados e reconhecimento cosmético. Usar em ícone, contorno ou superfície clara alaranjada. |
+| **Tinta principal** | `#15305D` | Títulos, texto principal e dados prioritários. |
+| **Texto secundário** | `#536784` | Instruções, metadados e descrições. Evitar cinza neutro pálido. |
+| **Fundo de página** | `#F3F7FF` | Base clara com matiz azul, mantendo energia e descanso visual. |
 | **Superfície** | `#FFFFFF` | Campos, conteúdo principal e superfícies elevadas de forma simples. |
-| **Borda** | `#D8E0E4` | Divisores e limites de componentes. |
-| **Erro** | `#A23E35` | Erros de validação e ações malsucedidas, sempre acompanhados por texto. |
+| **Borda** | `#D9E5F5` | Divisores e limites de componentes. |
+| **Erro** | `#D94B4B` | Erros de validação e ações malsucedidas, sempre acompanhados por texto. |
 
 ### Cores DISC
 
@@ -74,18 +76,18 @@ Manter as quatro dimensões distintas e estáveis em todos os gráficos e compar
 
 | Dimensão | Identificação | Cor |
 |---|---|---|
-| D — Dominância | D | `#164B61` |
-| I — Influência | I | `#347D78` |
-| S — Estabilidade | S | `#719D82` |
-| C — Conformidade | C | `#607D94` |
+| D — Dominância | D | `#2864F0` |
+| I — Influência | I | `#10B9D2` |
+| S — Estabilidade | S | `#14A99A` |
+| C — Conformidade | C | `#7284E8` |
 
 Não depender somente da cor para diferenciar dimensões: mostrar também letra e nome. Evitar o esquema de semáforo para sugerir valor positivo ou negativo de um perfil.
 
 ### Uso e contraste
 
-- O roxo do dashboard atual deve deixar de ser a cor de marca e de progressão.
-- Não combinar todos os acentos em todos os componentes. Primária e neutros sustentam a interface; secundária, evolução, XP e conquistas mantêm seus papéis semânticos.
-- Texto sobre fundo colorido deve ter contraste legível. Para textos pequenos, preferir azul profundo ou verde folha sobre fundos claros a texto branco sobre tons suaves.
+- Evitar predominância de cinza, verde petróleo e cores corporativas apagadas. Azul, ciano, turquesa, amarelo e laranja formam a assinatura energética da plataforma.
+- Não combinar todos os acentos em cada componente. Primária e neutros azulados sustentam a interface; ciano, turquesa, XP e conquistas mantêm seus papéis semânticos.
+- Amarelo de XP e laranja de conquista precisam se distinguir entre si e de erros. Texto sobre essas superfícies usa tinta escura; não usar branco sobre tons suaves.
 - Estados de erro, sucesso e foco também precisam de rótulo, ícone apropriado ou explicação textual.
 
 ## 4. Tipografia
@@ -114,15 +116,15 @@ Usar caixa alta com parcimônia. Evitar tracking exagerado e rótulos decorativo
 ### Cards e superfícies
 
 - Usar cards para agrupar conteúdo relacionado, não para cada linha de informação.
-- Fundo branco ou neutro, borda fina e raio entre 8 e 14 px.
+- Fundo branco ou azul muito claro, borda fina e raio entre 8 e 14 px.
 - Sombras discretas ou ausentes; elevação não deve competir com conteúdo.
 - Limitar a quantidade de cards lado a lado. Priorizar hierarquia, divisores e seções com títulos claros.
-- Uma área em destaque pode usar a cor primária ou secundária de modo controlado, especialmente para a missão ativa.
+- Uma área em destaque pode usar azul profundo, ciano ou turquesa, especialmente para a missão ativa. Cores fortes devem ter função e dados reais associados.
 
 ### Botões
 
-- **Primário:** fundo azul profundo, texto branco; uma ação principal por região. Usar para avançar a jornada ou salvar uma ação importante.
-- **Secundário:** contorno ou fundo azul petróleo claro para ações de apoio.
+- **Primário:** azul vibrante, texto branco; uma ação principal por região. Usar para avançar a jornada ou salvar uma ação importante.
+- **Secundário:** contorno ou fundo ciano claro para ações de apoio.
 - **Terciário:** link ou botão sem fundo para ações de navegação secundárias.
 - **Destrutivo:** estilo discreto com cor de erro, confirmação explícita e rótulo específico.
 - Altura mínima recomendada de 40 px, área de toque confortável em dispositivos móveis, estados hover/focus/disabled perceptíveis e foco visível por teclado.
@@ -131,7 +133,7 @@ Usar caixa alta com parcimônia. Evitar tracking exagerado e rótulos decorativo
 ### Inputs e formulários
 
 - Rótulo visível e persistente acima ou ao lado do campo; placeholder não substitui rótulo.
-- Campos com altura confortável, borda neutra e foco em azul petróleo.
+- Campos com altura confortável, borda azulada clara e foco em azul vibrante ou ciano.
 - Informar claramente campos opcionais, formato esperado e erro junto ao campo correspondente.
 - Agrupar os dados em etapas quando isso reduzir esforço, preservando resumo e indicação do progresso.
 - Formulários devem explicar como os dados contribuem para o Perfil ou Currículo Vivo quando isso for útil.
@@ -144,21 +146,21 @@ Usar caixa alta com parcimônia. Evitar tracking exagerado e rótulos decorativo
 
 ### Missões
 
-- Destacar uma missão ativa com título, descrição, estado, próxima ação e recompensa existente.
+- Destacar visualmente a missão ativa com superfície azul vibrante/profunda, título, descrição, estado, próxima ação e recompensa existente. Ela deve ser identificada de imediato como o próximo passo.
 - Mostrar missões seguintes com menor peso visual e relação clara com a sequência.
 - Tratar missão como oportunidade de registrar uma evidência ou desenvolver uma habilidade; evitar linguagem de tarefa administrativa.
 - Estados e ações exibidos devem refletir exatamente o backend. Não insinuar que uma missão pode ser aceita, ignorada ou concluída manualmente se esse fluxo não existe.
 
 ### XP e níveis
 
-- Exibir XP com contexto: acumulado, recompensa ou distância para o próximo nível.
-- Usar âmbar como acento numérico e verde para progresso; apresentar barra com descrição textual e valor relacionado.
+- Exibir XP com contexto: acumulado, recompensa ou distância para o próximo nível. O valor deve ser um dos primeiros sinais visuais de gamificação que a pessoa percebe.
+- Usar amarelo suave `#F5C84C` como fundo ou badge para XP, com texto escuro. Usar turquesa `#14A99A` para progresso; apresentar barra com descrição textual e valor relacionado.
 - Níveis representam progressão da plataforma, não senioridade ou competência profissional.
 - Não inventar curvas, limites, recompensas ou animações de nível diferentes das regras vigentes.
 
 ### Conquistas
 
-- Dar tratamento de reconhecimento leve, com ícone consistente, nome, descrição e data quando disponível.
+- Dar tratamento de reconhecimento visível e caloroso, com superfície, ícone ou contorno laranja suave `#F28B45`, nome, descrição e data quando disponível.
 - Conquistas são cosméticas segundo as regras atuais; não apresentá-las como bônus de atributo ou DISC.
 - Estados bloqueados só devem aparecer se o produto fornecer essa informação e a tela explicar o que significa.
 
@@ -184,7 +186,7 @@ Usar caixa alta com parcimônia. Evitar tracking exagerado e rótulos decorativo
 
 ## 6. Experiência
 
-Ao utilizar o Sync Disc, a pessoa deve sentir que está começando ou continuando uma trajetória própria: compreende onde está, percebe o que já construiu e enxerga um próximo passo possível. A experiência deve despertar curiosidade sobre o perfil e dar significado às evidências profissionais sem pressionar ou julgar.
+Ao utilizar o Sync Disc, a pessoa deve sentir evolução, conquista, descoberta, progresso e potencial. A interface transmite energia sem perder credibilidade: cores vivas destacam ações e marcos enquanto fundos claros e textos de alto contraste mantêm leitura simples. A pessoa compreende onde está, percebe o que já construiu e enxerga um próximo passo possível, sem pressão ou julgamento.
 
 Cada fluxo deve responder, com linguagem simples:
 
@@ -198,18 +200,18 @@ O registro de projetos, certificados e experiências deve parecer construção d
 
 ### Dashboard autenticado — estilo A
 
-**Estado observado:** página principal em tela única, abas para Dashboard, Perfil, Projetos, Certificados, Missões, Conquistas e Evolução; missão persistente; dados carregados via endpoints existentes. Usa DM Sans e Space Grotesk, cartões arredondados, sombras leves, gradientes e roxo predominante. A organização reúne dados reais e reduz navegação fragmentada.
+**Estado observado:** página principal em tela única, abas para Dashboard, Perfil, Projetos, Certificados, Missões, Conquistas e Evolução; missão persistente; dados carregados via endpoints existentes. Usa DM Sans e Space Grotesk, cartões arredondados, sombras leves e gamificação existente. A camada visual V1 aplica azul vibrante, azul profundo, ciano e turquesa, com XP amarelo em destaque e conquistas em laranja suave.
 
 - **Manter:** missão ativa em destaque, visão conjunta de Perfil/DISC/Currículo Vivo, progresso real, histórico, indicadores e abas que evitam páginas CRUD dispersas.
-- **Melhorar:** substituir o roxo por tokens oficiais; reduzir a repetição de cards; dar mais ritmo editorial às seções; conectar XP a evidências concretas; reforçar nomes e estados reais; simplificar decoração e sombras.
-- **Remover:** gradiente roxo como grande superfície, uso de roxo para qualquer destaque, ícones improvisados com letras quando deveriam ser ícones, e indicadores sem contexto ou hierarquia.
+- **Melhorar:** reduzir a repetição de cards; manter hierarquia editorial; conectar XP e conquistas às atividades reais; reforçar nomes e estados existentes; revisar a composição em telas pequenas.
+- **Remover:** roxo como cor dominante, neutralidade excessiva, ícones improvisados com letras quando deveriam ser ícones e indicadores sem contexto ou hierarquia.
 
 ### Login — estilo B / Experience Overhaul V1
 
 **Estado observado:** composição assimétrica com mensagem de produto, linha gráfica que representa etapas e formulário separado. Paleta azul, petróleo e neutros; campos simples e copy centrada na trajetória.
 
 - **Manter:** headline de Currículo Vivo, mensagem clara, composição assimétrica, percurso visual e formulário objetivo.
-- **Melhorar:** alinhar famílias tipográficas, cores e estados aos tokens oficiais; garantir responsividade e acessibilidade; preservar calor e energia por meio de um acento de evolução.
+- **Melhorar:** alinhar famílias tipográficas, cores e estados aos tokens oficiais; garantir responsividade e acessibilidade; manter o percurso colorido em azul, ciano, turquesa, amarelo e laranja suave.
 - **Remover:** dependência visual de cores ou componentes que só existam no fluxo de entrada, bem como rótulos decorativos sem valor informativo.
 
 ### Cadastro — estilo B / Experience Overhaul V1
@@ -233,7 +235,7 @@ O registro de projetos, certificados e experiências deve parecer construção d
 **Estado observado:** classe e narrativa inicial, pontos fortes, oportunidades de evolução, percentuais DISC e próximo passo ligado a Completar Perfil.
 
 - **Manter:** classe complementar, explicação humana, DISC Inicial visível, separação entre ponto de partida e evolução, missão e CTA para continuar.
-- **Melhorar:** sempre derivar nomes e valores dos dados vigentes; deixar explícito que o perfil é inicial e evolutivo; aplicar cores DISC consistentes; validar textos de classe e descrições com o produto.
+- **Melhorar:** sempre derivar nomes e valores dos dados vigentes; deixar explícito que o perfil é inicial e evolutivo; aplicar cores DISC consistentes; dar destaque à classe, evolução e missão seguinte; validar textos de classe e descrições com o produto.
 - **Remover:** afirmações deterministas sobre personalidade, sugestões de pontuação inventada, gráficos sem escala explicada ou um resultado apresentado como definitivo.
 
 ### Demais páginas e sistema compartilhado
@@ -256,9 +258,11 @@ O frontend também contém páginas de perfil interno e público, missões, proj
 ### Dashboard
 
 - Abrir com saudação e uma leitura simples de progresso apoiada em dados reais.
-- Dar destaque à próxima missão ou próxima ação relevante, mantendo-a ligada à evolução do perfil.
+- Exibir XP atual em amarelo suave com alto contraste e contexto claro.
+- Dar destaque imediato à missão ativa em azul vibrante/profundo; mostrar sua recompensa de XP sem esconder descrição ou próxima ação.
+- Dar às conquistas desbloqueadas um acento laranja suave visível, preservando seu caráter cosmético.
 - Equilibrar três camadas: identidade e progresso; DISC e missão; evidências do Currículo Vivo e histórico.
-- Usar navegação curta e previsível. Evitar painel de métricas genérico, excesso de abas ou cards repetidos.
+- Usar ciano e turquesa para interação e progresso. Manter navegação curta e previsível. Evitar painel corporativo de métricas, excesso de abas ou cards repetidos.
 
 ### Currículo Vivo
 
@@ -269,6 +273,7 @@ O frontend também contém páginas de perfil interno e público, missões, proj
 ### Missões
 
 - Apresentar cada missão como passo concreto de desenvolvimento ou construção do perfil.
+- Usar uma superfície marcante na missão ativa e deixar o estado visualmente legível.
 - Evidenciar disponibilidade, descrição, status e XP conforme dados reais.
 - Explicar o vínculo entre missão e jornada sem criar urgência ou punição visual excessiva.
 - Respeitar o fluxo de estados implementado; interface não estabelece novas regras de missão.
@@ -276,13 +281,14 @@ O frontend também contém páginas de perfil interno e público, missões, proj
 ### Evolução
 
 - Mostrar progresso temporal com datas, atividades e métricas que existam.
+- Usar azul vibrante, ciano e turquesa para tornar barras e etapas fáceis de localizar; amarelo destaca XP.
 - Relacionar a evolução a ações e evidências que a pessoa reconhece.
 - Manter níveis e XP no papel de gamificação, sem tratá-los como medida de empregabilidade ou competência absoluta.
 - Comparações DISC devem identificar explicitamente estado inicial e observado, mantendo escala e cores constantes.
 
 ### Conquistas
 
-- Reconhecer marcos com linguagem adulta e visual caloroso, sem competir com o conteúdo curricular.
+- Reconhecer marcos com acento laranja suave claramente visível, linguagem adulta e visual caloroso, sem competir com o conteúdo curricular.
 - Manter conquistas como cosméticas enquanto as regras do produto assim definirem.
 - Exibir datas e descrições somente quando fornecidas pelo sistema.
 
@@ -317,28 +323,27 @@ Também verificar:
 - Cores, tipografia, estados e comportamento responsivo seguem este documento?
 - Conteúdo, estados vazios, acessibilidade e movimento foram tratados com clareza?
 
-# Benchmark
+## Referências de linguagem visual
 
-Analise quais características do Sync Disc se aproximam de:
+As referências indicam qual qualidade absorver, sem copiar layout, componentes proprietários ou linguagem de marca.
 
-- LinkedIn
-- GitHub
-- Notion
-- Duolingo
+| Referência | Absorver | Evitar |
+|---|---|---|
+| **Spotify Wrapped** | Celebração visual de uma trajetória real, hierarquia expressiva e uso de cor para dar valor aos marcos. | Estatísticas inventadas, animação contínua e excesso de efeitos em telas de tarefa. |
+| **GitHub Profile** | Evidências concretas organizadas como uma história de contribuição e atividade ao longo do tempo. | Aparência de ferramenta para desenvolvedores ou gráficos densos sem contexto profissional. |
+| **Duolingo** | Feedback rápido, progresso fácil de entender e energia visual. | Mascotes, pressão por sequência diária, competição e estética infantil. |
+| **Linear** | Clareza de interação, acabamento e organização visual consistente. | Sobriedade monocromática excessiva ou aparência de ferramenta corporativa de tarefas. |
 
-Explique o que devemos absorver e o que devemos evitar de cada um.
+## Exemplos Práticos
 
-Não copiar nenhum deles.
+### Login ideal
 
-# Exemplos Práticos
+Manter a composição assimétrica atual: mensagem do Currículo Vivo e percurso visual à esquerda, acesso à direita. Azul vibrante identifica a ação principal; ciano e turquesa marcam a sequência; texto e campos permanecem claros e acessíveis. A tela comunica início de trajetória sem virar uma página promocional.
 
-Descreva como seriam:
+### Dashboard ideal
 
-- Login ideal
-- Dashboard ideal
-- Perfil Público ideal
+No primeiro olhar, tornar legíveis XP atual, progresso e missão ativa. XP aparece em amarelo suave; missão em uma área azul de destaque com recompensa visível; conquistas em laranja suave; barras e etapas de evolução usam turquesa/ciano. DISC, evidências do Currículo Vivo e histórico completam a leitura em seções hierarquizadas, sem reduzir a experiência a um painel de métricas.
 
-Seguindo o Design DNA definido.
+### Perfil Público ideal
 
-Não implementar.
-Somente descrever.
+Apresentar a identidade profissional com destaque, seguida por evidências reais, DISC inicial/observado, evolução e conquistas. Usar os acentos coloridos para esclarecer a leitura de progresso e marcos, enquanto projetos e experiências recebem espaço editorial suficiente para demonstrar trabalho. A página deve ser compartilhável e profissional, sem se transformar em feed social.
