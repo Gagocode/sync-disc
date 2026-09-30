@@ -1,6 +1,20 @@
 ## 2026-09-23
 
 ### Funcionalidade
+Area autenticada integrada em tela unica
+
+### Arquivos alterados
+frontend/pages/index.html, frontend/assets/js/main.js, frontend/assets/css/style.css, frontend/progress_frontend.md
+
+### Resumo
+O Dashboard passou a organizar Perfil, Projetos, Certificados, Missoes, Conquistas e Evolucao em paineis por abas, sem navegar para paginas internas. Projetos e certificados agora podem ser listados, adicionados, editados e excluidos em modais, usando os endpoints existentes. Perfil, DISC, conquistas, indicadores e historico ficaram integrados a mesma experiencia, e a missao ativa permanece visivel em todas as abas. Foram removidos da experiencia principal os atalhos para paginas CRUD; links de arquivo, projeto e perfil publico permanecem como destinos externos.
+
+### Impacto
+A area autenticada passa a funcionar como um unico produto responsivo, reduzindo a troca de paginas e concentrando as principais tarefas e informacoes no Dashboard. As regras de negocio e os fluxos do backend permanecem inalterados.
+
+## 2026-09-23
+
+### Funcionalidade
 Acabamento final do MVP para demonstracao
 
 ### Arquivos alterados
