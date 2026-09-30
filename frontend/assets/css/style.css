@@ -1153,3 +1153,248 @@ a {
 .dashboard-page .dashboard-feedback { border-color: #9edfd7; background: #e4f8f4; color: #087f75; }
 .dashboard-page .dashboard-feedback.is-error { border-color: #f0b6bd; background: #fff0f1; color: #a92d35; }
 .dashboard-page .dashboard-dialog, .dashboard-page .workspace-dialog { border-color: var(--line); }
+
+/* Shared Sync Disc Design DNA V1 foundations for legacy and journey screens. */
+:root {
+  color-scheme: light;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  background: #f3f7ff;
+  color: #15305d;
+  font-synthesis: none;
+}
+body { background: #f3f7ff; color: #15305d; font-family: "DM Sans", Arial, Helvetica, sans-serif; }
+h1, h2, h3, h4 { color: #153b82; font-family: "Space Grotesk", "DM Sans", Arial, sans-serif; }
+p { line-height: 1.6; }
+button, input, textarea, select { font-family: inherit; }
+:focus-visible { outline: 3px solid rgba(16, 185, 210, .65); outline-offset: 3px; }
+.app-shell { width: min(1040px, calc(100% - 36px)); padding: clamp(28px, 5vw, 56px) 0 64px; }
+.app-shell > h1 { margin: 0 0 24px; font-size: clamp(32px, 5vw, 48px); letter-spacing: -.035em; line-height: 1.08; }
+.app-shell > section { margin-top: 36px; }
+.app-shell > section > h2 { margin: 0 0 16px; font-size: clamp(23px, 3vw, 30px); letter-spacing: -.025em; }
+.form-panel, .panel { gap: 16px; border-color: #d9e5f5; border-radius: 12px; background: #fff; box-shadow: 0 3px 12px rgba(21, 59, 130, .035); }
+.app-shell > .panel { width: min(760px, 100%); }
+.form-panel { width: min(560px, 100%); padding: clamp(20px, 4vw, 30px); }
+.profile-grid > .panel, .disc-comparison-grid > .panel, .evolution-profile-grid > .panel { width: auto; }
+.project-list, .certificate-list, .achievement-list, .activity-list { gap: 12px; margin: 18px 0; }
+.project-card, .certificate-card, .achievement-card, .activity-card, .mission-card, .question-panel { gap: 10px; border-color: #d9e5f5; border-radius: 12px; background: #fff; box-shadow: 0 3px 12px rgba(21, 59, 130, .035); }
+.project-card, .certificate-card, .achievement-card, .activity-card, .mission-card { padding: 20px; }
+.project-card h2, .project-card h3, .certificate-card h2, .certificate-card h3, .achievement-card h3, .activity-card h3, .mission-card h2 { color: #153b82; font-family: "Space Grotesk", "DM Sans", Arial, sans-serif; }
+.app-shell input:not([type="radio"]):not([type="checkbox"]), .app-shell textarea, .dialog-form input, .dialog-form textarea { min-height: 42px; border-color: #cbdcf3; border-radius: 8px; background: #fff; color: #15305d; }
+.app-shell input:focus, .app-shell textarea:focus, .dialog-form input:focus, .dialog-form textarea:focus { border-color: #2864f0; outline: 3px solid rgba(40, 100, 240, .16); }
+.app-shell button, .dashboard-page button { min-height: 40px; border-radius: 8px; font-weight: 700; }
+.app-shell button { background: #2864f0; }
+.app-shell a { color: #087f9f; text-underline-offset: 3px; }
+.app-shell .progress-track { height: 9px; background: #dce9f8; }
+.app-shell .progress-track span { background: linear-gradient(90deg, #10b9d2, #14a99a); }
+.achievement-card { border-color: #f1d5bd; background: #fffaf5; }
+.achievement-card h3 { color: #70401f; }
+.mission-done { border-color: #a8ddd4; border-left: 4px solid #14a99a; background: #f0fbf8; }
+
+/* Dashboard: progression, mission, evidence, recognition. */
+.dashboard-page {
+  --ink: #15305d;
+  --muted: #536784;
+  --line: #d9e5f5;
+  --purple: #2864f0;
+  --purple-dark: #153b82;
+  --sync-blue: #2864f0;
+  --sync-deep: #153b82;
+  --sync-cyan: #10b9d2;
+  --sync-turquoise: #14a99a;
+  --sync-xp: #f5c84c;
+  --sync-achievement: #f28b45;
+  min-height: 100vh;
+  background: #f3f7ff;
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+.dashboard-page h1, .dashboard-page h2, .dashboard-page h3, .dashboard-page h4 { color: var(--sync-deep); font-family: "Space Grotesk", "DM Sans", Arial, sans-serif; }
+.dashboard-shell { width: min(1180px, calc(100% - 40px)); padding: 22px 0 48px; }
+.dashboard-page .topbar { margin-bottom: 42px; }
+.dashboard-page .brand { color: var(--sync-deep); }
+.dashboard-page .brand-mark { border-radius: 9px; background: var(--sync-blue); box-shadow: none; }
+.dashboard-page .welcome-row { align-items: center; gap: 22px; margin-bottom: 25px; }
+.dashboard-page .welcome-row h1 { margin: 7px 0 8px; color: var(--sync-deep); font-size: clamp(32px, 4vw, 44px); letter-spacing: -.04em; line-height: 1.08; }
+.dashboard-page .welcome-row > div:first-child > p:last-child { max-width: 540px; margin: 0; color: var(--muted); font-size: 15px; }
+.dashboard-page .eyebrow { color: #536f95; font-size: 12px; letter-spacing: .055em; }
+.dashboard-page .light-eyebrow { color: #bdebf5; }
+.dashboard-page .xp-pill { min-width: 144px; padding: 11px 16px; border: 1px solid #edcf68; border-radius: 12px; background: #fff5d6; color: #624900; text-align: left; }
+.dashboard-page .xp-pill strong { color: #775500; font: 700 31px/1 "Space Grotesk", Arial, sans-serif; font-variant-numeric: tabular-nums; }
+.dashboard-page .workspace-tabs { gap: 4px; margin-bottom: 18px; padding: 5px; border-color: #d9e5f5; border-radius: 11px; background: rgba(255,255,255,.9); }
+.dashboard-page .workspace-tab { min-height: 42px; padding: 0 15px; border-radius: 8px; color: #536784; font-size: 13px; }
+.dashboard-page .workspace-tab:hover { background: #eaf7fc; color: #153b82; }
+.dashboard-page .workspace-tab.is-active { background: #2864f0; color: #fff; box-shadow: none; }
+.dashboard-page .mission-feature { min-height: 0; margin-bottom: 28px; padding: 24px 28px; border: 1px solid rgba(16,185,210,.35); border-radius: 14px; background: linear-gradient(112deg, #2864f0 0%, #1d53c1 56%, #153b82 100%); box-shadow: 0 8px 20px rgba(40,100,240,.14); }
+.dashboard-page .mission-feature .section-heading { margin-bottom: 8px; }
+.dashboard-page .mission-feature .section-heading h2 { margin-top: 4px; color: #fff; font-size: 20px; }
+.dashboard-page .mission-feature #active-mission { min-height: 0; color: #fff; }
+.dashboard-page .mission-feature #active-mission h3 { margin: 9px 0 5px; color: #fff; font-size: clamp(20px, 3vw, 25px); line-height: 1.2; }
+.dashboard-page .mission-feature #active-mission p { max-width: 740px; margin: 0; color: #e2efff; font-size: 14px; line-height: 1.55; }
+.dashboard-page .mission-feature .mission-status { padding: 5px 9px; border-radius: 999px; background: #d9f6f8; color: #075b72; font-size: 11px; }
+.dashboard-page .mission-feature .mission-reward { justify-content: flex-start; gap: 12px; margin-top: 16px; padding-top: 13px; border-color: rgba(255,255,255,.22); color: #e0ebff; font-size: 13px; }
+.dashboard-page .mission-feature .mission-reward strong { padding: 7px 11px; border-radius: 8px; background: #f5c84c; color: #493600; font-size: 15px; font-variant-numeric: tabular-nums; }
+.dashboard-page .mission-feature .mission-more { align-self: center; min-height: 40px; margin: 0; padding: 0 12px; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; color: #fff; font-size: 13px; }
+.dashboard-page .mission-feature .mission-more:hover { background: rgba(255,255,255,.12); color: #fff; text-decoration: none; }
+.dashboard-page .card, .dashboard-page .workspace-card { border-color: var(--line); border-radius: 12px; background: #fff; box-shadow: 0 3px 14px rgba(21,59,130,.045); }
+.dashboard-page .profile-hero { gap: 18px; padding: 23px 25px; }
+.dashboard-page .profile-avatar { flex-basis: 58px; width: 58px; height: 58px; border: 1px solid #cbdcf8; border-radius: 15px; background: #e8efff; color: #245bdb; font-size: 25px; }
+.dashboard-page .profile-hero .section-heading h2 { color: var(--sync-deep); font-size: 19px; }
+.dashboard-page .profile-meta { margin: 8px 0 13px; color: var(--muted); font-size: 13px; }
+.dashboard-page .level-badge { border: 1px solid #cbdcf8; border-radius: 999px; background: #edf3ff; color: #214fb5; font-size: 12px; }
+.dashboard-page .progress-track, .dashboard-page .mini-track { height: 9px; background: #e2ecf8; }
+.dashboard-page .progress-track span { background: linear-gradient(90deg, #10b9d2, #14a99a); }
+.dashboard-page .progress-caption { margin-top: 8px; color: var(--muted); font-size: 12px; }
+.dashboard-page .progress-caption strong { color: #775500; }
+.dashboard-page .button { min-height: 40px; padding: 9px 14px; border-radius: 8px; font-size: 13px; }
+.dashboard-page .button-primary { background: #2864f0; }
+.dashboard-page .button-primary:hover { background: #174fce; }
+.dashboard-page .button-soft { background: #e1f8fc; color: #08758d; }
+.dashboard-page .button-soft:hover { background: #c9f0f6; }
+.dashboard-page .button-ghost { border: 1px solid #d9e5f5; background: #fff; color: #536784; }
+.dashboard-page .button-danger-ghost { border: 1px solid #efc7c7; color: #a63d3d; }
+.dashboard-page .section-block { margin-top: 42px; }
+.dashboard-page .section-block > .section-heading { align-items: end; margin-bottom: 16px; }
+.dashboard-page .section-heading h2 { color: var(--sync-deep); font-size: clamp(22px, 3vw, 27px); letter-spacing: -.025em; }
+.dashboard-page .text-button { min-height: 40px; color: #087f9f; font-size: 13px; }
+.dashboard-page .text-button:hover { color: #153b82; }
+.dashboard-page .top-grid .disc-card { padding: 22px 24px; }
+.dashboard-page .disc-card .section-heading h2 { font-size: 20px; }
+.dashboard-page .icon-bubble { border: 1px solid #d2def8; border-radius: 10px; background: #edf3ff; color: #245bdb; }
+.dashboard-page .disc-letter { border-radius: 12px; background: #2864f0; }
+.dashboard-page .disc-bar-row { grid-template-columns: 24px minmax(0,1fr) 42px; color: var(--muted); }
+.dashboard-page .disc-bar-row > span { color: var(--sync-deep); font-weight: 700; }
+.dashboard-page .disc-bar-row strong { color: var(--sync-deep); font-variant-numeric: tabular-nums; }
+.dashboard-page .disc-i { background: #10b9d2 !important; }
+.dashboard-page .disc-s { background: #14a99a !important; }
+.dashboard-page .disc-c { background: #7284e8 !important; }
+.dashboard-page .mission-row { gap: 12px; }
+.dashboard-page .mission-small { grid-template-columns: 34px minmax(0,1fr); gap: 10px 12px; padding: 16px; border-color: var(--line); border-radius: 12px; box-shadow: 0 3px 14px rgba(21,59,130,.04); }
+.dashboard-page .mission-number { color: #10a9c0; }
+.dashboard-page .mission-small h3 { color: var(--sync-deep); font-size: 15px; line-height: 1.3; }
+.dashboard-page .mission-small p { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.dashboard-page .mission-small > strong { padding: 6px 9px; border-radius: 999px; background: #fff2c7; color: #765300; font-size: 12px; font-variant-numeric: tabular-nums; }
+.dashboard-page .collection-card { gap: 12px; padding: 18px; border-radius: 12px; }
+.dashboard-page .collection-icon { width: 40px; height: 40px; border-radius: 11px; font-size: 16px; font-weight: 700; }
+.dashboard-page .collection-icon.blue { background: #e1f8fc; color: #087f9f; }
+.dashboard-page .collection-icon.orange { background: #ffeddd; color: #a84a21; }
+.dashboard-page .collection-card h3 { margin: 1px 0 4px; color: var(--sync-deep); font-size: 16px; }
+.dashboard-page .collection-card p { color: var(--muted); font-size: 13px; }
+.dashboard-page .collection-preview { gap: 6px; }
+.dashboard-page .collection-preview span { padding: 6px 9px; border-radius: 7px; background: #f0f5fd; color: #536784; font-size: 11px; }
+.dashboard-page .achievement-dashboard-grid { gap: 12px; }
+.dashboard-page .achievement-dashboard-card { grid-template-columns: 1fr; gap: 0; padding: 16px 18px; border-color: #f1d5bd; border-left: 3px solid #f28b45; border-radius: 11px; background: #fffaf5; box-shadow: none; }
+.dashboard-page .achievement-icon { display: none; }
+.dashboard-page .achievement-dashboard-card h3 { color: #70401f; font-size: 15px; line-height: 1.35; }
+.dashboard-page .achievement-dashboard-card p { margin: 7px 0; color: #765e4a; font-size: 13px; line-height: 1.5; }
+.dashboard-page .achievement-dashboard-card small { color: #936044; font-size: 12px; }
+.dashboard-page .evolution-grid { gap: 0; padding: 20px 8px; border-radius: 12px; }
+.dashboard-page .stat-item { gap: 8px; padding: 0 15px; }
+.dashboard-page .stat-item strong { color: var(--sync-deep); font-size: 27px; font-variant-numeric: tabular-nums; }
+.dashboard-page .stat-item > span:last-child { color: var(--muted); font-size: 12px; line-height: 1.35; }
+.dashboard-page .stat-icon { width: 32px; height: 32px; border-radius: 9px; font-size: 12px; font-weight: 700; }
+.dashboard-page .evolution-grid .stat-item:nth-child(1) .stat-icon { background: #e8efff; color: #245bdb; }
+.dashboard-page .evolution-grid .stat-item:nth-child(2) .stat-icon { background: #ffeddd; color: #a84a21; }
+.dashboard-page .evolution-grid .stat-item:nth-child(3) .stat-icon { background: #ddf7f2; color: #087f75; }
+.dashboard-page .evolution-grid .stat-item:nth-child(4) .stat-icon { background: #ffeddd; color: #a84a21; }
+.dashboard-page .evolution-grid .stat-item:nth-child(5) .stat-icon { background: #fff2c7; color: #765300; }
+.dashboard-page .activity-dashboard-list { gap: 8px; }
+.dashboard-page .activity-dashboard-card { grid-template-columns: minmax(120px, .6fr) minmax(0, 1.4fr) auto; gap: 14px; padding: 14px 16px; border-radius: 9px; box-shadow: none; }
+.dashboard-page .activity-dashboard-card:first-child { border-left: 3px solid var(--sync-cyan); }
+.dashboard-page .activity-dashboard-card span { color: var(--sync-deep); font-size: 13px; font-weight: 600; }
+.dashboard-page .activity-dashboard-card strong { color: #3b5272; font-size: 13px; font-weight: 500; }
+.dashboard-page .activity-dashboard-card small { color: #536784; font-size: 12px; }
+.dashboard-page .workspace-heading { gap: 18px; margin-bottom: 22px; }
+.dashboard-page .workspace-heading h2 { color: var(--sync-deep); font-size: clamp(24px, 3vw, 30px); }
+.dashboard-page .workspace-heading p:not(.eyebrow) { color: var(--muted); font-size: 14px; }
+.dashboard-page .workspace-card { padding: 22px; }
+.dashboard-page .workspace-record-card { gap: 22px; padding: 19px 20px; border-color: var(--line); border-radius: 11px; box-shadow: 0 3px 12px rgba(21,59,130,.035); }
+.dashboard-page .record-main h3 { color: var(--sync-deep); font-size: 18px; }
+.dashboard-page .record-main p { color: #536784; line-height: 1.55; }
+.dashboard-page .record-main .record-meta { color: #3b5272; font-size: 13px; }
+.dashboard-page .record-main small { color: #536784; font-size: 12px; }
+.dashboard-page .record-link { color: #087f9f; font-size: 13px; }
+.dashboard-page .mission-record.is-complete { border-color: #a8ddd4; border-left: 4px solid #14a99a; background: #f0fbf8; }
+.dashboard-page .record-reward { color: #087f75; font-variant-numeric: tabular-nums; }
+.dashboard-page .workspace-dialog { border-color: var(--line); border-radius: 14px; }
+.dashboard-page .dialog-form { gap: 16px; padding: clamp(20px, 4vw, 28px); }
+.dashboard-page .dialog-form h2 { color: var(--sync-deep); }
+.dashboard-page .dialog-form label { color: var(--ink); font-size: 13px; }
+.dashboard-page .dialog-form input, .dashboard-page .dialog-form textarea { border-color: #cbdcf3; border-radius: 8px; }
+.dashboard-page .dialog-actions { gap: 10px; }
+.dashboard-page .dashboard-feedback { border-color: #9edfd7; border-radius: 9px; background: #e4f8f4; color: #087f75; }
+.dashboard-page .dashboard-feedback.is-error { border-color: #f0b6bd; background: #fff0f1; color: #a92d35; }
+.dashboard-page .dashboard-footer { margin-top: 48px; color: #536784; font-size: 12px; }
+
+/* Keep the entry and DISC journey on the same type scale and official DISC colors. */
+.entry-page, .journey-page { min-height: 100vh; font-family: "DM Sans", Arial, sans-serif; }
+.entry-page h1, .entry-page h2, .journey-page h1, .journey-page h2, .journey-page h3 { font-family: "Space Grotesk", "DM Sans", Arial, sans-serif; }
+.entry-page .entry-kicker, .entry-page .entry-step, .journey-page .entry-kicker, .journey-page .entry-step { font-size: 12px; letter-spacing: .04em; }
+.journey-page .disc-code { border-radius: 9px; }
+.journey-page .disc-code-d { border: 1px solid #c9d8fb; background: #edf3ff; color: #214fb5; }
+.journey-page .disc-code-i { border: 1px solid #bdebf1; background: #e1faff; color: #08758d; }
+.journey-page .disc-code-s { border: 1px solid #b5e5dd; background: #e4f8f4; color: #087f75; }
+.journey-page .disc-code-c { border: 1px solid #d3d8fb; background: #f0f1ff; color: #5868bd; }
+.journey-page .disc-fill-d { background: #2864f0; }
+.journey-page .disc-fill-i { background: #10b9d2; }
+.journey-page .disc-fill-s { background: #14a99a; }
+.journey-page .disc-fill-c { background: #7284e8; }
+.journey-page .disc-profile-track { overflow: hidden; border-radius: 99px; background: #dce9fb; }
+.journey-page .scenario-option { border-radius: 10px; }
+.journey-page .quiz-controls > button, .journey-page .journey-cta, .entry-page .entry-form button { min-height: 44px; border-radius: 9px; }
+.entry-page .entry-form input { min-height: 44px; border-radius: 8px; }
+.journey-page .result-note, .journey-page .next-chapter { border-radius: 12px; }
+.entry-page .journey-steps span:nth-child(3)::before { background: #14a99a; box-shadow: 0 0 0 2px #14a99a; }
+.entry-page .journey-steps span:nth-child(4)::before { background: #153b82; box-shadow: 0 0 0 2px #153b82; }
+@media (min-width: 761px) {
+  .dashboard-page .mission-feature { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 0 28px; }
+  .dashboard-page .mission-feature .section-heading, .dashboard-page .mission-feature #active-mission { grid-column: 1; }
+  .dashboard-page .mission-feature .mission-more { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 900px) {
+  .dashboard-page .mission-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dashboard-page .achievement-dashboard-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dashboard-page .evolution-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px 0; }
+  .dashboard-page .stat-item:nth-child(3) { border-right: 0; }
+  .dashboard-page .stat-item:nth-child(4), .dashboard-page .stat-item:nth-child(5) { margin-top: 18px; }
+  .dashboard-page .activity-dashboard-card { grid-template-columns: minmax(110px,.7fr) minmax(0,1.3fr); }
+  .dashboard-page .activity-dashboard-card small { grid-column: 2; text-align: left; }
+}
+@media (max-width: 700px) {
+  .dashboard-shell { width: min(100% - 32px, 560px); padding-top: 16px; }
+  .dashboard-page .topbar { margin-bottom: 30px; }
+  .dashboard-page .welcome-row { align-items: flex-start; flex-direction: column; gap: 16px; margin-bottom: 22px; }
+  .dashboard-page .xp-pill { grid-template-columns: auto auto; align-items: baseline; column-gap: 10px; min-width: 0; text-align: left; }
+  .dashboard-page .xp-pill span { grid-column: 1 / -1; }
+  .dashboard-page .xp-pill strong { font-size: 26px; }
+  .dashboard-page .workspace-tabs { margin-right: -1px; margin-bottom: 14px; }
+  .dashboard-page .workspace-tab { min-height: 42px; padding: 0 13px; }
+  .dashboard-page .mission-feature { grid-template-columns: minmax(0,1fr); gap: 0; margin-bottom: 22px; padding: 20px; }
+  .dashboard-page .mission-persistent .section-heading, .dashboard-page .mission-persistent #active-mission, .dashboard-page .mission-persistent .mission-more { grid-column: 1; grid-row: auto; }
+  .dashboard-page .mission-feature .mission-more { margin-top: 16px; }
+  .dashboard-page .profile-hero { align-items: flex-start; flex-wrap: wrap; gap: 12px; padding: 18px; }
+  .dashboard-page .profile-avatar { flex-basis: 48px; width: 48px; height: 48px; border-radius: 13px; font-size: 22px; }
+  .dashboard-page .profile-summary { flex-basis: calc(100% - 64px); }
+  .dashboard-page .profile-hero > .button { margin-left: 60px; }
+  .dashboard-page .section-block { margin-top: 34px; }
+  .dashboard-page .section-block > .section-heading { align-items: flex-start; gap: 10px; }
+  .dashboard-page .mission-row, .dashboard-page .curriculum-grid, .dashboard-page .achievement-dashboard-grid { grid-template-columns: 1fr; }
+  .dashboard-page .evolution-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 0; padding: 18px 8px; }
+  .dashboard-page .stat-item, .dashboard-page .stat-item:first-child, .dashboard-page .stat-item:last-child { min-height: 68px; padding: 0 12px; border-right: 1px solid var(--line); }
+  .dashboard-page .stat-item:nth-child(2n) { border-right: 0; }
+  .dashboard-page .stat-item:nth-child(3), .dashboard-page .stat-item:nth-child(4), .dashboard-page .stat-item:nth-child(5) { margin-top: 0; }
+  .dashboard-page .activity-dashboard-card { grid-template-columns: 1fr; gap: 5px; }
+  .dashboard-page .activity-dashboard-card small { grid-column: 1; }
+  .dashboard-page .workspace-heading { display: grid; align-items: start; }
+  .dashboard-page .workspace-heading .button { justify-self: start; }
+  .dashboard-page .workspace-record-card { display: grid; gap: 14px; padding: 17px; }
+  .dashboard-page .record-actions { width: 100%; }
+  .dashboard-page .record-actions .button { flex: 1; }
+  .dashboard-page .dialog-form { padding: 19px; }
+  .app-shell { width: min(100% - 32px, 560px); padding-top: 28px; }
+}
+@media (max-width: 420px) {
+  .dashboard-page .workspace-tab { padding: 0 11px; font-size: 12px; }
+  .dashboard-page .profile-summary .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .dashboard-page .profile-hero > .button { margin-left: 0; }
+  .dashboard-page .stat-item strong { font-size: 24px; }
+}

@@ -19,7 +19,7 @@
         <section class="welcome-row">
           <div>
             <p class="eyebrow">SEU CURRICULO VIVO</p>
-            <h1>Ola, {{ user.nome.split(' ')[0] }} <span aria-hidden="true">*</span></h1>
+            <h1>Ola, {{ user.nome.split(' ')[0] }}</h1>
             <p class="muted">Cada experiencia e uma nova evidencia da sua evolucao.</p>
           </div>
           <div class="xp-pill"><span>XP atual</span><strong id="dashboard-xp">{{ user.xp }}</strong></div>
@@ -36,7 +36,7 @@
         </nav>
 
         <div id="dashboard-feedback" class="dashboard-feedback" role="status" aria-live="polite"></div>
-        <article class="mission-feature mission-persistent" id="mission-feature"><div class="section-heading"><div><p class="eyebrow light-eyebrow">PROXIMO PASSO</p><h2>Missao ativa</h2></div><span class="mission-flame">*</span></div><div id="active-mission" class="loading-state">Carregando missao...</div><button class="mission-more" type="button" data-open-tab="missions">Ver jornada de missoes <span aria-hidden="true">-&gt;</span></button></article>
+        <article class="mission-feature mission-persistent" id="mission-feature"><div class="section-heading"><div><p class="eyebrow light-eyebrow">PROXIMO PASSO</p><h2>Missao ativa</h2></div></div><div id="active-mission" class="loading-state">Carregando missao...</div><button class="mission-more" type="button" data-open-tab="missions">Ver jornada de missoes <span aria-hidden="true">-&gt;</span></button></article>
         <section class="workspace-panel is-active" id="panel-dashboard" role="tabpanel" aria-labelledby="tab-dashboard" data-panel="dashboard">
           <section class="profile-hero card" aria-labelledby="profile-heading">
             <div class="profile-avatar">{{ user.nome[0] }}</div>
