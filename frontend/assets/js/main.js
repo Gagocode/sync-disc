@@ -27,6 +27,65 @@ const formatDate = (value) => {
   return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat("pt-BR", { dateStyle: "medium" }).format(date);
 };
 
+const initJourneyQuiz = () => {
+  const form = document.querySelector("[data-journey-quiz]");
+  if (!form) return;
+  const narrative = [
+    ["Você entrou em uma equipe para desenvolver um projeto importante.", ["Defino prioridades e proponho um caminho para começar.", "Junto as pessoas para trocar ideias e encontrar possibilidades.", "Entendo como cada pessoa pode contribuir melhor.", "Organizo as informações e estruturo um plano de trabalho."]],
+    ["Na apresentação do projeto, surge uma pergunta que o grupo não esperava.", ["Respondo com o que sabemos e encaminho uma decisão.", "Abro a conversa para entender o interesse de quem perguntou.", "Escuto a pergunta até o fim e construo uma resposta em conjunto.", "Peço um instante para conferir os dados antes de responder."]],
+    ["Uma parte importante do trabalho está atrasada e o prazo se aproxima.", ["Reorganizo o plano e combino uma nova divisão de tarefas.", "Converso com o grupo para entender o que está travando.", "Ofereço apoio para que a equipe retome o ritmo.", "Reviso as etapas e identifico onde o cronograma mudou."]],
+    ["Você pode escolher uma atividade para complementar sua formação.", ["Uma atividade com responsabilidade por uma entrega concreta.", "Uma atividade com troca de ideias e novas conexões.", "Uma atividade contínua em que possa desenvolver uma prática.", "Uma atividade para aprofundar um tema técnico."]],
+    ["No meio do projeto, chegam novas informações que mudam o plano.", ["Ajusto a execução e ajudo o grupo a seguir em frente.", "Alinho as expectativas para que todos entendam a mudança.", "Preservo o que está funcionando e adapto o restante com calma.", "Reavalio os requisitos e verifico os impactos antes de alterar."]],
+    ["Você participa de uma reunião com pessoas que ainda não conhece.", ["Apresento uma proposta para dar direção à conversa.", "Inicio uma conversa para aproximar as pessoas.", "Crio espaço para que cada pessoa se sinta à vontade para falar.", "Organizo os pontos da pauta para manter a conversa clara."]],
+    ["Uma pessoa revisa seu trabalho e sugere mudanças importantes.", ["Uso os comentários para ajustar o trabalho e avançar.", "Peço exemplos e converso sobre as sugestões.", "Escuto com atenção e incorporo as mudanças gradualmente.", "Registro os pontos e verifico cada critério do trabalho."]],
+    ["Você recebe a oportunidade de aprender algo que ainda não conhece.", ["Aceito o desafio e descubro o caminho durante a prática.", "Procuro pessoas para trocar experiências sobre o tema.", "Monto uma rotina para aprender com regularidade.", "Busco materiais confiáveis e estudo os fundamentos."]],
+    ["Duas propostas diferentes dividem a opinião da equipe.", ["Apresento os motivos da minha proposta e ajudo o grupo a decidir.", "Facilito a conversa para aproximar os pontos de vista.", "Busco uma alternativa que preserve o equilíbrio do grupo.", "Comparo as propostas usando critérios e informações disponíveis."]],
+    ["Uma tarefa complexa precisa ser concluída até o fim da semana.", ["Começo pela parte que pode destravar o restante.", "Troco ideias com colegas antes de definir a entrega.", "Avanço em etapas, mantendo um ritmo constante.", "Planejo as etapas e verifico cada requisito ao concluir."]],
+    ["Sua turma está organizando uma atividade aberta à comunidade.", ["Assumo uma frente com uma entrega e um prazo definidos.", "Ajudo a divulgar a atividade e receber participantes.", "Ofereço apoio nas tarefas que o grupo precisar.", "Organizo a lista de materiais e as necessidades da atividade."]],
+    ["Um projeto em equipe chega ao fim depois de várias semanas.", ["Identifico qual pode ser o próximo desafio do grupo.", "Compartilho o resultado e converso sobre o que aprendemos.", "Reconheço a contribuição de todos e o trabalho realizado.", "Registro os aprendizados e os pontos que podem melhorar."]]
+  ];
+  const questions = [...form.querySelectorAll(".journey-question")];
+  const controls = { label: form.querySelector("[data-step-label]"), percent: form.querySelector("[data-step-percent]"), fill: form.querySelector("[data-progress-fill]"), track: form.querySelector("[role=progressbar]"), back: form.querySelector("[data-quiz-back]"), next: form.querySelector("[data-quiz-next]"), submit: form.querySelector("[data-quiz-submit]") };
+  if (!questions.length) return;
+  questions.forEach((question, index) => {
+    const scenario = narrative[index];
+    if (scenario) {
+      question.querySelector("legend").textContent = scenario[0];
+      question.querySelectorAll(".scenario-option > span:first-of-type").forEach((label, optionIndex) => { label.textContent = scenario[1][optionIndex]; });
+    }
+  });
+  let current = 0;
+  const render = () => {
+    questions.forEach((question, index) => {
+      question.hidden = index !== current;
+      question.classList.toggle("is-entering", index === current);
+      question.querySelectorAll("input").forEach((input) => { input.required = index === current; });
+    });
+    const progress = Math.round(((current + 1) / questions.length) * 100);
+    controls.label.textContent = `Etapa ${current + 1} de ${questions.length}`;
+    controls.percent.textContent = `${progress}%`;
+    controls.fill.style.width = `${progress}%`;
+    controls.track.setAttribute("aria-valuenow", String(current + 1));
+    controls.back.hidden = current === 0;
+    controls.next.hidden = current === questions.length - 1;
+    controls.submit.hidden = current !== questions.length - 1;
+  };
+  controls.next.addEventListener("click", () => {
+    const selected = questions[current].querySelector("input:checked");
+    if (!selected) { questions[current].querySelector("input").reportValidity(); return; }
+    current += 1;
+    render();
+  });
+  controls.back.addEventListener("click", () => { current = Math.max(0, current - 1); render(); });
+  form.addEventListener("submit", (event) => {
+    const unanswered = questions.find((question) => !question.querySelector("input:checked"));
+    if (unanswered) { event.preventDefault(); current = questions.indexOf(unanswered); render(); unanswered.querySelector("input").reportValidity(); }
+  });
+  render();
+};
+
+initJourneyQuiz();
+
 const renderDisc = (disc) => {
   const element = document.querySelector("#disc-content");
   const profileElement = document.querySelector("#profile-disc");
