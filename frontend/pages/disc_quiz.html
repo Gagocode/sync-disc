@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quiz DISC - Sync Disc</title>
+    <title>Seu ponto de partida · Sync Disc</title>
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
-  <body>
-    <main class="app-shell">
-      <h1>Quiz Narrativo DISC</h1>
-      <p>Responda cada situacao escolhendo a alternativa que mais combina com voce.</p>
-      {% if error %}
-        <p class="error-message">{{ error }}</p>
-      {% endif %}
-      <form class="quiz-form" action="/disc/" method="post">
+  <body class="journey-page quiz-page">
+    <main class="journey-shell">
+      <header class="journey-header"><a class="entry-brand" href="/dashboard"><span class="brand-symbol">S</span> Sync Disc</a><span>Seu ponto de partida</span></header>
+      <section class="quiz-intro"><p class="entry-kicker">Uma jornada de descoberta</p><h1>As escolhas do seu caminho.</h1><p>Imagine cada situação e escolha a resposta que mais se aproxima de como você agiria.</p></section>
+      {% if error %}<p class="error-message" role="alert">{{ error }}</p>{% endif %}
+      <form class="journey-quiz" action="/disc/" method="post" data-journey-quiz>
+        <div class="quiz-progress-head"><span data-step-label>Etapa 1 de {{ questions|length }}</span><span data-step-percent>0%</span></div>
+        <div class="quiz-progress-track" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="{{ questions|length }}" aria-valuenow="0"><span data-progress-fill></span></div>
         {% for question in questions %}
-          <fieldset class="question-panel">
-            <legend>{{ loop.index }}. {{ question.text }}</legend>
-            {% for option in question.options %}
-              <label class="option-row">
-                <input type="radio" name="{{ question.id }}" value="{{ option.dimension }}" required>
-                <span>{{ option.text }}</span>
-              </label>
-            {% endfor %}
+          <fieldset class="journey-question" data-question-index="{{ loop.index0 }}">
+            <legend>{{ question.text }}</legend>
+            <div class="scenario-options">
+              {% for option in question.options %}
+                <label class="scenario-option"><input type="radio" name="{{ question.id }}" value="{{ option.dimension }}" required><span>{{ option.text }}</span><span class="option-mark" aria-hidden="true"></span></label>
+              {% endfor %}
+            </div>
           </fieldset>
         {% endfor %}
-        <button type="submit">Finalizar quiz</button>
+        <div class="quiz-controls"><button class="quiz-back" type="button" data-quiz-back hidden>Voltar</button><button type="button" data-quiz-next>Próxima etapa</button><button type="submit" data-quiz-submit hidden>Ver meu ponto de partida</button></div>
       </form>
+      <footer class="journey-footer"><span>DISC Inicial</span><span>Seu resultado é o início de uma evolução contínua.</span></footer>
     </main>
     <script src="/assets/js/main.js"></script>
   </body>
