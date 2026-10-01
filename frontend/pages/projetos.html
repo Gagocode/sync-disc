@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/journey.css">
   </head>
   <body>
     <main class="app-shell">
-      <h1>Projetos</h1>
-      <p><a href="/projetos/novo">Adicionar projeto</a></p>
+      <div class="app-page-hero"><div><p class="page-eyebrow">Currículo Vivo</p><h1>Projetos</h1><p>Trabalhos que tornam sua trajetória visível.</p></div><a class="page-action" href="/projetos/novo">Adicionar projeto</a></div>
       <section class="project-list">
         {% if projects %}
           {% for project in projects %}

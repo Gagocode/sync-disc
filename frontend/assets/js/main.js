@@ -1,5 +1,18 @@
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
 
+const appShell = document.querySelector(".app-shell");
+if (appShell) {
+  const pathname = window.location.pathname;
+  const items = [
+    ["/dashboard", "Jornada"], ["/perfil/", "Perfil"], ["/missoes/", "Missões"],
+    ["/projetos/", "Projetos"], ["/certificados/", "Certificados"]
+  ];
+  const navigation = document.createElement("header");
+  navigation.className = "app-header";
+  navigation.innerHTML = `<a class="app-brand" href="/dashboard"><span class="brand-mark">S</span><span>Sync Disc</span></a><nav aria-label="Navegação principal">${items.map(([url, label]) => `<a href="${url}" ${pathname === url || (url !== "/dashboard" && pathname.startsWith(url)) ? 'aria-current="page"' : ""}>${label}</a>`).join("")}</nav>`;
+  appShell.prepend(navigation);
+}
+
 const setTab = (name) => {
   document.querySelectorAll(".workspace-tab").forEach((tab) => {
     const selected = tab.dataset.tab === name;
