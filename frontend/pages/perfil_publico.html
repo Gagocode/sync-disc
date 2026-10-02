@@ -19,7 +19,7 @@
       <header class="public-hero">
         <div class="public-hero-copy">
           <a class="public-brand" href="/" aria-label="Sync Disc, início">
-            <span class="public-brand-mark" aria-hidden="true">S</span>
+            <img class="public-brand-mark" src="/assets/images/logo.png" alt="" width="30" height="30">
             <span>Sync Disc</span>
           </a>
           <p class="public-eyebrow"><svg class="sd-icon sd-inline-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Currículo Vivo</p>
@@ -198,7 +198,7 @@
         <h2 id="summary-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Uma trajetória feita de evidências.</h2>
         <p>Desde {{ user.created_at }}, esta jornada reúne {{ indicators.xp_total }} XP, {{ indicators.projects_count }} {{ 'projeto' if indicators.projects_count == 1 else 'projetos' }}, {{ indicators.certificates_count }} {{ 'certificado' if indicators.certificates_count == 1 else 'certificados' }} e {{ indicators.missions_completed }} {{ 'missão concluída' if indicators.missions_completed == 1 else 'missões concluídas' }}. O nível {{ evolution.level.current }} representa a progressão dentro da plataforma; projetos, certificados e o DISC Observado ajudam a mostrar o percurso na prática.</p>
       </section>
-      <footer class="public-footer"><span class="public-brand-mark" aria-hidden="true">S</span><span>Sync Disc · Currículo Vivo</span></footer>
+      <footer class="public-footer"><img class="public-brand-mark" src="/assets/images/logo.png" alt="" width="24" height="24"><span>Sync Disc · Currículo Vivo</span></footer>
     </main>
   </body>
 </html>

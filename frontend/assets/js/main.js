@@ -11,7 +11,7 @@ if (appShell) {
   ];
   const navigation = document.createElement("header");
   navigation.className = "app-header";
-  navigation.innerHTML = `<a class="app-brand" href="/dashboard"><span class="brand-mark">S</span><span>Sync Disc</span></a><nav aria-label="Navegação principal">${items.map(([url, label]) => `<a href="${url}" ${pathname === url || (url !== "/dashboard" && pathname.startsWith(url)) ? 'aria-current="page"' : ""}>${label}</a>`).join("")}</nav>`;
+  navigation.innerHTML = `<a class="app-brand" href="/dashboard"><img class="brand-mark" src="/assets/images/logo.png" alt="" width="40" height="40"><span>Sync Disc</span></a><nav aria-label="Navegação principal">${items.map(([url, label]) => `<a href="${url}" ${pathname === url || (url !== "/dashboard" && pathname.startsWith(url)) ? 'aria-current="page"' : ""}>${label}</a>`).join("")}</nav>`;
   appShell.prepend(navigation);
 }
 
