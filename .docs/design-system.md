@@ -1,6 +1,6 @@
 # Sync Disc — Design System
 
-**Status:** Design DNA V1 — identidade emocional e gamificação visível
+**Status:** Identidade visual oficial V2 — evolução profissional gamificada
 **Escopo:** identidade visual, interface e experiência do frontend  
 **Princípio do produto:** cada tela deve ajudar estudantes a reconhecer, registrar e comunicar sua evolução profissional.
 
@@ -57,17 +57,19 @@ As cores abaixo são tokens de referência. Manter seus papéis consistentes ent
 
 | Token | Cor | Uso |
 |---|---|---|
-| **Primária — Azul vibrante** | `#2864F0` | Ação principal, navegação ativa, identidade e progresso que precisa de alta visibilidade. |
-| **Profundo — Azul profundo** | `#153B82` | Títulos, superfícies de destaque e contraste de confiança. |
-| **Secundária — Ciano** | `#10B9D2` | Descoberta, foco, seleção, links e ligações entre etapas. |
-| **Evolução — Turquesa** | `#14A99A` | Barras de progresso, etapas concluídas e sinais de crescimento. Usar com texto escuro ou em áreas gráficas; não usar como cor de texto junto a texto principal sem hierarquia. |
+| **Primária — Azul vibrante** | `#0085FF` | Ação principal, navegação ativa, identidade e progresso de alta visibilidade. |
+| **Profundo — Azul profundo** | `#0056A4` | Títulos, superfícies de destaque e contraste de confiança. |
+| **Azul gelo** | `#E0F2FF` | Superfícies leves, trilhas de progresso e estados de seleção. |
+| **Descoberta — Ciano** | `#14B8D4` | Ligações entre etapas e sinais de descoberta. |
+| **Evolução — Turquesa** | `#008F9E` | Etapas concluídas e crescimento. Usar em áreas gráficas ou com tinta escura. |
 | **XP — Amarelo suave** | `#F5C84C` | XP acumulado e recompensa de missão. Dar destaque visível ao número e usar tinta escura sobre o amarelo. |
 | **Conquistas — Laranja suave** | `#F28B45` | Marcos desbloqueados e reconhecimento cosmético. Usar em ícone, contorno ou superfície clara alaranjada. |
-| **Tinta principal** | `#15305D` | Títulos, texto principal e dados prioritários. |
-| **Texto secundário** | `#536784` | Instruções, metadados e descrições. Evitar cinza neutro pálido. |
-| **Fundo de página** | `#F3F7FF` | Base clara com matiz azul, mantendo energia e descanso visual. |
+| **Certificados e DISC C — Violeta** | `#7567D8` | Diferencia certificados e a dimensão C sem competir com o azul principal. |
+| **Tinta principal** | `#122D50` | Títulos, texto principal e dados prioritários. |
+| **Texto secundário** | `#526B86` | Instruções, metadados e descrições. |
+| **Fundo de página** | `#F4F9FF` | Base clara com matiz azul. |
 | **Superfície** | `#FFFFFF` | Campos, conteúdo principal e superfícies elevadas de forma simples. |
-| **Borda** | `#D9E5F5` | Divisores e limites de componentes. |
+| **Borda** | `#D4E4F4` | Divisores e limites de componentes. |
 | **Erro** | `#D94B4B` | Erros de validação e ações malsucedidas, sempre acompanhados por texto. |
 
 ### Cores DISC
@@ -76,10 +78,10 @@ Manter as quatro dimensões distintas e estáveis em todos os gráficos e compar
 
 | Dimensão | Identificação | Cor |
 |---|---|---|
-| D — Dominância | D | `#2864F0` |
-| I — Influência | I | `#10B9D2` |
-| S — Estabilidade | S | `#14A99A` |
-| C — Conformidade | C | `#7284E8` |
+| D — Dominância | D | `#0085FF` |
+| I — Influência | I | `#F28B45` |
+| S — Estabilidade | S | `#008F9E` |
+| C — Conformidade | C | `#7567D8` |
 
 Não depender somente da cor para diferenciar dimensões: mostrar também letra e nome. Evitar o esquema de semáforo para sugerir valor positivo ou negativo de um perfil.
 
@@ -154,7 +156,7 @@ Usar caixa alta com parcimônia. Evitar tracking exagerado e rótulos decorativo
 ### XP e níveis
 
 - Exibir XP com contexto: acumulado, recompensa ou distância para o próximo nível. O valor deve ser um dos primeiros sinais visuais de gamificação que a pessoa percebe.
-- Usar amarelo suave `#F5C84C` como fundo ou badge para XP, com texto escuro. Usar turquesa `#14A99A` para progresso; apresentar barra com descrição textual e valor relacionado.
+- Usar amarelo suave `#F5C84C` como fundo ou badge para XP, com texto escuro. Usar azul vibrante `#0085FF` nas barras de progresso e turquesa `#008F9E` em etapas concluídas; apresentar descrição textual e valor relacionado.
 - Níveis representam progressão da plataforma, não senioridade ou competência profissional.
 - Não inventar curvas, limites, recompensas ou animações de nível diferentes das regras vigentes.
 

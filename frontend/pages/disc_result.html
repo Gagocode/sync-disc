@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/journey.css">
+    <link rel="stylesheet" href="/assets/css/identity.css">
+    <link rel="stylesheet" href="/assets/css/symbols.css">
   </head>
   <body class="journey-page result-page">
     {% set profiles = {
@@ -20,7 +23,7 @@
     <main class="result-shell">
       <header class="journey-header"><a class="entry-brand" href="/dashboard"><span class="brand-symbol">S</span> Sync Disc</a><span>Seu ponto de partida</span></header>
       <section class="result-opening">
-        <div class="result-title-block"><p class="entry-kicker">Seu perfil começa a ganhar forma</p><p class="result-class-label">Classe inicial</p><h1>{{ profile.class }}</h1><p class="result-story">{{ profile.story }}</p></div>
+        <div class="result-title-block"><p class="entry-kicker"><svg class="sd-icon sd-inline-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#disc"></use></svg>Seu perfil começa a ganhar forma</p><p class="result-class-label">Classe inicial</p><h1>{{ profile.class }}</h1><p class="result-story">{{ profile.story }}</p></div>
         <div class="result-initial-mark" aria-label="Dimensão predominante: {{ result.predominant_dimension }}"><span>{{ result.predominant_dimension }}</span><small>em destaque</small></div>
       </section>
       <section class="result-detail-grid">
@@ -28,14 +31,14 @@
         <article class="result-note"><h2>Oportunidades de evolução</h2><p>{{ profile.growth }}</p></article>
       </section>
       <section class="initial-disc-section" aria-labelledby="initial-disc-title">
-        <div class="result-section-heading"><div><p class="entry-kicker">Uma referência para sua jornada</p><h2 id="initial-disc-title">DISC Inicial</h2></div><p>Este é seu ponto de partida. Suas experiências e missões ajudam a acompanhar sua evolução.</p></div>
+        <div class="result-section-heading"><div><p class="entry-kicker">Uma referência para sua jornada</p><h2 id="initial-disc-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#disc"></use></svg>DISC Inicial</h2></div><p>Este é seu ponto de partida. Suas experiências e missões ajudam a acompanhar sua evolução.</p></div>
         <div class="disc-profile-list">
           {% for dimension, percentage in result.percentages.items() %}
             <div class="disc-profile-row"><span class="disc-code disc-code-{{ dimension|lower }}">{{ dimension }}</span><span class="disc-name">{{ {'D':'Dominância','I':'Influência','S':'Estabilidade','C':'Conformidade'}.get(dimension, dimension) }}</span><div class="disc-profile-track"><span class="disc-fill disc-fill-{{ dimension|lower }}" style="width: {{ percentage }}%"></span></div><strong>{{ percentage }}%</strong></div>
           {% endfor %}
         </div>
       </section>
-      <section class="next-chapter"><div><p class="entry-kicker">Próximo capítulo</p><h2>A jornada continua no seu perfil.</h2><p>Sua primeira missão é completar seu perfil e começar a reunir evidências para o seu Currículo Vivo.</p><p class="first-mission"><span>Primeira missão</span><strong>Completar Perfil</strong></p></div><div class="next-chapter-action"><span class="chapter-number">01</span><a class="journey-cta" href="/dashboard">Iniciar Minha Jornada</a></div></section>
+      <section class="next-chapter"><div><p class="entry-kicker">Próximo capítulo</p><h2>A jornada continua no seu perfil.</h2><p>Sua primeira missão é completar seu perfil e começar a reunir evidências para o seu Currículo Vivo.</p><p class="first-mission"><span>Primeira missão</span><strong>Completar Perfil</strong></p></div><div class="next-chapter-action"><span class="chapter-number"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#mission"></use></svg></span><a class="journey-cta" href="/dashboard">Iniciar Minha Jornada</a></div></section>
       <footer class="journey-footer"><span>DISC Inicial</span><a href="/perfil/">Ver perfil inicial</a></footer>
     </main>
     <script src="/assets/js/main.js"></script>
