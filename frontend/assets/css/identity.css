@@ -224,4 +224,16 @@ input:focus,textarea:focus,select:focus { border-color:var(--sync-blue); outline
 .public-profile .public-evolution-summary p { color:#d7ecff; }
 .public-profile .public-footer { border-color:var(--sync-line); }
 
+img.brand-mark,img.brand-symbol,img.public-brand-mark {
+  display:block;
+  flex:none;
+  padding:3px;
+  object-fit:contain;
+  border:1px solid var(--sync-line);
+  border-radius:10px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+.public-footer img.public-brand-mark { padding:2px; border-radius:7px!important; }
+
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }

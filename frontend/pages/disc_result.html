@@ -21,7 +21,7 @@
     } %}
     {% set profile = profiles.get(result.predominant_dimension, profiles['C']) %}
     <main class="result-shell">
-      <header class="journey-header"><a class="entry-brand" href="/dashboard"><span class="brand-symbol">S</span> Sync Disc</a><span>Seu ponto de partida</span></header>
+      <header class="journey-header"><a class="entry-brand" href="/dashboard"><img class="brand-symbol" src="/assets/images/logo.png" alt="" width="40" height="40"> Sync Disc</a><span>Seu ponto de partida</span></header>
       <section class="result-opening">
         <div class="result-title-block"><p class="entry-kicker"><svg class="sd-icon sd-inline-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#disc"></use></svg>Seu perfil começa a ganhar forma</p><p class="result-class-label">Classe inicial</p><h1>{{ profile.class }}</h1><p class="result-story">{{ profile.story }}</p></div>
         <div class="result-initial-mark" aria-label="Dimensão predominante: {{ result.predominant_dimension }}"><span>{{ result.predominant_dimension }}</span><small>em destaque</small></div>

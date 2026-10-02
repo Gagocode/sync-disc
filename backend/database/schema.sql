@@ -9,6 +9,21 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS professional_profiles (
+  user_id INTEGER PRIMARY KEY,
+  biografia TEXT,
+  objetivo_profissional TEXT,
+  tecnologias_favoritas TEXT,
+  github TEXT,
+  linkedin TEXT,
+  portfolio TEXT,
+  cidade TEXT,
+  estado_regiao TEXT,
+  disponivel_estagio INTEGER,
+  curriculo_path TEXT,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
 CREATE TABLE IF NOT EXISTS initial_disc_results (
   user_id INTEGER PRIMARY KEY,
   d_score INTEGER NOT NULL,

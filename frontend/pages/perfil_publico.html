@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="/assets/css/journey.css">
     <link rel="stylesheet" href="/assets/css/identity.css">
     <link rel="stylesheet" href="/assets/css/symbols.css">
+    <link rel="stylesheet" href="/assets/css/professional-profile.css">
   </head>
   <body class="public-profile-page">
     <main class="public-profile">
       <header class="public-hero">
         <div class="public-hero-copy">
           <a class="public-brand" href="/" aria-label="Sync Disc, início">
-            <span class="public-brand-mark" aria-hidden="true">S</span>
+            <img class="public-brand-mark" src="/assets/images/logo.png" alt="" width="30" height="30">
             <span>Sync Disc</span>
           </a>
           <p class="public-eyebrow"><svg class="sd-icon sd-inline-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Currículo Vivo</p>
@@ -49,6 +50,29 @@
           {% endif %}
         </div>
       </header>
+
+      {% set professional = professional_profile %}
+      {% if professional.biografia or professional.objetivo_profissional or professional.tecnologias_favoritas or professional.github or professional.linkedin or professional.portfolio or professional.cidade or professional.estado_regiao or professional.disponivel_estagio is not none or professional.curriculo_path %}
+      <section class="public-section public-professional" aria-labelledby="public-professional-title">
+        <h2 id="public-professional-title">Informações Profissionais</h2>
+        {% if professional.biografia %}<div class="public-professional-intro"><h3>Biografia</h3><p class="public-professional-bio">{{ professional.biografia }}</p></div>{% endif %}
+        <dl class="public-professional-details">
+          {% if professional.objetivo_profissional %}<div><dt>Objetivo Profissional</dt><dd>{{ professional.objetivo_profissional }}</dd></div>{% endif %}
+          {% if professional.tecnologias_favoritas %}<div><dt>Tecnologias Favoritas</dt><dd>{{ professional.tecnologias_favoritas }}</dd></div>{% endif %}
+          {% if professional.cidade %}<div><dt>Cidade</dt><dd>{{ professional.cidade }}</dd></div>{% endif %}
+          {% if professional.estado_regiao %}<div><dt>Estado/Região</dt><dd>{{ professional.estado_regiao }}</dd></div>{% endif %}
+          {% if professional.disponivel_estagio is not none %}<div><dt>Disponível para Estágio</dt><dd>{{ 'Sim' if professional.disponivel_estagio else 'Não' }}</dd></div>{% endif %}
+        </dl>
+        {% if professional.github or professional.linkedin or professional.portfolio or professional.curriculo_path %}
+        <div class="public-professional-links">
+          {% if professional.github %}<a href="{{ professional.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>{% endif %}
+          {% if professional.linkedin %}<a href="{{ professional.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{% endif %}
+          {% if professional.portfolio %}<a href="{{ professional.portfolio }}" target="_blank" rel="noopener noreferrer">Portfólio/Site</a>{% endif %}
+          {% if professional.curriculo_path %}<a href="/profile/{{ user.id }}/curriculo">Baixar Currículo</a>{% endif %}
+        </div>
+        {% endif %}
+      </section>
+      {% endif %}
 
       <section class="public-section public-growth" aria-labelledby="growth-title">
         <div class="section-heading">
@@ -174,7 +198,7 @@
         <h2 id="summary-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Uma trajetória feita de evidências.</h2>
         <p>Desde {{ user.created_at }}, esta jornada reúne {{ indicators.xp_total }} XP, {{ indicators.projects_count }} {{ 'projeto' if indicators.projects_count == 1 else 'projetos' }}, {{ indicators.certificates_count }} {{ 'certificado' if indicators.certificates_count == 1 else 'certificados' }} e {{ indicators.missions_completed }} {{ 'missão concluída' if indicators.missions_completed == 1 else 'missões concluídas' }}. O nível {{ evolution.level.current }} representa a progressão dentro da plataforma; projetos, certificados e o DISC Observado ajudam a mostrar o percurso na prática.</p>
       </section>
-      <footer class="public-footer"><span class="public-brand-mark" aria-hidden="true">S</span><span>Sync Disc · Currículo Vivo</span></footer>
+      <footer class="public-footer"><img class="public-brand-mark" src="/assets/images/logo.png" alt="" width="24" height="24"><span>Sync Disc · Currículo Vivo</span></footer>
     </main>
   </body>
 </html>

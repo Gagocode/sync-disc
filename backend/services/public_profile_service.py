@@ -6,6 +6,7 @@ from services.evolution_service import get_user_evolution
 from services.observed_disc_service import get_observed_disc_result
 from services.profile_service import calculate_initial_class
 from services.project_service import list_projects
+from services.professional_profile_service import get_professional_profile
 
 
 class PublicProfileError(Exception):
@@ -36,6 +37,7 @@ def get_public_profile(user_id):
 
     return {
         "user": user,
+        "professional_profile": get_professional_profile(user_id),
         "disc_result": disc_result,
         "observed_disc_result": get_observed_disc_result(user_id),
         "projects": projects,
