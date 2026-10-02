@@ -221,3 +221,30 @@ Criada a estrutura base com pages e assets separados em css, js e images. Adicio
 
 ### Impacto
 O frontend passa a ter uma base organizada para desenvolvimento futuro, sem implementar fluxos de produto ou regras de negocio.
+## 2026-10-02
+
+### Funcionalidade
+Identidade visual oficial azul e gamificação visual
+
+### Arquivos alterados
+frontend/assets/css/identity.css, frontend/assets/js/main.js e todas as páginas em frontend/pages/*.html
+
+### Resumo
+Aplicados azul vibrante #0085FF, azul profundo #0056A4 e azul gelo #E0F2FF em todas as rotas. XP usa amarelo; conquistas usam laranja e medalha; evolução usa ciano e turquesa; certificados e DISC C usam violeta. Barras, estados de missão, indicadores DISC, marcos e histórico passaram a ter tratamento visual consistente com dados existentes. Paleta oficial registrada em .docs/design-system.md.
+
+### Impacto
+Dashboard, missões, perfil, DISC, resultado, perfil público, projetos, certificados, conquistas e evolução compartilham a mesma identidade de progresso profissional, sem alteração de regras de negócio ou fluxos.
+
+## 2026-10-02 — Símbolos da jornada
+
+### Funcionalidade
+Comunicação visual gamificada com símbolos vetoriais
+
+### Arquivos alterados
+frontend/assets/images/symbols.svg, frontend/assets/css/symbols.css, frontend/assets/js/main.js e as páginas em frontend/pages/*.html
+
+### Resumo
+Criados símbolos para projeto, certificado, missão, conquista, XP, nível, Currículo Vivo, DISC, perfil e evolução. Ícones foram aplicados em marcadores antes preenchidos apenas por letras ou números, nas conquistas desbloqueadas, nas recompensas, no histórico e nas páginas independentes. As conquistas do catálogo usam símbolo associado ao seu tipo real, com medalha de reconhecimento. Sem indicação de raridade, pois o catálogo atual não informa esse atributo.
+
+### Impacto
+As entidades e os marcos passam a ser reconhecíveis visualmente sem alterar layout principal, cores, tipografia, responsividade, fluxos ou regras de negócio.

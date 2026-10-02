@@ -1,4 +1,6 @@
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+const symbol = (name, className = "") => `<svg class="sd-icon ${className}" aria-hidden="true" focusable="false"><use href="/assets/images/symbols.svg#${name}"></use></svg>`;
+const achievementSymbols = { primeiro_passo: "disc", construtor: "project", desenvolvendo_habilidades: "certificate", explorador: "mission", curriculo_vivo: "resume" };
 
 const appShell = document.querySelector(".app-shell");
 if (appShell) {
@@ -103,7 +105,7 @@ const renderDisc = (disc) => {
   const element = document.querySelector("#disc-content");
   const profileElement = document.querySelector("#profile-disc");
   if (!disc) {
-    element.innerHTML = '<div class="disc-empty"><span class="disc-empty-icon">D</span><div><h3>DISC Inicial pendente</h3><p>Seu resultado aparecera aqui quando estiver disponivel.</p></div></div>';
+    element.innerHTML = `<div class="disc-empty"><span class="disc-empty-icon">${symbol("disc")}</span><div><h3>DISC Inicial pendente</h3><p>Seu resultado aparecera aqui quando estiver disponivel.</p></div></div>`;
     profileElement.innerHTML = '<p class="muted">Resultado DISC Inicial ainda nao realizado.</p>';
     return;
   }
@@ -122,11 +124,11 @@ const renderMissions = (missions) => {
   const active = missions.find((mission) => mission.status !== "Concluida") || missions[missions.length - 1];
   const activeElement = document.querySelector("#active-mission");
   if (!active) activeElement.innerHTML = '<p class="mission-empty">Suas proximas conquistas aparecerao aqui.</p>';
-  else activeElement.innerHTML = `<span class="mission-status">${escapeHtml(active.status === "Pendente" ? "Disponivel agora" : active.status)}</span><h3>${escapeHtml(active.nome)}</h3><p>${escapeHtml(active.descricao)}</p><div class="mission-reward"><span>Recompensa</span><strong>${escapeHtml(active.xp_recompensa)} XP</strong></div>`;
+  else activeElement.innerHTML = `<span class="mission-status">${symbol("mission", "sd-record-icon")}${escapeHtml(active.status === "Pendente" ? "Disponivel agora" : active.status)}</span><h3>${escapeHtml(active.nome)}</h3><p>${escapeHtml(active.descricao)}</p><div class="mission-reward"><span>Recompensa</span><strong>${symbol("xp")}${escapeHtml(active.xp_recompensa)} XP</strong></div>`;
 
   const next = missions.filter((mission) => mission !== active && mission.status !== "Concluida").slice(0, 3);
-  document.querySelector("#next-missions").innerHTML = next.length ? next.map((mission, index) => `<article class="mission-small card"><span class="mission-number">0${index + 2}</span><div><h3>${escapeHtml(mission.nome)}</h3><p>${escapeHtml(mission.descricao)}</p></div><strong>+${escapeHtml(mission.xp_recompensa)} XP</strong></article>`).join("") : '<p class="muted">Voce esta em dia. Continue registrando suas evidencias no Curriculo Vivo.</p>';
-  document.querySelector("#mission-list").innerHTML = missions.length ? missions.map((mission) => `<article class="workspace-record-card mission-record ${mission.status === "Concluida" ? "is-complete" : ""}"><div class="record-main"><span class="mission-status">${escapeHtml(mission.status)}</span><h3>${escapeHtml(mission.nome)}</h3><p>${escapeHtml(mission.descricao)}</p>${mission.data_conclusao ? `<small>Concluida em ${escapeHtml(formatDate(mission.data_conclusao))}</small>` : ""}</div><strong class="record-reward">${escapeHtml(mission.xp_recompensa)} XP</strong></article>`).join("") : '<p class="empty-state">Nenhuma missao disponivel no momento.</p>';
+  document.querySelector("#next-missions").innerHTML = next.length ? next.map((mission, index) => `<article class="mission-small card"><span class="mission-number" aria-label="Missão ${index + 2}">${symbol("mission")}</span><div><h3>${escapeHtml(mission.nome)}</h3><p>${escapeHtml(mission.descricao)}</p></div><strong>${symbol("xp", "sd-record-icon")}+${escapeHtml(mission.xp_recompensa)} XP</strong></article>`).join("") : '<p class="muted">Voce esta em dia. Continue registrando suas evidencias no Curriculo Vivo.</p>';
+  document.querySelector("#mission-list").innerHTML = missions.length ? missions.map((mission) => `<article class="workspace-record-card mission-record ${mission.status === "Concluida" ? "is-complete" : ""}"><div class="record-main"><span class="mission-status">${symbol(mission.status === "Concluida" ? "achievement" : "mission", "sd-record-icon")}${escapeHtml(mission.status)}</span><h3>${escapeHtml(mission.nome)}</h3><p>${escapeHtml(mission.descricao)}</p>${mission.data_conclusao ? `<small>Concluida em ${escapeHtml(formatDate(mission.data_conclusao))}</small>` : ""}</div><strong class="record-reward">${symbol("xp")}${escapeHtml(mission.xp_recompensa)} XP</strong></article>`).join("") : '<p class="empty-state">Nenhuma missao disponivel no momento.</p>';
 };
 
 const renderCollections = (projects, certificates) => {
@@ -138,21 +140,21 @@ const renderCollections = (projects, certificates) => {
   document.querySelector("#certificate-list").innerHTML = certificates.length ? certificates.map(renderCertificate).join("") : '<div class="empty-state"><p>Seus certificados aparecerao aqui.</p><button class="button button-soft" type="button" data-open-dialog="certificate-dialog">Adicionar primeiro certificado</button></div>';
 };
 
-const renderProject = (project) => `<article class="workspace-record-card"><div class="record-main"><p class="eyebrow">PROJETO</p><h3>${escapeHtml(project.titulo)}</h3><p>${escapeHtml(project.descricao)}</p><p class="record-meta"><strong>Tecnologias</strong> ${escapeHtml(project.tecnologias)}</p>${project.link ? `<a class="record-link" href="${escapeHtml(project.link)}" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>` : ""}<small>Adicionado em ${escapeHtml(formatDate(project.created_at))}</small></div><div class="record-actions"><button class="button button-ghost" type="button" data-edit="project" data-id="${project.id}">Editar</button><button class="button button-danger-ghost" type="button" data-delete="project" data-id="${project.id}">Excluir</button></div></article>`;
+const renderProject = (project) => `<article class="workspace-record-card"><div class="record-main"><p class="eyebrow">${symbol("project", "sd-record-icon")}PROJETO</p><h3>${escapeHtml(project.titulo)}</h3><p>${escapeHtml(project.descricao)}</p><p class="record-meta"><strong>Tecnologias</strong> ${escapeHtml(project.tecnologias)}</p>${project.link ? `<a class="record-link" href="${escapeHtml(project.link)}" target="_blank" rel="noopener">Abrir projeto <span aria-hidden="true">↗</span></a>` : ""}<small>Adicionado em ${escapeHtml(formatDate(project.created_at))}</small></div><div class="record-actions"><button class="button button-ghost" type="button" data-edit="project" data-id="${project.id}">Editar</button><button class="button button-danger-ghost" type="button" data-delete="project" data-id="${project.id}">Excluir</button></div></article>`;
 
-const renderCertificate = (certificate) => `<article class="workspace-record-card"><div class="record-main"><p class="eyebrow">CERTIFICADO</p><h3>${escapeHtml(certificate.nome)}</h3><p>${escapeHtml(certificate.instituicao)}</p><p class="record-meta"><strong>${escapeHtml(certificate.carga_horaria)}h</strong> · Concluido em ${escapeHtml(formatDate(certificate.data_conclusao))}</p>${certificate.arquivo_path ? `<a class="record-link" href="/certificados/${certificate.id}/arquivo" target="_blank" rel="noopener">Abrir arquivo <span aria-hidden="true">↗</span></a>` : ""}<small>Adicionado em ${escapeHtml(formatDate(certificate.created_at))}</small></div><div class="record-actions"><button class="button button-ghost" type="button" data-edit="certificate" data-id="${certificate.id}">Editar</button><button class="button button-danger-ghost" type="button" data-delete="certificate" data-id="${certificate.id}">Excluir</button></div></article>`;
+const renderCertificate = (certificate) => `<article class="workspace-record-card"><div class="record-main"><p class="eyebrow">${symbol("certificate", "sd-record-icon")}CERTIFICADO</p><h3>${escapeHtml(certificate.nome)}</h3><p>${escapeHtml(certificate.instituicao)}</p><p class="record-meta"><strong>${escapeHtml(certificate.carga_horaria)}h</strong> · Concluido em ${escapeHtml(formatDate(certificate.data_conclusao))}</p>${certificate.arquivo_path ? `<a class="record-link" href="/certificados/${certificate.id}/arquivo" target="_blank" rel="noopener">Abrir arquivo <span aria-hidden="true">↗</span></a>` : ""}<small>Adicionado em ${escapeHtml(formatDate(certificate.created_at))}</small></div><div class="record-actions"><button class="button button-ghost" type="button" data-edit="certificate" data-id="${certificate.id}">Editar</button><button class="button button-danger-ghost" type="button" data-delete="certificate" data-id="${certificate.id}">Excluir</button></div></article>`;
 
 const renderAchievements = (achievements) => {
   const unlocked = achievements?.unlocked || [];
   const count = `${unlocked.length} de ${achievements?.total_count || 0} desbloqueadas`;
   document.querySelector("#achievement-count").textContent = count;
-  const content = unlocked.length ? unlocked.map((achievement) => `<article class="achievement-dashboard-card card"><span class="achievement-icon">OK</span><div><h3>${escapeHtml(achievement.nome)}</h3><p>${escapeHtml(achievement.descricao)}</p><small>${escapeHtml(formatDate(achievement.data_desbloqueio))}</small></div></article>`).join("") : '<p class="empty-state">Suas conquistas aparecem aqui conforme voce evolui.</p>';
+  const content = unlocked.length ? unlocked.map((achievement) => `<article class="achievement-dashboard-card card"><span class="achievement-icon">${symbol("achievement")}</span><div><h3>${symbol(achievementSymbols[achievement.achievement_key] || "achievement", "sd-record-icon")}${escapeHtml(achievement.nome)}</h3><p>${escapeHtml(achievement.descricao)}</p><small>${escapeHtml(formatDate(achievement.data_desbloqueio))}</small></div></article>`).join("") : '<p class="empty-state">Suas conquistas aparecem aqui conforme voce evolui.</p>';
   document.querySelector("#achievement-list").innerHTML = content;
-  document.querySelector("#dashboard-achievement-list").innerHTML = unlocked.length ? unlocked.slice(0, 3).map((achievement) => `<article class="achievement-dashboard-card card"><span class="achievement-icon">OK</span><div><h3>${escapeHtml(achievement.nome)}</h3><p>${escapeHtml(achievement.descricao)}</p></div></article>`).join("") : '<p class="muted">Suas conquistas aparecem automaticamente conforme voce evolui.</p>';
+  document.querySelector("#dashboard-achievement-list").innerHTML = unlocked.length ? unlocked.slice(0, 3).map((achievement) => `<article class="achievement-dashboard-card card"><span class="achievement-icon">${symbol("achievement")}</span><div><h3>${symbol(achievementSymbols[achievement.achievement_key] || "achievement", "sd-record-icon")}${escapeHtml(achievement.nome)}</h3><p>${escapeHtml(achievement.descricao)}</p></div></article>`).join("") : '<p class="muted">Suas conquistas aparecem automaticamente conforme voce evolui.</p>';
 };
 
 const renderEvolutionHistory = (history) => history?.length
-  ? history.map((event) => `<article class="activity-dashboard-card card"><span>${escapeHtml(event.titulo)}</span><strong>${escapeHtml(event.descricao)}</strong><small>${escapeHtml(formatDate(event.created_at))}</small></article>`).join("")
+  ? history.map((event) => `<article class="activity-dashboard-card card"><span>${symbol("evolution", "sd-record-icon")}${escapeHtml(event.titulo)}</span><strong>${escapeHtml(event.descricao)}</strong><small>${escapeHtml(formatDate(event.created_at))}</small></article>`).join("")
   : '<p class="muted">Nenhuma atividade registrada ainda.</p>';
 
 const renderEvolution = (evolution) => {
@@ -160,16 +162,16 @@ const renderEvolution = (evolution) => {
   const { level, indicators, history } = evolution;
   const nextText = level.next ? `${level.xp_to_next} XP para o Nivel ${level.next}` : "Nivel maximo alcancado";
   document.querySelector("#dashboard-xp").textContent = indicators.xp_current;
-  document.querySelector("#dashboard-level").textContent = `Nivel ${level.current}`;
+  document.querySelector("#dashboard-level").innerHTML = `${symbol("level")}Nivel ${escapeHtml(level.current)}`;
   document.querySelector("#dashboard-progress").style.width = `${level.progress_percent}%`;
-  document.querySelector("#dashboard-progress-caption").innerHTML = `<strong>${indicators.xp_current} XP</strong> acumulados - ${nextText}`;
+  document.querySelector("#dashboard-progress-caption").innerHTML = `<strong>${symbol("xp", "sd-record-icon")}${escapeHtml(indicators.xp_current)} XP</strong> acumulados - ${escapeHtml(nextText)}`;
   document.querySelector("#evolution-projects").textContent = indicators.projects_created;
   document.querySelector("#evolution-certificates").textContent = indicators.certificates_added;
   document.querySelector("#evolution-missions").textContent = indicators.missions_completed;
   document.querySelector("#evolution-achievements").textContent = indicators.achievements_unlocked;
   document.querySelector("#evolution-xp").textContent = indicators.xp_current;
   document.querySelector("#profile-xp").textContent = indicators.xp_current;
-  document.querySelector("#evolution-level-title").textContent = `Nivel ${level.current}`;
+  document.querySelector("#evolution-level-title").innerHTML = `${symbol("level", "sd-heading-icon")}Nivel ${escapeHtml(level.current)}`;
   document.querySelector("#evolution-level-copy").textContent = nextText;
   document.querySelector("#evolution-progress").style.width = `${level.progress_percent}%`;
   document.querySelector("#evolution-progress-caption").textContent = `${level.progress_percent}% de progresso`;

@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/journey.css">
+    <link rel="stylesheet" href="/assets/css/identity.css">
+    <link rel="stylesheet" href="/assets/css/symbols.css">
   </head>
   <body class="public-profile-page">
     <main class="public-profile">
@@ -19,7 +21,7 @@
             <span class="public-brand-mark" aria-hidden="true">S</span>
             <span>Sync Disc</span>
           </a>
-          <p class="public-eyebrow">Currículo Vivo</p>
+          <p class="public-eyebrow"><svg class="sd-icon sd-inline-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Currículo Vivo</p>
           <h1>{{ user.nome }}</h1>
           <div class="public-identity">
             {% if user.classe %}<span class="public-class">{{ user.classe }}</span>{% endif %}
@@ -34,9 +36,9 @@
           </p>
         </div>
         <div class="public-level" aria-label="Nível {{ evolution.level.current }} e {{ user.xp }} XP acumulados">
-          <span class="public-level-label">Nível atual</span>
+          <span class="public-level-label"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#level"></use></svg>Nível atual</span>
           <strong>{{ evolution.level.current }}</strong>
-          <span class="public-xp-value">{{ user.xp }} XP</span>
+          <span class="public-xp-value"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#xp"></use></svg>{{ user.xp }} XP</span>
           {% if evolution.level.next %}
             <div class="public-level-progress" role="img" aria-label="{{ evolution.level.progress_percent }}% do nível atual concluído">
               <span style="width: {{ evolution.level.progress_percent }}%"></span>
@@ -51,22 +53,22 @@
       <section class="public-section public-growth" aria-labelledby="growth-title">
         <div class="section-heading">
           <p class="public-eyebrow">Uma jornada em movimento</p>
-          <h2 id="growth-title">Evolução em números</h2>
+          <h2 id="growth-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#evolution"></use></svg>Evolução em números</h2>
         </div>
         <div class="growth-line" aria-label="Indicadores de evolução">
-          <article class="growth-stat growth-stat-xp"><strong>{{ indicators.xp_total }}</strong><span>XP acumulados</span></article>
-          <article class="growth-stat"><strong>{{ evolution.level.current }}</strong><span>Nível atual</span></article>
-          <article class="growth-stat"><strong>{{ indicators.projects_count }}</strong><span>Projetos</span></article>
-          <article class="growth-stat"><strong>{{ indicators.certificates_count }}</strong><span>Certificados</span></article>
-          <article class="growth-stat"><strong>{{ indicators.missions_completed }}</strong><span>Missões concluídas</span></article>
-          <article class="growth-stat growth-stat-achievement"><strong>{{ indicators.achievements_unlocked }}</strong><span>Conquistas</span></article>
+          <article class="growth-stat growth-stat-xp"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#xp"></use></svg><strong>{{ indicators.xp_total }}</strong><span>XP acumulados</span></article>
+          <article class="growth-stat"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#level"></use></svg><strong>{{ evolution.level.current }}</strong><span>Nível atual</span></article>
+          <article class="growth-stat"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#project"></use></svg><strong>{{ indicators.projects_count }}</strong><span>Projetos</span></article>
+          <article class="growth-stat"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#certificate"></use></svg><strong>{{ indicators.certificates_count }}</strong><span>Certificados</span></article>
+          <article class="growth-stat"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#mission"></use></svg><strong>{{ indicators.missions_completed }}</strong><span>Missões concluídas</span></article>
+          <article class="growth-stat growth-stat-achievement"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#achievement"></use></svg><strong>{{ indicators.achievements_unlocked }}</strong><span>Conquistas</span></article>
         </div>
       </section>
 
       <section class="public-section public-disc-section" aria-labelledby="disc-title">
         <div class="section-heading">
           <p class="public-eyebrow">Ponto de partida e prática</p>
-          <h2 id="disc-title">Um perfil que também evolui</h2>
+          <h2 id="disc-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#disc"></use></svg>Um perfil que também evolui</h2>
           <p>O DISC Inicial registra o resultado do quiz. O Observado reflete atividades realizadas na plataforma.</p>
         </div>
         <div class="disc-legend" aria-hidden="true"><span><i class="disc-dot disc-dot-initial"></i>Inicial</span><span><i class="disc-dot disc-dot-observed"></i>Observado</span></div>
@@ -94,7 +96,7 @@
       <section class="public-section public-timeline-section" aria-labelledby="timeline-title">
         <div class="section-heading">
           <p class="public-eyebrow">Marcos registrados</p>
-          <h2 id="timeline-title">Trajetória</h2>
+          <h2 id="timeline-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#evolution"></use></svg>Trajetória</h2>
         </div>
         {% if evolution.history %}
           <ol class="public-timeline">
@@ -114,13 +116,13 @@
       <section class="public-section" aria-labelledby="projects-title">
         <div class="section-heading">
           <p class="public-eyebrow">Evidências de trabalho</p>
-          <h2 id="projects-title">Projetos</h2>
+          <h2 id="projects-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#project"></use></svg>Projetos</h2>
         </div>
         {% if projects %}
           <div class="public-project-list">
             {% for project in projects %}
               <article class="public-project">
-                <div class="project-index">{{ '%02d'|format(loop.index) }}</div>
+                <div class="project-index"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#project"></use></svg></div>
                 <div class="project-content"><h3>{{ project.titulo }}</h3><p>{{ project.descricao }}</p>
                   {% if project.tecnologias %}<p class="project-tools"><span>Tecnologias</span> {{ project.tecnologias }}</p>{% endif %}
                   {% if project.link and (project.link.startswith('https://') or project.link.startswith('http://')) and project.link.split('/')[2] != request.host %}
@@ -139,13 +141,13 @@
       <section class="public-section" aria-labelledby="certificates-title">
         <div class="section-heading">
           <p class="public-eyebrow">Conhecimento em prática</p>
-          <h2 id="certificates-title">Certificados</h2>
+          <h2 id="certificates-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#certificate"></use></svg>Certificados</h2>
         </div>
         {% if certificates %}
           <div class="public-certificate-list">
             {% for certificate in certificates %}
               <article class="public-certificate">
-                <span class="certificate-stamp" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span>
+                <span class="certificate-stamp"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#certificate"></use></svg></span>
                 <div><h3>{{ certificate.nome }}</h3><p>{{ certificate.instituicao }}</p><span>{{ certificate.carga_horaria }} horas · Concluído em {{ certificate.data_conclusao }}</span></div>
               </article>
             {% endfor %}
@@ -156,12 +158,12 @@
       <section class="public-section public-achievements-section" aria-labelledby="achievements-title">
         <div class="section-heading">
           <p class="public-eyebrow">Reconhecimento da jornada</p>
-          <h2 id="achievements-title">Conquistas</h2>
+          <h2 id="achievements-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#achievement"></use></svg>Conquistas</h2>
         </div>
         {% if achievements.unlocked %}
           <div class="public-achievement-list">
             {% for achievement in achievements.unlocked %}
-              <article class="public-achievement"><span class="achievement-mark" aria-hidden="true">{{ '%02d'|format(loop.index) }}</span><div><h3>{{ achievement.nome }}</h3><p>{{ achievement.descricao }}</p><time datetime="{{ achievement.data_desbloqueio }}">{{ achievement.data_desbloqueio }}</time></div></article>
+              <article class="public-achievement"><span class="achievement-mark"><svg class="sd-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#achievement"></use></svg></span><div><h3><svg class="sd-icon sd-record-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#{{ {'primeiro_passo':'disc', 'construtor':'project', 'desenvolvendo_habilidades':'certificate', 'explorador':'mission', 'curriculo_vivo':'resume'}.get(achievement.achievement_key, 'achievement') }}"></use></svg>{{ achievement.nome }}</h3><p>{{ achievement.descricao }}</p><time datetime="{{ achievement.data_desbloqueio }}">{{ achievement.data_desbloqueio }}</time></div></article>
             {% endfor %}
           </div>
         {% else %}<p class="public-empty">As conquistas vão registrar os marcos alcançados nesta trajetória.</p>{% endif %}
@@ -169,7 +171,7 @@
 
       <section class="public-evolution-summary" aria-labelledby="summary-title">
         <p class="public-eyebrow">O que já foi construído</p>
-        <h2 id="summary-title">Uma trajetória feita de evidências.</h2>
+        <h2 id="summary-title"><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Uma trajetória feita de evidências.</h2>
         <p>Desde {{ user.created_at }}, esta jornada reúne {{ indicators.xp_total }} XP, {{ indicators.projects_count }} {{ 'projeto' if indicators.projects_count == 1 else 'projetos' }}, {{ indicators.certificates_count }} {{ 'certificado' if indicators.certificates_count == 1 else 'certificados' }} e {{ indicators.missions_completed }} {{ 'missão concluída' if indicators.missions_completed == 1 else 'missões concluídas' }}. O nível {{ evolution.level.current }} representa a progressão dentro da plataforma; projetos, certificados e o DISC Observado ajudam a mostrar o percurso na prática.</p>
       </section>
       <footer class="public-footer"><span class="public-brand-mark" aria-hidden="true">S</span><span>Sync Disc · Currículo Vivo</span></footer>

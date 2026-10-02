@@ -9,12 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/journey.css">
+    <link rel="stylesheet" href="/assets/css/identity.css">
+    <link rel="stylesheet" href="/assets/css/symbols.css">
   </head>
   <body>
     <main class="app-shell">
       <article class="panel">
-        <p class="page-eyebrow">Projeto · Currículo Vivo</p>
-        <h1>{{ project.titulo }}</h1>
+        <p class="page-eyebrow"><svg class="sd-icon sd-inline-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#resume"></use></svg>Projeto · Currículo Vivo</p>
+        <h1><svg class="sd-icon sd-heading-icon" aria-hidden="true"><use href="/assets/images/symbols.svg#project"></use></svg>{{ project.titulo }}</h1>
         <p>{{ project.descricao }}</p>
         <p><strong>Tecnologias:</strong> {{ project.tecnologias }}</p>
         {% if project.link %}
