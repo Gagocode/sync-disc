@@ -1,7 +1,13 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, jsonify, redirect, render_template, request, send_file, url_for
 
 from controllers.auth_controller import login_required
 from services.profile_service import get_profile
+from services.professional_profile_service import (
+    ProfessionalProfileError,
+    get_professional_profile,
+    get_resume_path,
+    update_professional_profile,
+)
 
 
 profile_bp = Blueprint("profile", __name__, url_prefix="/perfil")
@@ -11,6 +17,10 @@ profile_bp = Blueprint("profile", __name__, url_prefix="/perfil")
 @login_required
 def profile_page(user):
     profile = get_profile(user.id)
+    return _render_profile(profile, get_professional_profile(user.id))
+
+
+def _render_profile(profile, professional_profile, error=None):
     return render_template(
         "perfil.html",
         user=profile["user"],
@@ -20,7 +30,46 @@ def profile_page(user):
         achievements=profile["achievements"],
         observed_disc_result=profile["observed_disc_result"],
         evolution=profile["evolution"],
+        professional_profile=professional_profile,
+        professional_error=error,
     )
+
+
+@profile_bp.post("/profissional")
+@login_required
+def update_professional_profile_action(user):
+    data = request.get_json(silent=True) if request.is_json else request.form
+    data = data or {}
+    try:
+        professional_profile = update_professional_profile(
+            user.id, data, request.files.get("curriculo")
+        )
+    except ProfessionalProfileError as error:
+        if _wants_json():
+            return jsonify({"error": str(error)}), 400
+        draft = get_professional_profile(user.id)
+        draft.update({key: data.get(key, "") for key in data.keys()})
+        return _render_profile(get_profile(user.id), draft, str(error)), 400
+    if _wants_json():
+        return jsonify({"professional_profile": professional_profile})
+    return redirect(url_for("profile.profile_page", saved=1))
+
+
+def _wants_json():
+    return request.is_json or (
+        request.accept_mimetypes.accept_json
+        and not request.accept_mimetypes.accept_html
+    )
+
+
+@profile_bp.get("/curriculo")
+@login_required
+def own_resume(user):
+    try:
+        path = get_resume_path(user.id)
+    except ProfessionalProfileError as error:
+        return str(error), 404
+    return send_file(path, mimetype="application/pdf", as_attachment=True, download_name="curriculo.pdf")
 
 
 @profile_bp.get("/json")
