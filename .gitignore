@@ -85,3 +85,7 @@ desktop.ini
 
 # Local-only notes
 *.local
+
+#local
+backend/upload  
+.docs/analise_escopo_e_futures.md
